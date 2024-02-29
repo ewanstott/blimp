@@ -1,0 +1,210 @@
+{
+  "practitioners": [
+    {
+      "name": "Taylor Gibney",
+      "specialization": "Physiotherapy",
+      "location": "Bristol, UK",
+      "about": "I am a certified physiotherapist with over 6 years of experience. I love hiking and the outdoors in my spare time",
+      "experience": "6+ years",
+      "qualifications": [
+        "Master's Degree in Physiotherapy",
+        "Certified Manual Therapist"
+      ],
+      "starReviews": 5,
+      "image": "https://source.unsplash.com/2ZJwR97-FLY"
+    },
+    {
+      "name": "John Smith",
+      "specialization": "Physiotherapy",
+      "location": "London, UK",
+      "about": "I am a certified physiotherapist with over 10 years of experience.",
+      "experience": "10+ years",
+      "qualifications": [
+        "Bachelor's Degree in Physiotherapy",
+        "Certified Manual Therapist"
+      ],
+      "starReviews": 4.8,
+      "image": "https://source.unsplash.com/2ZJwR97-FLY"
+    },
+    {
+      "name": "Emily Johnson",
+      "specialization": "Massage Therapy",
+      "location": "Manchester, UK",
+      "about": "I specialize in Swedish and deep tissue massage techniques.",
+      "experience": "8+ years",
+      "qualifications": ["Diploma in Massage Therapy"],
+      "starReviews": 4.9,
+      "image": "https://source.unsplash.com/Y3Aqmbmt-hQ"
+    },
+    {
+      "name": "David Brown",
+      "specialization": "Chiropractic",
+      "location": "Birmingham, UK",
+      "about": "I provide chiropractic care for back pain, neck pain, and sports injuries.",
+      "experience": "12+ years",
+      "qualifications": ["Doctor of Chiropractic (DC) degree"],
+      "starReviews": 4.7,
+      "image": "https://source.unsplash.com/SnLpGZ3z5VU"
+    },
+    {
+      "name": "Sarah Jones",
+      "specialization": "Acupuncture",
+      "location": "Edinburgh, UK",
+      "about": "I offer acupuncture treatments for various health conditions.",
+      "experience": "6+ years",
+      "qualifications": ["Masters in Acupuncture"],
+      "starReviews": 4.6,
+      "image": "https://source.unsplash.com/W4LCz-d2Ilc"
+    },
+    {
+      "name": "Michael Patel",
+      "specialization": "Nutritionist",
+      "location": "Leeds, UK",
+      "about": "I provide personalized nutrition plans to promote health and wellness.",
+      "experience": "8+ years",
+      "qualifications": ["Registered Dietitian (RD)"],
+      "starReviews": 4.9,
+      "image": "https://source.unsplash.com/3IlmoI4pRuI"
+    },
+    {
+      "name": "Emma Wilson",
+      "specialization": "Yoga Instructor",
+      "location": "Bristol, UK",
+      "about": "I teach yoga classes focused on improving flexibility and mindfulness.",
+      "experience": "7+ years",
+      "qualifications": ["Certified Yoga Instructor (CYI)"],
+      "starReviews": 4.8,
+      "image": "https://source.unsplash.com/iI9-KdVZ1tw"
+    },
+    {
+      "name": "Daniel Clark",
+      "specialization": "Mental Health Counselor",
+      "location": "Glasgow, UK",
+      "about": "I offer counseling services to individuals dealing with anxiety, depression, and stress.",
+      "experience": "10+ years",
+      "qualifications": ["Licensed Professional Counselor (LPC)"],
+      "starReviews": 4.7,
+      "image": "https://source.unsplash.com/LBeTvl0zfd4"
+    },
+    {
+      "name": "Sophie White",
+      "specialization": "Personal Trainer",
+      "location": "Liverpool, UK",
+      "about": "I help clients achieve their fitness goals through personalized training programs.",
+      "experience": "5+ years",
+      "qualifications": ["Certified Personal Trainer (CPT)"],
+      "starReviews": 4.8,
+      "image": "https://source.unsplash.com/KFusTWUtFmI"
+    },
+    {
+      "name": "Oliver Turner",
+      "specialization": "Dietitian",
+      "location": "Cardiff, UK",
+      "about": "I provide dietary advice and support for individuals with specific health conditions.",
+      "experience": "8+ years",
+      "qualifications": ["Registered Dietitian (RD)"],
+      "starReviews": 4.6,
+      "image": "https://source.unsplash.com/L1YCAwdhhD4"
+    },
+    {
+      "name": "Lucy Evans",
+      "specialization": "Occupational Therapist",
+      "location": "Newcastle, UK",
+      "about": "I assist individuals in regaining independence in daily activities after injury or illness.",
+      "experience": "7+ years",
+      "qualifications": ["Master's Degree in Occupational Therapy"],
+      "starReviews": 4.7,
+      "image": "https://source.unsplash.com/6xKLKqHrqW8"
+    },
+    {
+      "name": "Adam Roberts",
+      "specialization": "Speech Therapist",
+      "location": "Sheffield, UK",
+      "about": "I provide speech therapy services for children and adults with communication disorders.",
+      "experience": "9+ years",
+      "qualifications": ["Certified Speech-Language Pathologist (SLP)"],
+      "starReviews": 4.9,
+      "image": "https://source.unsplash.com/WLUHO9A_xik"
+    },
+    {
+      "name": "Isabella Lee",
+      "specialization": "Podiatrist",
+      "location": "Nottingham, UK",
+      "about": "I diagnose and treat foot and ankle problems, including injuries and deformities.",
+      "experience": "6+ years",
+      "qualifications": ["Doctor of Podiatric Medicine (DPM)"],
+      "starReviews": 4.8,
+      "image": "https://source.unsplash.com/LgN0-rgDcA0"
+    },
+    {
+      "name": "Nathan Hughes",
+      "specialization": "Osteopath",
+      "location": "Leicester, UK",
+      "about": "I provide osteopathic treatment for musculoskeletal pain and dysfunction.",
+      "experience": "8+ years",
+      "qualifications": ["Bachelor's Degree in Osteopathy"],
+      "starReviews": 4.7,
+      "image": "https://source.unsplash.com/7H77qn2BZfg"
+    },
+    {
+      "name": "Amelia Carter",
+      "specialization": "Psychotherapist",
+      "location": "Southampton, UK",
+      "about": "I offer psychotherapy services for individuals dealing with emotional and mental health issues.",
+      "experience": "10+ years",
+      "qualifications": ["Licensed Professional Counselor (LPC)"],
+      "starReviews": 4.6,
+      "image": "https://source.unsplash.com/-jdKb4zaexw"
+    },
+    {
+      "name": "Harry Hall",
+      "specialization": "Dentist",
+      "location": "Brighton, UK",
+      "about": "I provide dental services including check-ups, cleanings, and restorative treatments.",
+      "experience": "7+ years",
+      "qualifications": ["Doctor of Dental Surgery (DDS)"],
+      "starReviews": 4.9,
+      "image": "https://source.unsplash.com/OMXfWmZGDQI"
+    },
+    {
+      "name": "Mia Foster",
+      "specialization": "Optometrist",
+      "location": "Oxford, UK",
+      "about": "I conduct eye exams and provide vision care services, including prescribing glasses and contact lenses.",
+      "experience": "8+ years",
+      "qualifications": ["Doctor of Optometry (OD)"],
+      "starReviews": 4.8,
+      "image": "https://source.unsplash.com/5VZUxmU4svQ"
+    },
+    {
+      "name": "Ethan Moore",
+      "specialization": "Speech Therapist",
+      "location": "Cambridge, UK",
+      "about": "I specialize in treating speech and language disorders in children.",
+      "experience": "6+ years",
+      "qualifications": ["Certified Speech-Language Pathologist (SLP)"],
+      "starReviews": 4.7,
+      "image": "https://source.unsplash.com/d2MSDujJl2g"
+    },
+    {
+      "name": "Charlotte King",
+      "specialization": "Midwife",
+      "location": "Coventry, UK",
+      "about": "I provide prenatal care, childbirth support, and postnatal care for expectant mothers.",
+      "experience": "9+ years",
+      "qualifications": ["Certified Nurse-Midwife (CNM)"],
+      "starReviews": 4.9,
+      "image": "https://source.unsplash.com/9az6ZZ4rpxs"
+    },
+    {
+      "name": "Leo Phillips",
+      "specialization": "Dietitian",
+      "location": "York, UK",
+      "about": "I offer nutrition counseling and meal planning services for individuals with dietary concerns.",
+      "experience": "7+ years",
+      "qualifications": ["Registered Dietitian (RD)"],
+      "starReviews": 4.8,
+      "image": "https://source.unsplash.com/XVJgcLxvC-E"
+    }
+  ]
+}

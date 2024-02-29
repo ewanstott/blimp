@@ -1,53 +1,22 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-  selectCount,
-} from './redux/counterSlice';
-import './css/App.css';
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
+import "./css/App.css";
+import { setPractitionerData } from "./redux/practitionerSlice";
 
-export default function App() {
-  const count = useSelector(selectCount);
+const App = () => {
   const dispatch = useDispatch();
-  const [incrementAmount, setIncrementAmount] = useState('2');
 
-  const incrementValue = Number(incrementAmount) || 0;
+  const getInitialPractitioners = async () => {
+    const { data } = await axios.get(`src/localStorage.json`);
+    dispatch(setPractitionerData(data.practitioners));
+  };
 
-  return (
-<>
-  <div className="row">
-<button
-  className='button'
-  aria-label="Decrement value"
-  onClick={() => dispatch(decrement())}
->
-  -
-</button>
-<span className="value">{count}</span>
-<button
-  className="button"
-  aria-label="Increment value"
-  onClick={() => dispatch(increment())}
->
-  +
-</button>
-  </div>
-  <div className="row">
-<input
-  className="textbox"
-  aria-label="Set increment amount"
-  value={incrementAmount}
-  onChange={(e) => setIncrementAmount(e.target.value)}
-/>
-<button
-  className="button"
-  onClick={() => dispatch(incrementByAmount(incrementValue))}
->
-  Add Amount
-</button>
-  </div>
-</>
-  );
-}
+  useEffect(() => {
+    getInitialPractitioners();
+  }, []);
+
+  return <> </>;
+};
+
+export default App;
