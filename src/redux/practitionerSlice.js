@@ -4,6 +4,7 @@ const initialState = {};
 export const practitionerSlice = createSlice({
   name: "practitioner",
   initialState,
+  //reducer mutates the store -> adding, deleting, editing
   reducers: {
     setPractitionerData: (state, { payload }) => {
       state.practitionerData = payload; //this data will now live in the store
@@ -13,6 +14,8 @@ export const practitionerSlice = createSlice({
 
 export const { setPractitionerData } = practitionerSlice.actions;
 
-export const selectCount = (state) => state.practitioner.value;
+//selector gets data from store
+export const selectPractitionerData = (state) =>
+  state.practitioner.practitionerData;
 
 export default practitionerSlice.reducer;
