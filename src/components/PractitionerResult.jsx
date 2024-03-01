@@ -1,4 +1,6 @@
-const Practitioner = ({ practitioner }) => {
+import { Link } from "react-router-dom";
+
+const PractitionerResult = ({ practitioner }) => {
   return (
     <div className="searchResult">
       <h1>{practitioner.name}</h1>
@@ -6,12 +8,12 @@ const Practitioner = ({ practitioner }) => {
       <h2>{practitioner.specialization}</h2>
       <p>{practitioner.location}</p>
       <p>{practitioner.about}</p>
-      <p>{practitioner.style}</p>
       <p>Experience: {practitioner.experience}</p>
-      <p>Qualifications: {practitioner.qualifications}</p>
       <p>Stars: {practitioner.starReviews}</p>
+      <Link to={"/practitioner/" + practitioner.id}>Details </Link>
+      {/* <Link to={"/practitioner/" + practitioner.id}>Details </Link> <<<if using an API */}
     </div>
   );
 };
 
-export default Practitioner;
+export default PractitionerResult;

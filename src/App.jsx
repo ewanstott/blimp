@@ -11,13 +11,17 @@ const App = () => {
   // const message = useSelector(selectMessage);
 
   const getInitialPractitioners = async () => {
-    const { data } = await axios.get(`src/localStorage.json`);
+    try {
+      const { data } = await axios.get(`/localStorage.json`);
 
-    data.practitioner.forEach((element, index) => {
-      element.id = index;
-    });
+      data.practitioner.forEach((element, index) => {
+        element.id = index + 1000;
+      });
 
-    dispatch(setPractitionerData(data.practitioner));
+      dispatch(setPractitionerData(data.practitioner));
+    } catch (error) {
+      console.log("Error fetching initial practitioners:", error);
+    }
   };
 
   useEffect(() => {

@@ -3,8 +3,12 @@ import {
   selectPractitionerData,
   selectSearchTerm,
 } from "../redux/practitionerSlice";
-import Practitioner from "./Practitioner";
+import PractitionerResult from "./PractitionerResult";
 import Search from "./Search";
+import PractitionerDetails from "./PractitionerDetails";
+import { Routes, Route } from "react-router";
+import SearchResults from "./SearchResults";
+// import { v4 as uuidv4 } from "uuid";
 
 const Main = () => {
   //subscribe to data
@@ -26,17 +30,13 @@ const Main = () => {
       );
     });
   }
-
   return (
     <>
       <Search />
-      <div className="searchResults">
-        {filtered.map((practitioner) => {
-          return (
-            <Practitioner key={practitioner.name} practitioner={practitioner} />
-          );
-        })}
-      </div>
+      <Routes>
+        <Route path="/" element={<SearchResults filtered={filtered} />} />
+        <Route path="/practitioner/:id" element={<PractitionerDetails />} />
+      </Routes>
     </>
   );
 };
