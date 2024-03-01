@@ -4,9 +4,11 @@ import axios from "axios";
 import "./css/App.css";
 import { setPractitionerData } from "./redux/practitionerSlice";
 import Interface from "./components/Interface";
+// import Signup from "./components/account/Signup";
 
 const App = () => {
   const dispatch = useDispatch();
+  // const message = useSelector(selectMessage);
 
   const getInitialPractitioners = async () => {
     const { data } = await axios.get(`src/localStorage.json`);
@@ -24,6 +26,8 @@ const App = () => {
 
   return (
     <>
+      {/* <Signup /> */}
+      {/* <ToastContainer /> */}
       <Interface />
     </>
   );

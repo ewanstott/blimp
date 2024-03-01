@@ -10,8 +10,9 @@
         "Master's Degree in Physiotherapy",
         "Certified Manual Therapist"
       ],
+      "Style": "Just as happy chatting as giving you some 'you time' during treatment",
       "starReviews": 5,
-      "image": "https://source.unsplash.com/2ZJwR97-FLY"
+      "image": "src/images/taylor_gibney.jpeg"
     },
     {
       "name": "John Smith",
@@ -24,7 +25,7 @@
         "Certified Manual Therapist"
       ],
       "starReviews": 4.8,
-      "image": "https://source.unsplash.com/2ZJwR97-FLY"
+      "image": "https://randomuser.me/api/portraits/men/1.jpg"
     },
     {
       "name": "Emily Johnson",
@@ -34,7 +35,7 @@
       "experience": "8+ years",
       "qualifications": ["Diploma in Massage Therapy"],
       "starReviews": 4.9,
-      "image": "https://source.unsplash.com/Y3Aqmbmt-hQ"
+      "image": "https://randomuser.me/api/portraits/women/2.jpg"
     },
     {
       "name": "David Brown",
@@ -44,7 +45,7 @@
       "experience": "12+ years",
       "qualifications": ["Doctor of Chiropractic (DC) degree"],
       "starReviews": 4.7,
-      "image": "https://source.unsplash.com/SnLpGZ3z5VU"
+      "image": "https://randomuser.me/api/portraits/men/3.jpg"
     },
     {
       "name": "Sarah Jones",
@@ -54,7 +55,7 @@
       "experience": "6+ years",
       "qualifications": ["Masters in Acupuncture"],
       "starReviews": 4.6,
-      "image": "https://source.unsplash.com/W4LCz-d2Ilc"
+      "image": "https://randomuser.me/api/portraits/women/4.jpg"
     },
     {
       "name": "Michael Patel",
@@ -64,147 +65,157 @@
       "experience": "8+ years",
       "qualifications": ["Registered Dietitian (RD)"],
       "starReviews": 4.9,
-      "image": "https://source.unsplash.com/3IlmoI4pRuI"
+      "image": "https://randomuser.me/api/portraits/men/5.jpg"
     },
     {
-      "name": "Emma Wilson",
-      "specialization": "Yoga Instructor",
-      "location": "Bristol, UK",
-      "about": "I teach yoga classes focused on improving flexibility and mindfulness.",
-      "experience": "7+ years",
-      "qualifications": ["Certified Yoga Instructor (CYI)"],
-      "starReviews": 4.8,
-      "image": "https://source.unsplash.com/iI9-KdVZ1tw"
-    },
-    {
-      "name": "Daniel Clark",
-      "specialization": "Mental Health Counselor",
-      "location": "Glasgow, UK",
-      "about": "I offer counseling services to individuals dealing with anxiety, depression, and stress.",
-      "experience": "10+ years",
-      "qualifications": ["Licensed Professional Counselor (LPC)"],
-      "starReviews": 4.7,
-      "image": "https://source.unsplash.com/LBeTvl0zfd4"
-    },
-    {
-      "name": "Sophie White",
-      "specialization": "Personal Trainer",
+      "name": "Jessica Wilson",
+      "specialization": "Dentistry",
       "location": "Liverpool, UK",
-      "about": "I help clients achieve their fitness goals through personalized training programs.",
-      "experience": "5+ years",
-      "qualifications": ["Certified Personal Trainer (CPT)"],
+      "about": "I am a dentist passionate about providing quality dental care.",
+      "experience": "15+ years",
+      "qualifications": ["Doctor of Dental Surgery (DDS)"],
       "starReviews": 4.8,
-      "image": "https://source.unsplash.com/KFusTWUtFmI"
+      "image": "https://randomuser.me/api/portraits/women/6.jpg"
     },
     {
-      "name": "Oliver Turner",
-      "specialization": "Dietitian",
-      "location": "Cardiff, UK",
-      "about": "I provide dietary advice and support for individuals with specific health conditions.",
+      "name": "Andrew Taylor",
+      "specialization": "Optometry",
+      "location": "Glasgow, UK",
+      "about": "I offer comprehensive eye exams and vision care services.",
+      "experience": "10+ years",
+      "qualifications": ["Doctor of Optometry (OD)"],
+      "starReviews": 4.7,
+      "image": "https://randomuser.me/api/portraits/men/7.jpg"
+    },
+    {
+      "name": "Olivia Clark",
+      "specialization": "Psychology",
+      "location": "Bristol, UK",
+      "about": "I provide counseling services for individuals and couples.",
       "experience": "8+ years",
-      "qualifications": ["Registered Dietitian (RD)"],
-      "starReviews": 4.6,
-      "image": "https://source.unsplash.com/L1YCAwdhhD4"
+      "qualifications": ["Licensed Psychologist (PhD)"],
+      "starReviews": 4.9,
+      "image": "https://randomuser.me/api/portraits/women/8.jpg"
     },
     {
-      "name": "Lucy Evans",
-      "specialization": "Occupational Therapist",
+      "name": "Daniel White",
+      "specialization": "Podiatry",
+      "location": "Sheffield, UK",
+      "about": "I specialize in diagnosing and treating foot and ankle conditions.",
+      "experience": "10+ years",
+      "qualifications": ["Doctor of Podiatric Medicine (DPM)"],
+      "starReviews": 4.6,
+      "image": "https://randomuser.me/api/portraits/men/9.jpg"
+    },
+    {
+      "name": "Sophia Martinez",
+      "specialization": "Speech Therapy",
       "location": "Newcastle, UK",
-      "about": "I assist individuals in regaining independence in daily activities after injury or illness.",
+      "about": "I offer speech therapy services for children and adults.",
       "experience": "7+ years",
+      "qualifications": ["Master's Degree in Speech-Language Pathology (SLP)"],
+      "starReviews": 4.8,
+      "image": "https://randomuser.me/api/portraits/women/10.jpg"
+    },
+    {
+      "name": "James Lee",
+      "specialization": "Occupational Therapy",
+      "location": "Cardiff, UK",
+      "about": "I specialize in helping people regain independence in their daily lives.",
+      "experience": "9+ years",
       "qualifications": ["Master's Degree in Occupational Therapy"],
       "starReviews": 4.7,
-      "image": "https://source.unsplash.com/6xKLKqHrqW8"
+      "image": "https://randomuser.me/api/portraits/men/11.jpg"
     },
     {
-      "name": "Adam Roberts",
-      "specialization": "Speech Therapist",
-      "location": "Sheffield, UK",
-      "about": "I provide speech therapy services for children and adults with communication disorders.",
-      "experience": "9+ years",
-      "qualifications": ["Certified Speech-Language Pathologist (SLP)"],
-      "starReviews": 4.9,
-      "image": "https://source.unsplash.com/WLUHO9A_xik"
-    },
-    {
-      "name": "Isabella Lee",
-      "specialization": "Podiatrist",
-      "location": "Nottingham, UK",
-      "about": "I diagnose and treat foot and ankle problems, including injuries and deformities.",
-      "experience": "6+ years",
-      "qualifications": ["Doctor of Podiatric Medicine (DPM)"],
-      "starReviews": 4.8,
-      "image": "https://source.unsplash.com/LgN0-rgDcA0"
-    },
-    {
-      "name": "Nathan Hughes",
-      "specialization": "Osteopath",
-      "location": "Leicester, UK",
-      "about": "I provide osteopathic treatment for musculoskeletal pain and dysfunction.",
-      "experience": "8+ years",
-      "qualifications": ["Bachelor's Degree in Osteopathy"],
-      "starReviews": 4.7,
-      "image": "https://source.unsplash.com/7H77qn2BZfg"
-    },
-    {
-      "name": "Amelia Carter",
-      "specialization": "Psychotherapist",
-      "location": "Southampton, UK",
-      "about": "I offer psychotherapy services for individuals dealing with emotional and mental health issues.",
-      "experience": "10+ years",
-      "qualifications": ["Licensed Professional Counselor (LPC)"],
-      "starReviews": 4.6,
-      "image": "https://source.unsplash.com/-jdKb4zaexw"
-    },
-    {
-      "name": "Harry Hall",
-      "specialization": "Dentist",
-      "location": "Brighton, UK",
-      "about": "I provide dental services including check-ups, cleanings, and restorative treatments.",
-      "experience": "7+ years",
-      "qualifications": ["Doctor of Dental Surgery (DDS)"],
-      "starReviews": 4.9,
-      "image": "https://source.unsplash.com/OMXfWmZGDQI"
-    },
-    {
-      "name": "Mia Foster",
-      "specialization": "Optometrist",
-      "location": "Oxford, UK",
-      "about": "I conduct eye exams and provide vision care services, including prescribing glasses and contact lenses.",
-      "experience": "8+ years",
-      "qualifications": ["Doctor of Optometry (OD)"],
-      "starReviews": 4.8,
-      "image": "https://source.unsplash.com/5VZUxmU4svQ"
-    },
-    {
-      "name": "Ethan Moore",
-      "specialization": "Speech Therapist",
-      "location": "Cambridge, UK",
-      "about": "I specialize in treating speech and language disorders in children.",
-      "experience": "6+ years",
-      "qualifications": ["Certified Speech-Language Pathologist (SLP)"],
-      "starReviews": 4.7,
-      "image": "https://source.unsplash.com/d2MSDujJl2g"
-    },
-    {
-      "name": "Charlotte King",
-      "specialization": "Midwife",
+      "name": "Ava Adams",
+      "specialization": "Midwifery",
       "location": "Coventry, UK",
-      "about": "I provide prenatal care, childbirth support, and postnatal care for expectant mothers.",
-      "experience": "9+ years",
-      "qualifications": ["Certified Nurse-Midwife (CNM)"],
+      "about": "I provide compassionate care and support during pregnancy and childbirth.",
+      "experience": "12+ years",
+      "qualifications": ["Certified Nurse Midwife (CNM)"],
       "starReviews": 4.9,
-      "image": "https://source.unsplash.com/9az6ZZ4rpxs"
+      "image": "https://randomuser.me/api/portraits/women/12.jpg"
     },
     {
-      "name": "Leo Phillips",
-      "specialization": "Dietitian",
-      "location": "York, UK",
-      "about": "I offer nutrition counseling and meal planning services for individuals with dietary concerns.",
-      "experience": "7+ years",
-      "qualifications": ["Registered Dietitian (RD)"],
+      "name": "Ethan Turner",
+      "specialization": "Physical Therapy",
+      "location": "Nottingham, UK",
+      "about": "I specialize in rehabilitation therapy for musculoskeletal injuries.",
+      "experience": "11+ years",
+      "qualifications": ["Doctor of Physical Therapy (DPT)"],
+      "starReviews": 4.7,
+      "image": "https://randomuser.me/api/portraits/men/13.jpg"
+    },
+    {
+      "name": "Isabella Hill",
+      "specialization": "Dietetics",
+      "location": "Leicester, UK",
+      "about": "I provide evidence-based nutrition counseling for various health conditions.",
+      "experience": "8+ years",
+      "qualifications": ["Registered Dietitian Nutritionist (RDN)"],
       "starReviews": 4.8,
-      "image": "https://source.unsplash.com/XVJgcLxvC-E"
+      "image": "https://randomuser.me/api/portraits/women/14.jpg"
+    },
+    {
+      "name": "Liam Phillips",
+      "specialization": "Mental Health Counseling",
+      "location": "Brighton, UK",
+      "about": "I offer counseling services to help individuals cope with mental health challenges.",
+      "experience": "9+ years",
+      "qualifications": ["Licensed Mental Health Counselor (LMHC)"],
+      "starReviews": 4.6,
+      "image": "https://randomuser.me/api/portraits/men/15.jpg"
+    },
+    {
+      "name": "Charlotte Bailey",
+      "specialization": "Speech-Language Pathology",
+      "location": "Oxford, UK",
+      "about": "I specialize in evaluating and treating communication disorders.",
+      "experience": "7+ years",
+      "qualifications": ["Master's Degree in Speech-Language Pathology (SLP)"],
+      "starReviews": 4.9,
+      "image": "https://randomuser.me/api/portraits/women/16.jpg"
+    },
+    {
+      "name": "Jack Turner",
+      "specialization": "Optician",
+      "location": "Cambridge, UK",
+      "about": "I provide eye care services, including eye exams and prescription glasses.",
+      "experience": "8+ years",
+      "qualifications": ["Licensed Optometrist (OD)"],
+      "starReviews": 4.7,
+      "image": "https://randomuser.me/api/portraits/men/17.jpg"
+    },
+    {
+      "name": "Sophie Green",
+      "specialization": "Dental Hygiene",
+      "location": "York, UK",
+      "about": "I focus on preventive dental care, including cleanings and oral health education.",
+      "experience": "10+ years",
+      "qualifications": ["Registered Dental Hygienist (RDH)"],
+      "starReviews": 4.8,
+      "image": "https://randomuser.me/api/portraits/women/18.jpg"
+    },
+    {
+      "name": "Jacob Roberts",
+      "specialization": "Psychiatry",
+      "location": "Norwich, UK",
+      "about": "I specialize in diagnosing and treating mental health disorders.",
+      "experience": "11+ years",
+      "qualifications": ["Board Certified Psychiatrist (MD)"],
+      "starReviews": 4.6,
+      "image": "https://randomuser.me/api/portraits/men/19.jpg"
+    },
+    {
+      "name": "Amelia Evans",
+      "specialization": "Occupational Therapy",
+      "location": "Swansea, UK",
+      "about": "I help individuals with disabilities achieve independence in daily activities.",
+      "experience": "9+ years",
+      "qualifications": ["Master's Degree in Occupational Therapy"],
+      "starReviews": 4.9,
+      "image": "https://randomuser.me/api/portraits/women/20.jpg"
     }
   ]
 }
