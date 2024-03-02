@@ -1,9 +1,10 @@
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { selectPractitionerData } from "../redux/practitionerSlice";
+import PractitionerControls from "./PractitionerControls";
 
 const PractitionerDetails = () => {
-  const { id } = useParams();
+  const { id } = useParams(); //TBD
   console.log(id);
 
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
@@ -13,21 +14,29 @@ const PractitionerDetails = () => {
   });
   console.log(practitioner);
   return (
-    <div className="campaignDetails">
-      <h3>practinioner details</h3>
-      <h1>{practitioner.name}</h1>
-      <img src={practitioner.image} alt={practitioner.name} />
-      <h2>{practitioner.specialization}</h2>
-      <p>{practitioner.location}</p>
-      <p>{practitioner.about}</p>
-      <p>{practitioner.style}</p>
-      <p>Experience: {practitioner.experience}</p>
-      <p>Qualifications: {practitioner.qualifications}</p>
-      <p>Stars: {practitioner.starReviews}</p>
-      {/* <p>Hello Routes</p> */}
+    <div className="singlePractitioner">
+      <div className="practitionerDetails">
+        <h3>Practitioner Details</h3>
+        <h1>{practitioner.name}</h1>
+        <img src={practitioner.image} alt={practitioner.name} />
+        {/* Add Practitioner Intro Video  */}
+        <h2>{practitioner.specialization}</h2>
+        <p>{practitioner.location}</p>
+        <p>{practitioner.about}</p>
+        <p>{practitioner.style}</p>
+        <p>Experience: {practitioner.experience}</p>
+        <p>Qualifications: {practitioner.qualifications}</p>
+        <p>Stars: {practitioner.starReviews}</p>
+        <p>Reviews: ...</p>
+        {/* <p>Hello Routes</p> */}
+      </div>
+      <div className="practitionerControls">
+        <PractitionerControls practitioner={practitioner} />
+        {/* //Favourite
+    //Enquire Now
+    //Add controls component for Favourite etc */}
+      </div>
     </div>
-
-    //Add controls component for Favourite etc
   );
 };
 

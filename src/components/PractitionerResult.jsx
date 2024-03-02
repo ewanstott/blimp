@@ -10,8 +10,7 @@ const PractitionerResult = ({ practitioner }) => {
       <p>{practitioner.about}</p>
       <p>Experience: {practitioner.experience}</p>
       <p>Stars: {practitioner.starReviews}</p>
-      <Link to={"/practitioner/" + practitioner.id}>Details </Link>
-      {/* <Link to={"/practitioner/" + practitioner.id}>Details </Link> <<<if using an API */}
+      <Link to={"/practitioner/" + practitioner.id}>See More...</Link>
     </div>
   );
 };
