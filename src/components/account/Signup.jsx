@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setNewUser, setScreen } from "../../redux/accountSlice";
+import EmailPasswordForm from "./EmailPasswordForm";
 
 const Signup = () => {
   const [userInput, setUserInput] = useState({});
+  const dispatch = useDispatch();
 
   const onInput = (e) => {
     setUserInput({ ...userInput, [e.target.id]: e.target.value });
@@ -9,18 +13,19 @@ const Signup = () => {
 
   const onSubmit = (e) => {
     e.preventDefault(); //stops page re-rendering
+    dispatch(setNewUser(userInput)); //when submit pressed, dispatch -> setNewUser -> send store all user input (email, password)
+    dispatch(setScreen(1));
   };
 
   console.log(userInput);
 
   return (
-    <form onInput={onInput} onSubmit={onSubmit}>
-      <label htmlFor="email">Email</label>
-      <input type="email" name="email" id="email" />
-      <label htmlFor="password">Password</label>
-      <input type="password" name="password" id="password" />
-      <button>Sign Up</button>
-    </form>
+    <>
+      <h2>Sign Up</h2>
+      <form onInput={onInput} onSubmit={onSubmit}>
+        <EmailPasswordForm />
+      </form>
+    </>
   );
 };
 

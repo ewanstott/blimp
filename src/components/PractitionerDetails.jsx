@@ -4,9 +4,10 @@ import { selectPractitionerData } from "../redux/practitionerSlice";
 import PractitionerControls from "./PractitionerControls";
 
 const PractitionerDetails = () => {
-  const { id } = useParams(); //TBD
+  const { id } = useParams();
   console.log(id);
 
+  //selector
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
 
   const practitioner = practitionerData.find((item) => {

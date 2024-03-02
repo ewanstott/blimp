@@ -8,7 +8,7 @@ import Search from "./Search";
 import PractitionerDetails from "./PractitionerDetails";
 import { Routes, Route } from "react-router";
 import SearchResults from "./SearchResults";
-// import { v4 as uuidv4 } from "uuid";
+import Index from "./account/Index";
 
 const Main = () => {
   //subscribe to data
@@ -33,12 +33,21 @@ const Main = () => {
   return (
     <>
       <Search />
-      <Routes>
+      {/* //Full stack 1 - 2.43 -> move below into Interface?? */}
+      {/* <Routes>
         <Route path="/" element={<SearchResults filtered={filtered} />} />
+      </Routes> */}
+      <Routes>
         <Route path="/practitioner/:id" element={<PractitionerDetails />} />
+        <Route path="/" element={<SearchResults filtered={filtered} />} />
+        {/* <Route path="/account" element={<Index />} /> */}
+        {/* (2.43 full stack part1) */}
+        {/* <Route path="/practitioner/" element={<Main />} /> */}
       </Routes>
     </>
   );
 };
 
 export default Main;
+
+//251
