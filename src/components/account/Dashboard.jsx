@@ -15,6 +15,13 @@ const Dashboard = () => {
       >
         Logout
       </button>
+      {/* <button
+        onClick={() => {
+          dispatch(setScreen(3));
+        }}
+      >
+        Home
+      </button> */}
     </>
   );
 };

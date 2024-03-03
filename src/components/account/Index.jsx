@@ -7,6 +7,7 @@ import {
 import Signup from "./Signup";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
+import Interface from "../Interface";
 
 const Index = () => {
   const screen = useSelector(selectScreen);
@@ -25,6 +26,7 @@ const Index = () => {
       {screen === 0 && <Signup />}
       {screen === 1 && <Login />}
       {screen === 2 && <Dashboard />}
+      {/* {screen === 3 && <Interface />} */}
     </>
   );
 };

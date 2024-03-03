@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 // import { setMessage } from "../redux/practitionerSlice";
-import { Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 // import SearchResults from "./SearchResults";
 import PractitionerDetails from "./PractitionerDetails";
 import Index from "./account/Index";
@@ -54,11 +54,12 @@ const Interface = () => {
         {/* //WHEN NOT LOGGED IN, CONDITIONALLY SHOW  */}
         <Index />
         <Routes>
-          <Route path="/practitioner/:id" element={<PractitionerDetails />} />
           <Route path="/" element={<SearchResults filtered={filtered} />} />
-          {/* ADD ERROR PAGE HERE USING **/}
-          <Route path="*" element={<Error />} />
+          <Route path="/practitioner/:id" element={<PractitionerDetails />} />
           {/* <Route path="/account" element={<Index />} /> */}
+          {/* Naviagte used to create URL  for account, without rendering a 2nd Index component */}
+          <Route path="/account" element={<Navigate to="/account" />} />
+          <Route path="*" element={<Error />} />
         </Routes>
         {/* OPTION TO RE-WRITE USING THE DEMO HERE */}
       </main>
