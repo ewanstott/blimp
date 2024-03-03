@@ -10,10 +10,14 @@ const PractitionerDetails = () => {
   //selector
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
 
+  if (!practitionerData) {
+    return <p>Loading data...</p>;
+  }
+  console.log(practitionerData);
   const practitioner = practitionerData.find((item) => {
     return item.id === Number(id);
   });
-  console.log(practitioner);
+
   return (
     <div className="singlePractitioner">
       <div className="practitionerDetails">

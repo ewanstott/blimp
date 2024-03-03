@@ -1,9 +1,12 @@
 import PractitionerResult from "./PractitionerResult";
+import Search from "./Search";
 
 const SearchResults = ({ filtered }) => {
   return (
     <div className="searchResults">
+      <Search />
       {filtered.map((practitioner) => {
+        //ERROR - WHY?
         return (
           <PractitionerResult
             key={practitioner.id}
@@ -16,3 +19,5 @@ const SearchResults = ({ filtered }) => {
 };
 
 export default SearchResults;
+
+//Rename

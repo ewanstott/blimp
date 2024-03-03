@@ -43,8 +43,6 @@ const App = () => {
   return (
     <>
       {/* <button onClick={() => toast("Wow so easy!")}>Test</button> */}
-      {/* <Signup /> */}
-      <Index />
       <ToastContainer />
       <Interface />
     </>
