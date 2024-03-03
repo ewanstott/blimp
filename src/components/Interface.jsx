@@ -28,6 +28,7 @@ const Interface = () => {
           <Route path="/practitioner/:id" element={<PractitionerDetails />} />
           <Route path="/" element={<Main />} />
         </Routes> */}
+
         <Main />
       </main>
       <footer>
