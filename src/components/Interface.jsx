@@ -13,6 +13,8 @@ import {
   selectSearchTerm,
 } from "../redux/practitionerSlice";
 import Error from "./Error";
+import Dashboard from "./account/Dashboard";
+import { selectLoggedIn } from "../redux/accountSlice";
 
 const Interface = () => {
   const dispatch = useDispatch();
@@ -21,6 +23,7 @@ const Interface = () => {
   //subscribe to data
   const practitionerData = useSelector(selectPractitionerData);
   const searchTerm = useSelector(selectSearchTerm);
+  const loggedIn = useSelector(selectLoggedIn);
 
   if (!practitionerData) {
     return <p>Loading...</p>;
@@ -55,10 +58,17 @@ const Interface = () => {
         <Index />
         <Routes>
           <Route path="/" element={<SearchResults filtered={filtered} />} />
+          <Route
+            path="/search-results"
+            element={<SearchResults filtered={filtered} />}
+          />
           <Route path="/practitioner/:id" element={<PractitionerDetails />} />
           {/* <Route path="/account" element={<Index />} /> */}
           {/* Naviagte used to create URL  for account, without rendering a 2nd Index component */}
-          <Route path="/account" element={<Navigate to="/account" />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          {loggedIn && <Route path="/dashboard" element={<Dashboard />} />}
+          {/* <Route path="/account" element={<Navigate to="/account" />} /> */}
+          {/* <Route path="/interface/*" element={<Interface />} /> */}
           <Route path="*" element={<Error />} />
         </Routes>
         {/* OPTION TO RE-WRITE USING THE DEMO HERE */}

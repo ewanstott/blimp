@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { setLoggedIn, setScreen } from "../../redux/accountSlice";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,8 @@ const Dashboard = () => {
       >
         Home
       </button> */}
+      <Link to="/">Search Results</Link>
+      {/* <Link to="/search-results">Search Results</Link> */}
     </>
   );
 };

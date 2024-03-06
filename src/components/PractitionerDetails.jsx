@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { selectPractitionerData } from "../redux/practitionerSlice";
 import PractitionerControls from "./PractitionerControls";
+import { Link } from "react-router-dom";
 
 const PractitionerDetails = () => {
   const { id } = useParams();
@@ -21,6 +22,7 @@ const PractitionerDetails = () => {
   return (
     <div className="singlePractitioner">
       <div className="practitionerDetails">
+        <Link to="/">Search Results</Link>
         <h3>Practitioner Details</h3>
         <h1>{practitioner.name}</h1>
         <img src={practitioner.image} alt={practitioner.name} />

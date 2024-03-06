@@ -7,6 +7,7 @@ import {
 import Signup from "./Signup";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
+import SearchResults from "../SearchResults";
 import Interface from "../Interface";
 
 const Index = () => {
@@ -25,7 +26,7 @@ const Index = () => {
       )}
       {screen === 0 && <Signup />}
       {screen === 1 && <Login />}
-      {screen === 2 && <Dashboard />}
+      {/* {screen === 2 && <Dashboard />} */}
       {/* {screen === 3 && <Interface />} */}
     </>
   );
