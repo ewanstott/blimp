@@ -15,7 +15,7 @@ const diskData = getStore();
 //Slice creation
 export const accountSlice = createSlice({
   name: "account",
-  initialState: diskData ? diskData : initialState,
+  initialState: diskData ? diskData : initialState, //use diskData if exists, otherwise use ititialState
   //reducer mutates the store -> adding, deleting, editing
   reducers: {
     setNewUser: (state, { payload }) => {

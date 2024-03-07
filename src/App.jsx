@@ -7,8 +7,6 @@ import Interface from "./components/Interface";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { selectMessage } from "./redux/practitionerSlice";
-import Signup from "./components/account/Signup";
-import Index from "./components/account/Index";
 
 const App = () => {
   const dispatch = useDispatch();

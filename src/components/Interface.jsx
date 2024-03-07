@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 // import { setMessage } from "../redux/practitionerSlice";
 import { Routes, Route, Navigate } from "react-router";
+
 // import SearchResults from "./SearchResults";
 import PractitionerDetails from "./PractitionerDetails";
 import Index from "./account/Index";
@@ -15,6 +16,12 @@ import {
 import Error from "./Error";
 import Dashboard from "./account/Dashboard";
 import { selectLoggedIn } from "../redux/accountSlice";
+import Registration from "./account/Signin";
+import SignUp2 from "./account/SignUp2";
+import Signup from "./account/Signup";
+import Login from "./account/Login";
+import Nav from "./account/Nav";
+import Signin from "./account/Signin";
 
 const Interface = () => {
   const dispatch = useDispatch();
@@ -54,22 +61,33 @@ const Interface = () => {
         </button> */}
       </header>
       <main>
+        {/* <SignUp2 /> */}
         {/* //WHEN NOT LOGGED IN, CONDITIONALLY SHOW  */}
-        <Index />
+        {/* <Index /> */}
+        {/* <Signup />
+        <Login /> */}
         <Routes>
+          <Route path="/practitioner/:id" element={<PractitionerDetails />} />
           <Route path="/" element={<SearchResults filtered={filtered} />} />
           <Route
             path="/search-results"
             element={<SearchResults filtered={filtered} />}
           />
-          <Route path="/practitioner/:id" element={<PractitionerDetails />} />
+          {loggedIn && <Route path="/dashboard" element={<Dashboard />} />}
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          <Route path="*" element={<Error />} />
+          {/* Master Routes ^^ */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+
+          <Route path="/signUp2" element={<SignUp2 />} />
+          <Route path="/signin" element={<Signin />} />
+
           {/* <Route path="/account" element={<Index />} /> */}
           {/* Naviagte used to create URL  for account, without rendering a 2nd Index component */}
-          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-          {loggedIn && <Route path="/dashboard" element={<Dashboard />} />}
+
           {/* <Route path="/account" element={<Navigate to="/account" />} /> */}
           {/* <Route path="/interface/*" element={<Interface />} /> */}
-          <Route path="*" element={<Error />} />
         </Routes>
         {/* OPTION TO RE-WRITE USING THE DEMO HERE */}
       </main>

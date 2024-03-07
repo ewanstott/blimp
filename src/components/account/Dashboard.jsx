@@ -10,8 +10,9 @@ const Dashboard = () => {
       <h2>Dashboard</h2>
       <button
         onClick={() => {
-          dispatch(setLoggedIn());
-          dispatch(setScreen(1));
+          //could also do this with Router
+          dispatch(setLoggedIn()); //updates logged in status
+          dispatch(setScreen(1)); //updates screen displayed
         }}
       >
         Logout

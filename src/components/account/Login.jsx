@@ -32,7 +32,7 @@ const Login = () => {
     <>
       <h2>Login</h2>
       <form onInput={onInput} onSubmit={onSubmit}>
-        <EmailPasswordForm />
+        <EmailPasswordForm name="Login" />
       </form>
     </>
   );

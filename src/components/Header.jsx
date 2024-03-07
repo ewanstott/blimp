@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
+import Nav from "./account/Nav";
 
 const Header = () => {
   return (
     <>
       <header>
-        {/* Other header content */}
+        <h1>Blimp</h1>
         <nav>
           <ul>
-            {/* Other navigation items */}
-            {/* <li> */}
-            <Link to="/dashboard">Dashboard</Link>
-            {/* </li> */}
+            <Nav />
           </ul>
         </nav>
       </header>

@@ -23,7 +23,7 @@ const Signup = () => {
     <>
       <h2>Sign Up</h2>
       <form onInput={onInput} onSubmit={onSubmit}>
-        <EmailPasswordForm />
+        <EmailPasswordForm name="Signup" />
       </form>
     </>
   );
