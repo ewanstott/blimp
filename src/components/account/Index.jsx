@@ -30,8 +30,8 @@ const Index = () => {
 
       {/* Link can live in any component */}
       {/* Make Nav Bar here using Links */}
-      <Link to="/">Home</Link>
-      <Link to="/signup">Sign Up</Link>
+      {/* <Link to="/">Home</Link>
+      <Link to="/signup">Sign Up</Link> */}
       {/* <Link to="/signup">Login</Link> */}
     </>
   );

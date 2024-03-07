@@ -7,8 +7,8 @@ import { setMessage } from "../../redux/practitionerSlice";
 import { setLoggedIn } from "../../redux/accountSlice";
 
 const Login = () => {
-  const [userInput, setUserInput] = useState({});
   const dispatch = useDispatch();
+  const [userInput, setUserInput] = useState({});
   const user = useSelector(selectUser);
 
   const onInput = (e) => {

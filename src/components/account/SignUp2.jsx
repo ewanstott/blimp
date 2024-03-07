@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import PatientForm from "./PatientForm";
+import PractitionerForm from "./PractitionerForm";
 
 const SignUp2 = () => {
+  const dispatch = useDispatch();
   const [userType, setUserType] = useState();
 
   const radioHandler = (input) => {
@@ -10,6 +14,9 @@ const SignUp2 = () => {
 
   return (
     <>
+      <>
+        <p>Please enter your signup details below</p>
+      </>
       <label htmlFor="signup-patient">
         Patient
         <input
@@ -30,8 +37,16 @@ const SignUp2 = () => {
           onChange={(e) => radioHandler(e.target.value)}
         ></input>
       </label>
-      {userType === "patient" && <div>Patient Form</div>}
-      {userType === "practitioner" && <div>Practitioner Form</div>}
+      {userType === "patient" && (
+        <div>
+          <PatientForm />
+        </div>
+      )}
+      {userType === "practitioner" && (
+        <div>
+          <PractitionerForm />
+        </div>
+      )}
     </>
   );
 };

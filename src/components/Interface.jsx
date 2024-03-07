@@ -22,15 +22,24 @@ import Signup from "./account/Signup";
 import Login from "./account/Login";
 import Nav from "./account/Nav";
 import Signin from "./account/Signin";
+import { useEffect, useRef } from "react";
+import Splash from "./account/Splash";
 
 const Interface = () => {
-  const dispatch = useDispatch();
-  //   console.log(practitionerData);
-
   //subscribe to data
   const practitionerData = useSelector(selectPractitionerData);
   const searchTerm = useSelector(selectSearchTerm);
   const loggedIn = useSelector(selectLoggedIn);
+
+  const dispatch = useDispatch();
+  const logoRef = useRef();
+
+  useLayoutEffect(() => {
+    // gsap.to(logoRef.current, {rotation: 720, y: "150%", duration: 2 ,onComplete: () => }setLoading(false))
+    //Install GSAP & find cool logo animation
+  });
+
+  if (loading) return <Splash logoRef={logoRef} />;
 
   if (!practitionerData) {
     return <p>Loading...</p>;

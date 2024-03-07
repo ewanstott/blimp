@@ -9,6 +9,7 @@ import {
   MDBIcon,
 } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
+import Login from "./Login";
 
 function Signin() {
   return (
@@ -21,6 +22,7 @@ function Signin() {
           "linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))", // gradient for other browsers
       }}
     >
+      {/* <Login /> */}
       <MDBContainer fluid>
         <MDBRow className="d-flex justify-content-center align-items-center h-100">
           <MDBCol col="12">
