@@ -3,7 +3,12 @@ const Splash = ({ logoRef }) => {
   return (
     <div className="splash container">
       <div className="imageContainer">
-        <img src="" alt="" ref={logoRef} />
+        {/* ./ = public folder */}
+        <img
+          src="./logo/blimp-high-resolution-logo-white-transparent.png"
+          alt=""
+          ref={logoRef}
+        />
       </div>
     </div>
   );

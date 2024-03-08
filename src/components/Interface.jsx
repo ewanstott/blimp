@@ -22,8 +22,10 @@ import Signup from "./account/Signup";
 import Login from "./account/Login";
 import Nav from "./account/Nav";
 import Signin from "./account/Signin";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Splash from "./account/Splash";
+import gsap from "gsap";
+// import { useGSAP } from "@gsap/react";
 
 const Interface = () => {
   //subscribe to data
@@ -34,9 +36,18 @@ const Interface = () => {
   const dispatch = useDispatch();
   const logoRef = useRef();
 
+  const [loading, setLoading] = useState(true);
+
+  // useGSAP
   useLayoutEffect(() => {
-    // gsap.to(logoRef.current, {rotation: 720, y: "150%", duration: 2 ,onComplete: () => }setLoading(false))
-    //Install GSAP & find cool logo animation
+    gsap.to(logoRef.current, {
+      rotation: 720,
+      y: "150%",
+      duration: 1,
+      onComplete: () => {
+        setLoading(false);
+      },
+    });
   });
 
   if (loading) return <Splash logoRef={logoRef} />;
