@@ -3,7 +3,8 @@ import sha256 from "sha256";
 import { getStore, saveStore } from "./diskUtils";
 
 //Initial State
-const initialState = { screen: 0 }; //screen 0 = signup //screen 1: login //screen 2: dashboard
+// const initialState = { screen: 0 }; //screen 0 = signup //screen 1: login //screen 2: dashboard
+const initialState = {}; //screen 0 = signup //screen 1: login //screen 2: dashboard
 
 //Show as initial state in dash:
 // , favouritePractitioners: [
@@ -18,17 +19,28 @@ export const accountSlice = createSlice({
   initialState: diskData ? diskData : initialState, //use diskData if exists, otherwise use ititialState
   //reducer mutates the store -> adding, deleting, editing
   reducers: {
+    //change to setCurrentUser?
     setNewUser: (state, { payload }) => {
-      payload.password = sha256(payload.password + "jump-ch16");
-      state.user = payload;
+      console.log(payload);
+      const tempData = { ...payload };
+      const tempPassword = sha256(tempData.password);
+      tempData.password = tempPassword;
+      state.user = tempData;
+
+      // state.password = sha256(payload);
+      // payload.password = sha256(payload.password);
+      // state.user = payload;
       saveStore(state);
     },
-    setScreen: (state, { payload }) => {
-      state.screen = payload;
-      saveStore(state);
-    },
-    setLoggedIn: (state) => {
-      state.loggedIn = !state.loggedIn;
+    // setScreen: (state, { payload }) => {
+    //   state.screen = payload;
+    //   saveStore(state);
+    // },
+    // setLoggedIn: (state) => {
+    //   state.loggedIn = !state.loggedIn;
+    //   saveStore(state);
+    setLoggedIn: (state, { payload }) => {
+      state.loggedIn = payload;
       saveStore(state);
     },
   },

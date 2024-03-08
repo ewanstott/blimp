@@ -1,18 +1,19 @@
 import { useDispatch } from "react-redux";
 import { setLoggedIn, setScreen } from "../../redux/accountSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   return (
     <>
       <h2>Dashboard</h2>
       <button
         onClick={() => {
           //could also do this with Router
-          dispatch(setLoggedIn()); //updates logged in status
-          dispatch(setScreen(1)); //updates screen displayed
+          dispatch(setLoggedIn(false)); //updates logged in status
+          // dispatch(setScreen(1)); //updates screen displayed
+          navigate("/");
         }}
       >
         Logout

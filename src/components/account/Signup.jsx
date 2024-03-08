@@ -18,7 +18,7 @@ const Signup = () => {
   };
 
   console.log(userInput);
-
+  console.log(onSubmit);
   return (
     <>
       <h2>Sign Up</h2>

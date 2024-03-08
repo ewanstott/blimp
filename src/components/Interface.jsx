@@ -26,6 +26,8 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Splash from "./account/Splash";
 import gsap from "gsap";
 // import { useGSAP } from "@gsap/react";
+import PatientDashboard from "./account/PatientDashboard";
+import practionionerDashboard from "./account/PractionerDashboard";
 
 const Interface = () => {
   //subscribe to data
@@ -93,8 +95,13 @@ const Interface = () => {
             path="/search-results"
             element={<SearchResults filtered={filtered} />}
           />
-          {loggedIn && <Route path="/dashboard" element={<Dashboard />} />}
+          {/* {loggedIn && <Route path="/dashboard" element={<Dashboard />} />} */}
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          <Route path="/patientdashboard" element={<PatientDashboard />} />
+          <Route
+            path="/practionionerdashboard"
+            element={<practionionerDashboard />}
+          />
           <Route path="*" element={<Error />} />
           {/* Master Routes ^^ */}
           <Route path="/login" element={<Login />} />
