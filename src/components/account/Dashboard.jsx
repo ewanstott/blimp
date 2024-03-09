@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setLoggedIn, setScreen } from "../../redux/accountSlice";
+import { setLoggedIn } from "../../redux/accountSlice";
 import { Link, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {

@@ -10,7 +10,7 @@ const Nav = () => {
       <Link to="/dashboard">Dashboard</Link>
       {/* <Link to="/signin">Sign In</Link> */}
       <Link to="/signup2">Sign Up2</Link>
-      <Link to="/signup">Sign Up</Link>
+      {/* <Link to="/signup">Sign Up</Link> */}
       <Link to="/login">Login</Link>
     </>
   );

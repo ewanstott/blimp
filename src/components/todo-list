@@ -1,7 +1,8 @@
 //Dash
 
 - filter by favourites, remove
+- Add new practitioner to the Database so searchable
 - Dashboard to show favs (using database which we will cover in course soon)
 - handle validations with JOI
 - Add enquire now button on details page
--
+- Convert to a TypeScript project

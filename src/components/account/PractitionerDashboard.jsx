@@ -2,12 +2,12 @@ import { useDispatch } from "react-redux";
 import { setLoggedIn } from "../../redux/accountSlice";
 import { useNavigate } from "react-router-dom";
 
-const PractionionerDashboard = () => {
+const PractitionerDashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
     <>
-      <h1>Practionioner Dashboard</h1>
+      <h1>Practitioner Dashboard</h1>
       <button
         onClick={() => {
           dispatch(setLoggedIn(false)); //updates logged in status
@@ -20,4 +20,4 @@ const PractionionerDashboard = () => {
   );
 };
 
-export default PractionionerDashboard;
+export default PractitionerDashboard;

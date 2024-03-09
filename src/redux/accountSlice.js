@@ -4,7 +4,11 @@ import { getStore, saveStore } from "./diskUtils";
 
 //Initial State
 // const initialState = { screen: 0 }; //screen 0 = signup //screen 1: login //screen 2: dashboard
-const initialState = {}; //screen 0 = signup //screen 1: login //screen 2: dashboard
+const initialState = {
+  user: null,
+  loggedIn: false,
+  users: [],
+}; //screen 0 = signup //screen 1: login //screen 2: dashboard
 
 //Show as initial state in dash:
 // , favouritePractitioners: [
@@ -27,9 +31,9 @@ export const accountSlice = createSlice({
       tempData.password = tempPassword;
       state.user = tempData;
 
-      // state.password = sha256(payload);
-      // payload.password = sha256(payload.password);
-      // state.user = payload;
+      //ADD ARRAY FOR USERS HERE (overwriting at present)
+      state.users.push(tempData);
+
       saveStore(state);
     },
     // setScreen: (state, { payload }) => {
@@ -43,16 +47,24 @@ export const accountSlice = createSlice({
       state.loggedIn = payload;
       saveStore(state);
     },
+    // setLoggedOut: (state) => {
+    //   state.user = null;
+    //   state.loggedIn = false;
+    //   saveStore(state);
+    // },
+
+    //Add userType to store ?
   },
 });
 
 //Action Creators
-export const { setNewUser, setScreen, setLoggedIn } = accountSlice.actions;
+export const { setNewUser, setLoggedIn } = accountSlice.actions;
+//setLoggedOut - not needed
 
 //Selectors - extract specific pieces of state from the Redux store.
 // gets data from store
 export const selectUser = (state) => state.account.user;
-export const selectScreen = (state) => state.account.screen;
+// export const selectScreen = (state) => state.account.screen;
 export const selectLoggedIn = (state) => state.account.loggedIn;
 
 export default accountSlice.reducer;

@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectLoggedIn,
-  setNewUser,
-  setScreen,
-} from "../../redux/accountSlice";
+import { selectLoggedIn, setNewUser } from "../../redux/accountSlice";
 import { Link } from "react-router-dom";
 
 const PatientForm = ({ onInput, onSubmit }) => {
@@ -46,7 +42,7 @@ const PatientForm = ({ onInput, onSubmit }) => {
         <button type="submit">Submit</button>
       </div>
       {/* Conditionally render the Link based on loggedIn state */}
-      {loggedIn && <Link to="/dashboard">Go to Dashboard</Link>}
+      {/* {loggedIn && <Link to="/dashboard">Go to Dashboard</Link>} */}
       {/* </form> */}
     </>
   );

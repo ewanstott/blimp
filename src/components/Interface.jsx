@@ -7,34 +7,33 @@ import { Routes, Route, Navigate } from "react-router";
 
 // import SearchResults from "./SearchResults";
 import PractitionerDetails from "./PractitionerDetails";
-import Index from "./account/Index";
+// import Index from "./account/Index";
 import SearchResults from "./SearchResults";
 import {
   selectPractitionerData,
   selectSearchTerm,
 } from "../redux/practitionerSlice";
 import Error from "./Error";
-import Dashboard from "./account/Dashboard";
+// import Dashboard from "./account/Dashboard";
 import { selectLoggedIn } from "../redux/accountSlice";
-import Registration from "./account/Signin";
+// import Registration from "./account/Signin";
 import SignUp2 from "./account/SignUp2";
-import Signup from "./account/Signup";
+// import Signup from "./account/Signup";
 import Login from "./account/Login";
-import Nav from "./account/Nav";
+// import Nav from "./account/Nav";
 import Signin from "./account/Signin";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Splash from "./account/Splash";
 import gsap from "gsap";
 // import { useGSAP } from "@gsap/react";
 import PatientDashboard from "./account/PatientDashboard";
-import practionionerDashboard from "./account/PractionerDashboard";
+import PractitionerDashboard from "./account/PractitionerDashboard";
 
 const Interface = () => {
   //subscribe to data
   const practitionerData = useSelector(selectPractitionerData);
   const searchTerm = useSelector(selectSearchTerm);
   const loggedIn = useSelector(selectLoggedIn);
-
   const dispatch = useDispatch();
   const logoRef = useRef();
 
@@ -97,15 +96,15 @@ const Interface = () => {
           />
           {/* {loggedIn && <Route path="/dashboard" element={<Dashboard />} />} */}
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-          <Route path="/patientdashboard" element={<PatientDashboard />} />
+          <Route path="/patient-dashboard" element={<PatientDashboard />} />
           <Route
-            path="/practionionerdashboard"
-            element={<practionionerDashboard />}
+            path="/practitioner-dashboard"
+            element={<PractitionerDashboard />}
           />
           <Route path="*" element={<Error />} />
           {/* Master Routes ^^ */}
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          {/* <Route path="/signup" element={<Signup />} /> */}
 
           <Route path="/signUp2" element={<SignUp2 />} />
           <Route path="/signin" element={<Signin />} />
