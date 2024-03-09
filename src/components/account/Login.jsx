@@ -34,16 +34,13 @@ const Login = () => {
     const hashedPassword = sha256(userInput.password);
     console.log(userInput);
 
-    //find user from users (using .find() )
-    //do any of these users have correct name / password
-
+    //find user from users matching on email
     const foundUser = users.find((user) => user.email === userInput.email);
 
-    // if yes
-
+    // if found - does this user have correct password
     if (foundUser && foundUser.password === hashedPassword) {
       dispatch(setMessage("Login correct"));
-      dispatch(setLoggedIn(true));
+      dispatch(setLoggedIn(foundUser));
 
       //add user type here
 

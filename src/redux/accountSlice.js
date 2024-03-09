@@ -8,6 +8,7 @@ const initialState = {
   user: null,
   loggedIn: false,
   users: [],
+  currentUser: null,
 }; //screen 0 = signup //screen 1: login //screen 2: dashboard
 
 //Show as initial state in dash:
@@ -30,30 +31,23 @@ export const accountSlice = createSlice({
       const tempPassword = sha256(tempData.password);
       tempData.password = tempPassword;
       state.user = tempData;
-
+      state.loggedIn = true;
       //ADD ARRAY FOR USERS HERE (overwriting at present)
       state.users.push(tempData);
 
       saveStore(state);
     },
-    // setScreen: (state, { payload }) => {
-    //   state.screen = payload;
-    //   saveStore(state);
-    // },
-    // setLoggedIn: (state) => {
-    //   state.loggedIn = !state.loggedIn;
-    //   saveStore(state);
     setLoggedIn: (state, { payload }) => {
       state.loggedIn = payload;
+
+      if (payload) {
+        // Set the currently logged-in user when logging in
+        state.user = payload;
+      } else {
+        state.user = null; // Clear currentUser when logging out
+      }
       saveStore(state);
     },
-    // setLoggedOut: (state) => {
-    //   state.user = null;
-    //   state.loggedIn = false;
-    //   saveStore(state);
-    // },
-
-    //Add userType to store ?
   },
 });
 
@@ -64,6 +58,7 @@ export const { setNewUser, setLoggedIn } = accountSlice.actions;
 //Selectors - extract specific pieces of state from the Redux store.
 // gets data from store
 export const selectUser = (state) => state.account.user;
+// export const selectCurrentUser = (state) => state.account.currentUser;
 // export const selectScreen = (state) => state.account.screen;
 export const selectLoggedIn = (state) => state.account.loggedIn;
 

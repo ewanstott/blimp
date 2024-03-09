@@ -34,7 +34,7 @@ const SignUp2 = () => {
     console.log("signup2 userType:", userType);
     const userData = { ...userInput, userType }; // Include userType in userData
     dispatch(setNewUser(userData)); // Dispatch user data including userType
-    dispatch(setLoggedIn(true)); // Set loggedIn to True
+    // dispatch(setLoggedIn(userData)); // Set loggedIn to True
 
     if (userType === "patient") {
       navigate("/patient-dashboard");
