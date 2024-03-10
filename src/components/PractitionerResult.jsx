@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const PractitionerResult = ({ practitioner }) => {
   return (
-    <div className="searchResult">
-      <h1>{practitioner.name}</h1>
+    <div className="searchResultCard">
+      <h3>{practitioner.name}</h3>
       <img src={practitioner.image} alt={practitioner.name} />
-      <h2>{practitioner.specialization}</h2>
+      <h3>{practitioner.specialization}</h3>
       <p>{practitioner.location}</p>
       <p>{practitioner.about}</p>
       <p>Experience: {practitioner.experience}</p>

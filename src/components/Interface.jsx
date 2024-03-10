@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 // import { setMessage } from "../redux/practitionerSlice";
-import { Routes, Route, Navigate } from "react-router";
+import { Routes, Route } from "react-router";
 
 // import SearchResults from "./SearchResults";
 import PractitionerDetails from "./PractitionerDetails";
@@ -17,11 +17,9 @@ import Error from "./Error";
 // import Dashboard from "./account/Dashboard";
 import { selectLoggedIn } from "../redux/accountSlice";
 // import Registration from "./account/Signin";
-import SignUp2 from "./account/SignUp2";
-// import Signup from "./account/Signup";
+import Signup from "./account/Signup";
 import Login from "./account/Login";
 // import Nav from "./account/Nav";
-import Signin from "./account/Signin";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Splash from "./account/Splash";
 import gsap from "gsap";
@@ -82,7 +80,7 @@ const Interface = () => {
         </button> */}
       </header>
       <main>
-        {/* <SignUp2 /> */}
+        {/* <signup /> */}
         {/* //WHEN NOT LOGGED IN, CONDITIONALLY SHOW  */}
         {/* <Index /> */}
         {/* <Signup />
@@ -106,8 +104,7 @@ const Interface = () => {
           <Route path="/login" element={<Login />} />
           {/* <Route path="/signup" element={<Signup />} /> */}
 
-          <Route path="/signUp2" element={<SignUp2 />} />
-          <Route path="/signin" element={<Signin />} />
+          <Route path="/signUp" element={<Signup />} />
 
           {/* <Route path="/account" element={<Index />} /> */}
           {/* Naviagte used to create URL  for account, without rendering a 2nd Index component */}

@@ -7,11 +7,17 @@ const PractitionerDashboard = () => {
   const navigate = useNavigate();
   const user = useSelector(selectUser);
 
+  console.log(user);
+
   return (
     <>
       <h1>Practitioner Dashboard</h1>
       <p>Name: {user.name}</p>
       <p>Email: {user.email}</p>
+      <h3>Your Details</h3>
+      <p>About: {user.about}</p>
+      <p>Qualifications: {user.qualifications}</p>
+      <p>Specialization: {user.specialization}</p>
       <button
         onClick={() => {
           dispatch(setLoggedIn(false)); //updates logged in status

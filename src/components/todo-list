@@ -6,3 +6,5 @@
 - handle validations with JOI
 - Add enquire now button on details page
 - Convert to a TypeScript project
+- Light/Dark toggle
+- Search by location (additional search bar next to original search bar)
