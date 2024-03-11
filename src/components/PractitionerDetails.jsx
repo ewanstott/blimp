@@ -25,15 +25,23 @@ const PractitionerDetails = () => {
         <h1>{practitioner.name}</h1>
         <img src={practitioner.image} alt={practitioner.name} />
         {/* Add Practitioner Intro Video  */}
-        <h3>{practitioner.specialization}</h3>
-        <p>Location: {practitioner.location}</p>
-        <p>Words of Wisdom: {practitioner.about}</p>
-        <p>Treatment Style: {practitioner.style}</p>
-        <p>Years of Wisdom: {practitioner.experience}</p>
-        <p>Qualifications: {practitioner.qualifications}</p>
-        <p>Stars: {practitioner.starReviews}</p>
-        <p>Reviews: ...</p>
-        {/* <p>Hello Routes</p> */}
+        <div className="textContainer">
+          <h5>Super Powers: {practitioner.specialization}</h5>
+          <p>Location: {practitioner.location}</p>
+          <p>Words of Wisdom: {practitioner.about}</p>
+          <p>Treatment Style: {practitioner.style}</p>
+          <p>Years of Wisdom: {practitioner.experience}</p>
+          {/* <p className="practitionerQualifications"></p> */}
+          <p>Qualifications:</p>
+          <ul className="practitionerQualifications">
+            {practitioner.qualifications.map((qualification, index) => (
+              <li key={index}>{qualification}</li>
+            ))}
+          </ul>
+          <p>Stars: {practitioner.starReviews}</p>
+          <p>Reviews: ...</p>
+          {/* <p>Hello Routes</p> */}
+        </div>
       </div>
       <div className="practitionerControls">
         <PractitionerControls practitioner={practitioner} />

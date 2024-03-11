@@ -6,16 +6,18 @@ const Search = () => {
 
   return (
     <>
-      <label htmlFor="search"></label>
-      <input
-        type="text"
-        name="search"
-        id="search"
-        placeholder="Name, specialization, location..."
-        onInput={(e) => {
-          dispatch(setSearchTerm(e.target.value));
-        }}
-      />
+      <div className="searchBar">
+        <label htmlFor="search"></label>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Name, specialization, location..."
+          onInput={(e) => {
+            dispatch(setSearchTerm(e.target.value));
+          }}
+        />
+      </div>
     </>
   );
 };

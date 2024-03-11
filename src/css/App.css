@@ -128,6 +128,34 @@ img {
   background-color: #6a11cb;
 } */
 
+/* .searchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: 100%;
+} */
+
+#search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  width: calc(100% - 40px);
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.searchResults {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .searchResultCard {
   background-color: white;
   border-radius: 10px;
@@ -139,4 +167,47 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 300px;
+  height: 500px;
+}
+
+.practitionerAbout {
+  overflow: scroll; /* Hide overflow content */
+  text-overflow: ellipsis; /* Display ellipsis (...) when text overflows */
+  max-height: 3em;
+  /* white-space: nowrap; */
+}
+
+.searchResultCard img {
+  max-width: 128px;
+}
+
+.practitionerDetails {
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.practitionerDetails img {
+  margin-bottom: 10px;
+  max-width: 300px;
+}
+
+.practitionerQualifications {
+  list-style-type: disc; /* Use disc for bullet points */
+}
+
+@media screen and (max-width: 500px) {
+  .searchResults {
+    flex-direction: column;
+  }
 }

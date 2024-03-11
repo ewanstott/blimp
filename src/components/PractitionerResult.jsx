@@ -7,8 +7,8 @@ const PractitionerResult = ({ practitioner }) => {
       <img src={practitioner.image} alt={practitioner.name} />
       <h3>{practitioner.specialization}</h3>
       <p>{practitioner.location}</p>
-      <p>{practitioner.about}</p>
-      <p>Experience: {practitioner.experience}</p>
+      <p className="practitionerAbout">{practitioner.about}</p>
+      <p>Years of Wisdom: {practitioner.experience}</p>
       <p>Stars: {practitioner.starReviews}</p>
       <Link to={"/practitioner/" + practitioner.id}>See More...</Link>
     </div>

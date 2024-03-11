@@ -3,18 +3,20 @@ import Search from "./Search";
 
 const SearchResults = ({ filtered }) => {
   return (
-    <div className="searchResults">
+    <>
       <Search />
-      {filtered.map((practitioner) => {
-        //ERROR - WHY?
-        return (
-          <PractitionerResult
-            key={practitioner.id}
-            practitioner={practitioner}
-          /> //switched key fron name of ID (from app)
-        );
-      })}
-    </div>
+      <div className="searchResults">
+        {filtered.map((practitioner) => {
+          //ERROR - WHY?
+          return (
+            <PractitionerResult
+              key={practitioner.id}
+              practitioner={practitioner}
+            /> //switched key fron name of ID (from app)
+          );
+        })}
+      </div>
+    </>
   );
 };
 
