@@ -9,7 +9,8 @@ const initialState = {
   loggedIn: false,
   users: [],
   currentUser: null,
-}; //screen 0 = signup //screen 1: login //screen 2: dashboard
+  favourites: [],
+};
 
 //Show as initial state in dash:
 // , favouritePractitioners: [

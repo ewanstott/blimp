@@ -18,11 +18,14 @@ export const practitionerSlice = createSlice({
     setMessage: (state, { payload }) => {
       state.message = payload;
     },
+    setFavourite: (state, { payload }) => {
+      state.favourite = payload;
+    },
   },
 });
 
 //Action Creators
-export const { setPractitionerData, setSearchTerm, setMessage } =
+export const { setPractitionerData, setSearchTerm, setMessage, setFavourite } =
   practitionerSlice.actions;
 
 //Selectors - extract specific pieces of state from the Redux store.
@@ -31,6 +34,7 @@ export const selectMessage = (state) => state.practitioner.message;
 export const selectPractitionerData = (state) =>
   state.practitioner.practitionerData;
 export const selectSearchTerm = (state) => state.practitioner.searchTerm;
+export const selectFavourite = (state) => state.practitioner.favourite;
 // export const selectSinglePractitioner = (state) => {
 //   return state.practitioner.practitionerData.find((practitioner) => {
 //     return practitioner.id === 1;
