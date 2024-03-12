@@ -193,8 +193,6 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .practitionerDetails img {
@@ -203,7 +201,20 @@ img {
 }
 
 .practitionerQualifications {
-  list-style-type: disc; /* Use disc for bullet points */
+  list-style-type: disc;
+}
+
+.patientDashboardContainer,
+.practitionerDashboardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 400px; */
+}
+
+.patientDashboardText,
+.practitionerDashboardText {
 }
 
 @media screen and (max-width: 500px) {

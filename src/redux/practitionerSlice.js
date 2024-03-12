@@ -7,7 +7,10 @@ const initialState = {};
 export const practitionerSlice = createSlice({
   name: "practitioner",
   initialState,
+  favourites: [],
   //reducer mutates the store -> adding, deleting, editing
+  //   state: Represents the current state of the slice.
+  // { payload }: Contains the data that will be used to update the state.
   reducers: {
     setPractitionerData: (state, { payload }) => {
       state.practitionerData = payload; //this data will now live in the store

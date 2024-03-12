@@ -12,18 +12,22 @@ const PatientDashboard = () => {
 
   return (
     <>
-      <h1>PatientDashboard</h1>
-      <p>Name: {user.name}</p>
-      <p>Email: {user.email}</p>
-
-      <button
-        onClick={() => {
-          dispatch(setLoggedIn(false)); //updates logged in status
-          navigate("/"); //naviages back to home page
-        }}
-      >
-        Logout
-      </button>
+      <div className="patientDashboardContainer">
+        <div className="patientDashboardText">
+          <h1>Patient Dashboard</h1>
+          <p>Name: {user.name}</p>
+          <p>Email: {user.email}</p>
+        </div>
+        <button
+          className="button"
+          onClick={() => {
+            dispatch(setLoggedIn(false)); //updates logged in status
+            navigate("/"); //naviages back to home page
+          }}
+        >
+          Logout
+        </button>
+      </div>
     </>
   );
 };

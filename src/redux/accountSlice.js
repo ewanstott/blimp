@@ -9,7 +9,6 @@ const initialState = {
   loggedIn: false,
   users: [],
   currentUser: null,
-  favourites: [],
 };
 
 //Show as initial state in dash:

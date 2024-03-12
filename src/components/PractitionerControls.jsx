@@ -13,7 +13,10 @@ const PractitionerControls = ({ practitioner }) => {
   return (
     <>
       <div className="controls">
-        <button className="favouriteButtonClass" onClick={handleFavouriteClick}>
+        <button
+          className="favouriteButtonClass button"
+          onClick={handleFavouriteClick}
+        >
           Favourite
         </button>
       </div>

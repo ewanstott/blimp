@@ -11,21 +11,26 @@ const PractitionerDashboard = () => {
 
   return (
     <>
-      <h1>Practitioner Dashboard</h1>
-      <p>Name: {user.name}</p>
-      <p>Email: {user.email}</p>
-      <h3>Your Details</h3>
-      <p>About: {user.about}</p>
-      <p>Qualifications: {user.qualifications}</p>
-      <p>Specialization: {user.specialization}</p>
-      <button
-        onClick={() => {
-          dispatch(setLoggedIn(false)); //updates logged in status
-          navigate("/"); //naviages back to home page
-        }}
-      >
-        Logout
-      </button>
+      <div className="practitionerDashboardContainer">
+        <div className="practitionerDashboardText">
+          <h1>Practitioner Dashboard</h1>
+          <p>Name: {user.name}</p>
+          <p>Email: {user.email}</p>
+          <h3>Your Details</h3>
+          <p>About: {user.about}</p>
+          <p>Qualifications: {user.qualifications}</p>
+          <p>Specialization: {user.specialization}</p>
+        </div>
+        <button
+          className="button"
+          onClick={() => {
+            dispatch(setLoggedIn(false)); //updates logged in status
+            navigate("/"); //naviages back to home page
+          }}
+        >
+          Logout
+        </button>
+      </div>
     </>
   );
 };
