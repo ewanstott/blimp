@@ -5,7 +5,6 @@ import PractitionerControls from "./PractitionerControls";
 
 const PractitionerDetails = () => {
   const { id } = useParams();
-  console.log(id);
 
   //selector
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
@@ -13,7 +12,7 @@ const PractitionerDetails = () => {
   if (!practitionerData) {
     return <p>Loading data...</p>;
   }
-  console.log(practitionerData);
+
   const practitioner = practitionerData.find((item) => {
     return item.id === Number(id);
   });

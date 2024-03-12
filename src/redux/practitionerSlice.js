@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 //Initial State
-const initialState = {};
+const initialState = { favourites: [] };
 
 //Slice creation
 export const practitionerSlice = createSlice({
   name: "practitioner",
   initialState,
-  favourites: [],
+
   //reducer mutates the store -> adding, deleting, editing
   //   state: Represents the current state of the slice.
   // { payload }: Contains the data that will be used to update the state.
@@ -21,8 +21,17 @@ export const practitionerSlice = createSlice({
     setMessage: (state, { payload }) => {
       state.message = payload;
     },
+    //Redux Reducer: When the setFavourite action is dispatched, it triggers the execution of the corresponding reducer function in the practitionerSlice.
+    //This reducer updates the Redux state to add or remove the practitioner from the favourites list based on whether they are already present in the list or not.
     setFavourite: (state, { payload }) => {
-      state.favourite = payload;
+      const index = state.favourites.findIndex(
+        (practitioner) => practitioner.name === payload.name
+      );
+      if (index === -1) {
+        state.favourites.push(payload);
+      } else {
+        state.favourites.splice(index, 1);
+      }
     },
   },
 });
@@ -37,7 +46,7 @@ export const selectMessage = (state) => state.practitioner.message;
 export const selectPractitionerData = (state) =>
   state.practitioner.practitionerData;
 export const selectSearchTerm = (state) => state.practitioner.searchTerm;
-export const selectFavourite = (state) => state.practitioner.favourite;
+export const selectFavourites = (state) => state.practitioner.favourites; // Select favourites from state
 // export const selectSinglePractitioner = (state) => {
 //   return state.practitioner.practitionerData.find((practitioner) => {
 //     return practitioner.id === 1;
