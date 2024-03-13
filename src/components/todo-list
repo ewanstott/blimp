@@ -1,6 +1,7 @@
 //Dash
 
 - filter by favourites, remove
+  - How to store this data localy so saved on refresh
 - Add new practitioner to the Database so searchable
 - Dashboard to show favs (using database which we will cover in course soon)
 - handle validations with JOI

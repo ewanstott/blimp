@@ -1,27 +1,29 @@
-import { useDispatch } from "react-redux"; //used to dispatch actions to the Redux store.
-import { setFavourite } from "../redux/practitionerSlice";
+import { useDispatch, useSelector } from "react-redux"; //used to dispatch actions to the Redux store.
+import { selectFavourites, setFavourite } from "../redux/practitionerSlice";
 
 const PractitionerControls = ({ practitioner }) => {
-  console.log(practitioner.id);
   const dispatch = useDispatch();
+  const favourites = useSelector(selectFavourites); //useSelector to get favourites from the store
+  console.log(practitioner);
 
-  const favouriteButtonClass = favourite
+  // Check if the current practitioner is in the favourites list
+  //some() - returns true if at least one element in the array satisfies the condition specified by the callback function, and false otherwise. I
+  const isFavourite = favourites.some((fav) => {
+    return fav === practitioner.id;
+  });
+
+  // Determine the button class based on whether the practitioner is a favourite or not
+  const favouriteButtonClass = isFavourite
     ? "favourite-button active"
     : "favourite-button";
 
   // Function dispatches the setFavourite action creator from the practitionerSlice, passing the practitioner object as the payload.
-  const handleFavouriteClick = () => dispatch(setFavourite(practitioner.id)); //Action Creator: The setFavourite action creator is responsible for creating an action with the type setFavourite and the pr
-  // console.log(handleFavouriteClick);
-  // console.log(practitioner);
-  console.log(setFavourite);
+  const toggleFavourite = () => dispatch(setFavourite(practitioner.id)); //Action Creator: The setFavourite action creator is responsible for creating an action with the type setFavourite and the pr
 
   return (
     <>
       <div className="controls">
-        <button
-          className="favouriteButtonClass button"
-          onClick={handleFavouriteClick}
-        >
+        <button className={favouriteButtonClass} onClick={toggleFavourite}>
           Favourite
         </button>
       </div>

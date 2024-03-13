@@ -172,7 +172,7 @@ img {
 }
 
 .practitionerAbout {
-  overflow: scroll; /* Hide overflow content */
+  overflow: hidden; /* Hide overflow content */
   text-overflow: ellipsis; /* Display ellipsis (...) when text overflows */
   max-height: 3em;
   /* white-space: nowrap; */
@@ -183,16 +183,16 @@ img {
 }
 
 .practitionerDetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: white;
   border-radius: 10px;
   margin-bottom: 20px;
   margin-left: 20px;
   margin-right: 20px;
   padding: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
 .practitionerDetails img {
@@ -215,6 +215,28 @@ img {
 
 .patientDashboardText,
 .practitionerDashboardText {
+}
+
+.favouriteCardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  /* margin-left: 20px; */
+  /* margin-right: 20px; */
+  padding: 15px;
+  max-width: 80%;
+}
+.favouriteCardContainer img {
+  margin-bottom: 5px;
+  height: 150px;
+  width: auto;
+}
+
+.favourite-button {
 }
 
 @media screen and (max-width: 500px) {
