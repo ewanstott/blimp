@@ -33,7 +33,13 @@ export const accountSlice = createSlice({
       state.user = tempData;
       state.loggedIn = true;
       //ADD ARRAY FOR USERS HERE (overwriting at present)
-      state.users.push(tempData);
+
+      // Check if state.users exists before pushing into it
+      if (state.users) {
+        state.users.push(tempData);
+      } else {
+        state.users = [tempData]; // Initialize state.users if it's undefined
+      }
 
       saveStore(state);
     },
