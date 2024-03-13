@@ -5,6 +5,7 @@ import {
   selectFavourites,
   selectPractitionerData,
 } from "../../redux/practitionerSlice";
+import MainButton from "../MainButton";
 
 const PatientDashboard = () => {
   const dispatch = useDispatch();
@@ -54,15 +55,22 @@ const PatientDashboard = () => {
             })}
           </div>
         </div>
-        <button
+        <MainButton
+          onClick={() => {
+            dispatch(setLoggedIn(false));
+            navigate("/");
+          }}
+          text="Logout"
+        />
+        {/* <button
           className="button"
           onClick={() => {
-            dispatch(setLoggedIn(false)); //updates logged in status
-            navigate("/"); //naviages back to home page
+            dispatch(setLoggedIn(false)); 
+            navigate("/"); 
           }}
         >
           Logout
-        </button>
+        </button> */}
       </div>
     </>
   );
