@@ -80,11 +80,6 @@ const Interface = () => {
         </button> */}
       </header>
       <main>
-        {/* <signup /> */}
-        {/* //WHEN NOT LOGGED IN, CONDITIONALLY SHOW  */}
-        {/* <Index /> */}
-        {/* <Signup />
-        <Login /> */}
         <Routes>
           <Route path="/practitioner/:id" element={<PractitionerDetails />} />
           <Route path="/" element={<SearchResults filtered={filtered} />} />
@@ -92,27 +87,15 @@ const Interface = () => {
             path="/search-results"
             element={<SearchResults filtered={filtered} />}
           />
-          {/* {loggedIn && <Route path="/dashboard" element={<Dashboard />} />} */}
-          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           <Route path="/patient-dashboard" element={<PatientDashboard />} />
           <Route
             path="/practitioner-dashboard"
             element={<PractitionerDashboard />}
           />
           <Route path="*" element={<Error />} />
-          {/* Master Routes ^^ */}
           <Route path="/login" element={<Login />} />
-          {/* <Route path="/signup" element={<Signup />} /> */}
-
           <Route path="/signUp" element={<Signup />} />
-
-          {/* <Route path="/account" element={<Index />} /> */}
-          {/* Naviagte used to create URL  for account, without rendering a 2nd Index component */}
-
-          {/* <Route path="/account" element={<Navigate to="/account" />} /> */}
-          {/* <Route path="/interface/*" element={<Interface />} /> */}
         </Routes>
-        {/* OPTION TO RE-WRITE USING THE DEMO HERE */}
       </main>
       <footer>
         <Footer />

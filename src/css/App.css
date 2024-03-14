@@ -236,7 +236,8 @@ img {
   width: auto;
 }
 
-.favourite-button {
+.favouriteButtonClass {
+  color: red;
 }
 
 @media screen and (max-width: 500px) {

@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"; //used to dispatch actions to the Redux store.
 import { selectFavourites, setFavourite } from "../redux/practitionerSlice";
 
+import { IconButton } from "@mui/material";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+
 const PractitionerControls = ({ practitioner }) => {
   const dispatch = useDispatch();
   const favourites = useSelector(selectFavourites); //useSelector to get favourites from the store
@@ -23,9 +27,17 @@ const PractitionerControls = ({ practitioner }) => {
   return (
     <>
       <div className="controls">
-        <button className={favouriteButtonClass} onClick={toggleFavourite}>
+        {/* <button className={favouriteButtonClass} onClick={toggleFavourite}>
           Favourite
-        </button>
+        </button> */}
+
+        <IconButton className={favouriteButtonClass} onClick={toggleFavourite}>
+          {isFavourite ? (
+            <FavoriteIcon style={{ color: "red" }} />
+          ) : (
+            <FavoriteBorderIcon />
+          )}
+        </IconButton>
       </div>
     </>
   );

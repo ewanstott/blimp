@@ -39,14 +39,10 @@ const PractitionerDetails = () => {
           </ul>
           <p>Stars: {practitioner.starReviews}</p>
           <p>Reviews: ...</p>
-          {/* <p>Hello Routes</p> */}
         </div>
-      </div>
-      <div className="practitionerControls">
-        <PractitionerControls practitioner={practitioner} />
-        {/* //Favourite
-    //Enquire Now
-    //Add controls component for Favourite etc */}
+        <div className="practitionerControls">
+          <PractitionerControls practitioner={practitioner} />
+        </div>
       </div>
     </div>
   );

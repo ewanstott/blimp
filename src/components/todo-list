@@ -1,7 +1,6 @@
 //Dash
 
-- filter by favourites, remove
-  - How to store this data localy so saved on refresh
+- filter by favourites - How to store this data localy so saved on refresh
 - Add new practitioner to the Database so searchable
 - Dashboard to show favs (using database which we will cover in course soon)
 - handle validations with JOI
@@ -9,3 +8,6 @@
 - Convert to a TypeScript project
 - Light/Dark toggle
 - Search by location (additional search bar next to original search bar)
+
+- search should reset after searching for user
+- signup/login page should appear if user not logged in and clicks view details of a practitioner
