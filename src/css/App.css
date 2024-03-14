@@ -94,7 +94,7 @@ body {
 .heroBanner {
   /* background-color: #6813cc; */
   background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-  border-bottom: 100px;
+  /* border-bottom: 120px; */
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
@@ -114,14 +114,23 @@ img {
   border-radius: 10px;
 }
 
+.subHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-wrap: wrap;
+  /* margin-bottom: 20px; */
+}
+
 .navContainer {
   display: flex;
   justify-content: center;
 }
 
 .navContainer > * {
-  margin-top: 20px;
-  margin-right: 10px; /* Adjust the value as needed */
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 /* .searchResults {

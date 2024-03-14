@@ -4,7 +4,6 @@ const Header = () => {
   return (
     <>
       <header>
-        {/* <h1>Blimp</h1> */}
         <div className="heroBanner">
           <div className="logoContainer">
             <img
@@ -12,6 +11,9 @@ const Header = () => {
               alt="Blimp Logo"
               className="logo"
             />
+          </div>
+          <div className="subHeader">
+            <h3>Find Your Perfect Health Care Hero Today</h3>
           </div>
         </div>
         <nav>
