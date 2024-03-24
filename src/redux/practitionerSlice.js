@@ -24,6 +24,9 @@ export const practitionerSlice = createSlice({
     //Redux Reducer: When the setFavourite action is dispatched, it triggers the execution of the corresponding reducer function in the practitionerSlice.
     //This reducer updates the Redux state to add or remove the practitioner from the favourites list based on whether they are already present in the list or not.
     setFavourite: (state, { payload }) => {
+      console.log(state);
+      console.log(payload);
+      console.log(state.favourites);
       const index = state.favourites.findIndex(
         (practitionerId) => practitionerId === payload
       );

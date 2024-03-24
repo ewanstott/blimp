@@ -2,6 +2,8 @@ import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { selectPractitionerData } from "../redux/practitionerSlice";
 import PractitionerControls from "./PractitionerControls";
+import { FaRegStar } from "react-icons/fa";
+import { FaRegStarHalf } from "react-icons/fa6";
 
 const PractitionerDetails = () => {
   const { id } = useParams();

@@ -21,7 +21,7 @@ const PractitionerControls = ({ practitioner }) => {
     ? "favourite-button active"
     : "favourite-button";
 
-  // Function dispatches the setFavourite action creator from the practitionerSlice, passing the practitioner object as the payload.
+  // Function dispatches the setFavourite action creator from the practitionerSlice, passing the practitioner.id object as the payload.
   const toggleFavourite = () => dispatch(setFavourite(practitioner.id)); //Action Creator: The setFavourite action creator is responsible for creating an action with the type setFavourite and the pr
 
   return (

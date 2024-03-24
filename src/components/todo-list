@@ -1,13 +1,27 @@
-//Dash
+//Todos:
 
+- add messaging functionality & to implement a booking system allowing patients to schedule appointments with practitioners
 - filter by favourites - How to store this data localy so saved on refresh
 - Add new practitioner to the Database so searchable
+- Add calendar for practioners (Jane API? / Mock calendar?)
 - Dashboard to show favs (using database which we will cover in course soon)
 - handle validations with JOI
-- Add enquire now button on details page
 - Convert to a TypeScript project
 - Light/Dark toggle
 - Search by location (additional search bar next to original search bar)
-
 - search should reset after searching for user
 - signup/login page should appear if user not logged in and clicks view details of a practitioner
+- Add sorting ability to search results (stars etc )
+
+Bonus:
+
+- Use Bernie & GraphQL in some capacity (so can speak to this in interviews)
+- Email/Push notifications for Message alerts or appointment reminders
+
+Extra:
+
+- Telehealth Consultations: Integrate video conferencing functionality to enable remote consultations between practitioners and clients.
+- Community Forums: Create community forums where users can ask questions, share experiences, and support each other.
+- Health Assessments and Trackers: Incorporate health assessment tools and trackers for users to monitor their progress, set goals, and track health metrics over time. This can include fitness trackers, symptom trackers, and mood trackers.
+- Integration with Wearable Devices that practiotioners can access: Enable integration with wearable health devices such as fitness trackers, smartwatches, and blood pressure monitors. This allows users to sync their health data directly with the app for a more comprehensive view of their health.
+- Ability for practiotioners to add easy to follow next steps for patients (steps, exercise video, images etc)

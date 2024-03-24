@@ -250,6 +250,10 @@ img {
   color: red;
 }
 
+/* .stars svg {
+  fill: gold;
+} */
+
 @media screen and (max-width: 500px) {
   .searchResults {
     flex-direction: column;
