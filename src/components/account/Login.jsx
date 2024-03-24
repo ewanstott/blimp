@@ -9,6 +9,7 @@ import EmailPasswordForm from "./EmailPasswordForm";
 import sha256 from "sha256";
 import { setMessage } from "../../redux/practitionerSlice";
 import { useNavigate } from "react-router-dom";
+import MainButton from "../MainButton";
 
 //add logic so user directed to correct dash based on type (patient vs prac)
 
@@ -57,11 +58,15 @@ const Login = () => {
     }
   };
 
+  // const handleLoginButtonClick = () => {
+  //   navigate("/login");
+  // };
+
   return (
     <>
-      <h2>Login</h2>
       <form onInput={onInput} onSubmit={onSubmit}>
-        <EmailPasswordForm name="Login" />
+        <EmailPasswordForm name="Login" onSubmit={onSubmit} />
+        {/* <MainButton onClick={onSubmit} text="Login" /> */}
       </form>
     </>
   );

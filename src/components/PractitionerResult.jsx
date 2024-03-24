@@ -1,7 +1,20 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { FaStar, FaStarHalf } from "react-icons/fa";
+import { selectLoggedIn } from "../redux/accountSlice";
 
 const PractitionerResult = ({ practitioner }) => {
+  // const history = useHistory();
+  const loggedIn = useSelector(selectLoggedIn);
+
+  // const handleSeeMore = () => {
+  //   if (!loggedIn) {
+  //     history.push("/login"); //or signup / or make seperate login/signup component
+  //   } else {
+  //     history.push("/practitioner/" + practitioner.id);
+  //   }
+  // };
+
   const renderStars = (starReviews) => {
     const fullStars = Math.floor(starReviews);
     const halfStar = starReviews - fullStars >= 0.5;
@@ -29,7 +42,13 @@ const PractitionerResult = ({ practitioner }) => {
       <p>
         Stars: <span className="stars">{stars}</span>
       </p>
-      <Link to={"/practitioner/" + practitioner.id}>See More...</Link>
+      {/* <Link to={"/practitioner/" + practitioner.id}>See More...</Link> */}
+      {/* <button onClick={handleSeeMore}>See More...</button> */}
+      {loggedIn ? (
+        <Link to={"/practitioner/" + practitioner.id}>See More...</Link>
+      ) : (
+        <Link to="/login">Log in to see more</Link>
+      )}
     </div>
   );
 };

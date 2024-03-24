@@ -250,9 +250,41 @@ img {
   color: red;
 }
 
-/* .stars svg {
-  fill: gold;
-} */
+.signUpContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: red;
+  color: white;
+}
+
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.emailContainer {
+  margin-bottom: 20px;
+}
+
+.passwordContainer input::placeholder {
+  padding: 5px;
+}
+.emailContainer input::placeholder {
+  padding: 5px;
+}
+
+.loginButtonContainer {
+  margin-top: 10px;
+}
 
 @media screen and (max-width: 500px) {
   .searchResults {

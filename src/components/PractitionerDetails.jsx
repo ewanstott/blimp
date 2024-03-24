@@ -2,8 +2,7 @@ import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { selectPractitionerData } from "../redux/practitionerSlice";
 import PractitionerControls from "./PractitionerControls";
-import { FaRegStar } from "react-icons/fa";
-import { FaRegStarHalf } from "react-icons/fa6";
+import { FaStar, FaStarHalf } from "react-icons/fa";
 
 const PractitionerDetails = () => {
   const { id } = useParams();
@@ -18,6 +17,22 @@ const PractitionerDetails = () => {
   const practitioner = practitionerData.find((item) => {
     return item.id === Number(id);
   });
+
+  const renderStars = (starReviews) => {
+    const fullStars = Math.floor(starReviews);
+    const halfStar = starReviews - fullStars >= 0.5;
+
+    const stars = [];
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<FaStar key={i} style={{ fill: "gold" }} />);
+    }
+    if (halfStar) {
+      stars.push(<FaStarHalf key={"half"} style={{ fill: "gold" }} />);
+    }
+    return stars;
+  };
+
+  const stars = renderStars(practitioner.starReviews);
 
   return (
     <div className="singlePractitioner">
@@ -39,7 +54,9 @@ const PractitionerDetails = () => {
               <li key={index}>{qualification}</li>
             ))}
           </ul>
-          <p>Stars: {practitioner.starReviews}</p>
+          <p>
+            Stars: <span className="stars">{stars}</span>
+          </p>
           <p>Reviews: ...</p>
         </div>
         <div className="practitionerControls">

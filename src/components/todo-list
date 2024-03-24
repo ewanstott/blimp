@@ -20,7 +20,7 @@ Bonus:
 
 Extra:
 
-- Telehealth Consultations: Integrate video conferencing functionality to enable remote consultations between practitioners and clients.
+- Telehealth Consultations: Integrate video conferencing functionality to enable remote consultations between practitioners and clients. (use 3rd party npm package for this)
 - Community Forums: Create community forums where users can ask questions, share experiences, and support each other.
 - Health Assessments and Trackers: Incorporate health assessment tools and trackers for users to monitor their progress, set goals, and track health metrics over time. This can include fitness trackers, symptom trackers, and mood trackers.
 - Integration with Wearable Devices that practiotioners can access: Enable integration with wearable health devices such as fitness trackers, smartwatches, and blood pressure monitors. This allows users to sync their health data directly with the app for a more comprehensive view of their health.
