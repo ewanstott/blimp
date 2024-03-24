@@ -13,7 +13,7 @@ const Header = () => {
             />
           </div>
           <div className="subHeader">
-            <h3>Find Your Perfect Health Care Hero Today</h3>
+            <h4>Find Your Perfect Health Care Hero Today</h4>
           </div>
         </div>
         <nav>
