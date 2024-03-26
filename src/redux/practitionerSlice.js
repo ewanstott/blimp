@@ -18,8 +18,8 @@ export const practitionerSlice = createSlice({
     setSearchTerm: (state, { payload }) => {
       state.searchTerm = payload;
     },
-    setMessage: (state, { payload }) => {
-      state.message = payload;
+    setNotification: (state, { payload }) => {
+      state.notification = payload;
     },
     //Redux Reducer: When the setFavourite action is dispatched, it triggers the execution of the corresponding reducer function in the practitionerSlice.
     //This reducer updates the Redux state to add or remove the practitioner from the favourites list based on whether they are already present in the list or not.
@@ -40,12 +40,16 @@ export const practitionerSlice = createSlice({
 });
 
 //Action Creators
-export const { setPractitionerData, setSearchTerm, setMessage, setFavourite } =
-  practitionerSlice.actions;
+export const {
+  setPractitionerData,
+  setSearchTerm,
+  setNotification,
+  setFavourite,
+} = practitionerSlice.actions;
 
 //Selectors - extract specific pieces of state from the Redux store.
 // gets data from store
-export const selectMessage = (state) => state.practitioner.message;
+export const selectNotification = (state) => state.practitioner.notification;
 export const selectPractitionerData = (state) =>
   state.practitioner.practitionerData;
 export const selectSearchTerm = (state) => state.practitioner.searchTerm;

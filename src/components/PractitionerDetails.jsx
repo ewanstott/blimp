@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { selectPractitionerData } from "../redux/practitionerSlice";
 import PractitionerControls from "./PractitionerControls";
 import { FaStar, FaStarHalf } from "react-icons/fa";
+import MessageInput from "../components/message/MessageInput";
 
 const PractitionerDetails = () => {
   const { id } = useParams();
@@ -61,6 +62,9 @@ const PractitionerDetails = () => {
         </div>
         <div className="practitionerControls">
           <PractitionerControls practitioner={practitioner} />
+        </div>
+        <div className="sendMessageContainer">
+          <MessageInput practitionerId={practitioner.id} />
         </div>
       </div>
     </div>

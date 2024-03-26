@@ -7,7 +7,7 @@ import {
 } from "../../redux/accountSlice";
 import EmailPasswordForm from "./EmailPasswordForm";
 import sha256 from "sha256";
-import { setMessage } from "../../redux/practitionerSlice";
+import { setNotification } from "../../redux/practitionerSlice";
 import { useNavigate } from "react-router-dom";
 import MainButton from "../MainButton";
 
@@ -40,7 +40,7 @@ const Login = () => {
 
     // if found - does this user have correct password
     if (foundUser && foundUser.password === hashedPassword) {
-      dispatch(setMessage("Login correct"));
+      dispatch(setNotification("Login correct"));
       dispatch(setLoggedIn(foundUser));
 
       //add user type here
@@ -54,7 +54,9 @@ const Login = () => {
         navigate("/practitioner-dashboard");
       }
     } else {
-      dispatch(setMessage("Email and/or password incorrect, please try again"));
+      dispatch(
+        setNotification("Email and/or password incorrect, please try again")
+      );
     }
   };
 

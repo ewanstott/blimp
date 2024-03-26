@@ -2,23 +2,26 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import "./css/App.css";
-import { setMessage, setPractitionerData } from "./redux/practitionerSlice";
+import {
+  setNotification,
+  setPractitionerData,
+} from "./redux/practitionerSlice";
 import Interface from "./components/Interface";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { selectMessage } from "./redux/practitionerSlice";
+import { selectNotification } from "./redux/practitionerSlice";
 
 const App = () => {
   const dispatch = useDispatch();
-  const message = useSelector(selectMessage); //if message on store, this component can access it
+  const notification = useSelector(selectNotification); //if message on store, this component can access it
 
   useEffect(() => {
-    if (!message) return;
-    toast(message);
+    if (!notification) return;
+    toast(notification);
     setTimeout(() => {
-      dispatch(setMessage(""));
+      dispatch(setNotification(""));
     }, 300);
-  }, [message]); //updates everytime message changes in store
+  }, [notification]); //updates everytime message changes in store
 
   const getInitialPractitioners = async () => {
     try {

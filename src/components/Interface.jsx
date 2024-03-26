@@ -26,6 +26,7 @@ import gsap from "gsap";
 // import { useGSAP } from "@gsap/react";
 import PatientDashboard from "./account/PatientDashboard";
 import PractitionerDashboard from "./account/PractitionerDashboard";
+// import MessageInput from "../components/message/MessageInput";
 
 const Interface = () => {
   //subscribe to data
@@ -80,6 +81,7 @@ const Interface = () => {
         </button> */}
       </header>
       <main>
+        {/* <MessageInput /> */}
         <Routes>
           <Route path="/practitioner/:id" element={<PractitionerDetails />} />
           <Route path="/" element={<SearchResults filtered={filtered} />} />

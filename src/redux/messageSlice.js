@@ -9,7 +9,7 @@ export const messageSlice = createSlice({
   initialState,
   reducers: {
     sendMessage: (state, { payload }) => {
-      state.messages.push = payload; //this data will now live in the store
+      state.messages.push(payload); //this data will now live in the store
     },
     // Add additional reducers for receiving messages, if needed
   },
@@ -20,6 +20,6 @@ export const { sendMessage } = messageSlice.actions;
 
 //Selectors - extract specific pieces of state from the Redux store.
 // gets data from store
-// export const selectMessage = (state) => state.practitioner.message;
+export const selectMessages = (state) => state.message.messages;
 
 export default messageSlice.reducer;
