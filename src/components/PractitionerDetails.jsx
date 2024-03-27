@@ -67,11 +67,11 @@ const PractitionerDetails = () => {
           <div className="practitionerControls">
             <PractitionerControls practitioner={practitioner} />
           </div>
-          {/* <div className="bookingCalendar">
+          <div className="bookingCalendar">
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DateCalendar />
             </LocalizationProvider>
-          </div> */}
+          </div>
           <div>
             <MessageInput practitionerId={practitioner.id} />
           </div>

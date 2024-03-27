@@ -48,7 +48,7 @@ const Interface = () => {
         setLoading(false);
       },
     });
-  });
+  }, []);
 
   if (loading) return <Splash logoRef={logoRef} />;
 
