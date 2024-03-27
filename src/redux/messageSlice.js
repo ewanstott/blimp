@@ -12,6 +12,7 @@ export const messageSlice = createSlice({
     //   state.messages.push(payload); //this data will now live in the store
     // },
     sendMessage: (state, { payload }) => {
+      const { id, content, sender, senderType } = payload;
       // Find message by ID
       const message = state.messages.find((msg) => msg.id === payload.id);
       // check if message with id found
@@ -23,13 +24,24 @@ export const messageSlice = createSlice({
         }
         //push reply onto replies array
         message.replies.push({
-          content: payload.content,
-          sender: payload.sender,
+          content,
+          sender,
+          // senderType === "patient"
+          //   ? state.user.name
+          //   : state.practitionerData.name,
           // timestamp: new Date(),
         });
       } else {
         //If msg doesnt exist, push entire message
-        state.messages.push(payload);
+        state.messages.push({
+          id,
+          content,
+          sender,
+          // senderType === "patient"
+          //   ? state.user.name
+          //   : state.practitionerData.name,
+          replies: [],
+        });
       }
     },
   },

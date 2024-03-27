@@ -18,13 +18,17 @@ const PractitionerDashboard = () => {
   console.log(replyContent);
 
   const onReply = (messageId) => {
+    //replyContent in params?
     dispatch(
       sendMessage({
         id: messageId,
         content: replyContent,
+        senderType: "practitioner",
         sender: practitionerData.name,
       })
     );
+    // Clear reply content after sending
+    setReplyContent("");
   };
 
   if (!practitionerData) {
@@ -49,7 +53,7 @@ const PractitionerDashboard = () => {
               {messages &&
                 messages.map((message, index) => (
                   <li key={index}>
-                    {message.patientName}: {message.content}
+                    {message.sender}: {message.content}
                     <div>
                       <textarea
                         value={replyContent}
@@ -58,6 +62,15 @@ const PractitionerDashboard = () => {
                       />
                     </div>
                     <button onClick={() => onReply(message.id)}>Reply</button>
+                    {message.replies && (
+                      <ul>
+                        {message.replies.map((reply, index) => (
+                          <li key={index}>
+                            {reply.sender}: {reply.content}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 ))}
             </ul>

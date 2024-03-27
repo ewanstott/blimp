@@ -6,7 +6,7 @@ import {
   selectPractitionerData,
 } from "../../redux/practitionerSlice";
 import MainButton from "../MainButton";
-import { selectMessages } from "../../redux/messageSlice";
+import { selectMessages, sendMessage } from "../../redux/messageSlice";
 import { useState } from "react";
 
 const PatientDashboard = () => {
@@ -20,8 +20,18 @@ const PatientDashboard = () => {
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
   const [replyContent, setReplyContent] = useState("");
 
-  console.log(favourites);
-  console.log(practitionerData);
+  const onReply = (messageId) => {
+    dispatch(
+      sendMessage({
+        id: messageId,
+        content: replyContent,
+        senderType: "patient",
+        sender: user.name,
+      })
+    );
+    // Clear reply content after sending
+    setReplyContent("");
+  };
 
   if (!practitionerData) {
     return <p>Loading data...</p>;
@@ -45,20 +55,24 @@ const PatientDashboard = () => {
             <ul>
               {messages.map((message, index) => (
                 <li key={index}>
-                  {" "}
-                  Your Message
-                  {message.sender}: {message.content}
+                  {user.name}: {message.content}
                   {message.replies && (
                     <ul>
                       {message.replies.map((reply, index) => (
                         <li key={index}>
-                          {" "}
-                          Reply
                           {reply.sender}: {reply.content}
                         </li>
                       ))}
                     </ul>
                   )}
+                  <div>
+                    <textarea
+                      value={replyContent}
+                      onChange={(e) => setReplyContent(e.target.value)}
+                      placeholder="Type your reply here"
+                    />
+                    <button onClick={() => onReply(message.id)}>Reply</button>
+                  </div>
                 </li>
               ))}
             </ul>
