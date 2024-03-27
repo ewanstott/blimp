@@ -1,26 +1,34 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { sendMessage } from "../../redux/messageSlice";
+import MainButton from "../MainButton";
+import { selectUser } from "../../redux/accountSlice";
 
 const MessageInput = () => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState(""); //store message in local state
+  const user = useSelector(selectUser);
 
+  console.log(user);
   console.log(message);
 
   const onSubmit = () => {
-    dispatch(sendMessage(message)); //used to dispatch actions to the Redux store.
-    setMessage("");
+    if (message.trim() !== "") {
+      // Check if message is not empty or just whitespace
+      dispatch(sendMessage({ content: message, patientName: user.name })); //dispatch action to store
+      setMessage(""); //clear message input
+    }
   };
 
   return (
-    <div>
+    <div className="sendMessageContainer">
       <textarea
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Type your message here"
       />
-      <button onClick={onSubmit}>Enquire Now</button>
+      {/* <button onClick={onSubmit}>Enquire Now</button> */}
+      <MainButton onClick={onSubmit} text="Send" />
     </div>
   );
 };

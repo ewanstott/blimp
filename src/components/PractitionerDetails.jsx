@@ -5,6 +5,10 @@ import PractitionerControls from "./PractitionerControls";
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import MessageInput from "../components/message/MessageInput";
 
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+
 const PractitionerDetails = () => {
   const { id } = useParams();
 
@@ -59,12 +63,18 @@ const PractitionerDetails = () => {
             Stars: <span className="stars">{stars}</span>
           </p>
           <p>Reviews: ...</p>
-        </div>
-        <div className="practitionerControls">
-          <PractitionerControls practitioner={practitioner} />
-        </div>
-        <div className="sendMessageContainer">
-          <MessageInput practitionerId={practitioner.id} />
+
+          <div className="practitionerControls">
+            <PractitionerControls practitioner={practitioner} />
+          </div>
+          {/* <div className="bookingCalendar">
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DateCalendar />
+            </LocalizationProvider>
+          </div> */}
+          <div>
+            <MessageInput practitionerId={practitioner.id} />
+          </div>
         </div>
       </div>
     </div>

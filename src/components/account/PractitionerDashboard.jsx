@@ -12,7 +12,7 @@ const PractitionerDashboard = () => {
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
   const messages = useSelector(selectMessages);
 
-  console.log(messages);
+  console.log("Messages received:", messages);
 
   if (!practitionerData) {
     return <p>Loading data...</p>;
@@ -29,13 +29,18 @@ const PractitionerDashboard = () => {
           <p>About: {user.about}</p>
           <p>Qualifications: {user.qualifications}</p>
           <p>Specialization: {user.specialization}</p>
-        </div>
-        <div className="practitionerDashMessages">
-          <h3>Latest Messages</h3>
-          <ul>
-            {messages &&
-              messages.map((message, index) => <li key={index}>{message}</li>)}
-          </ul>
+
+          <div className="practitionerDashMessages">
+            <h3>Latest Messages</h3>
+            <ul>
+              {messages &&
+                messages.map((message, index) => (
+                  <li key={index}>
+                    {message.patientName}: {message.content}
+                  </li>
+                ))}
+            </ul>
+          </div>
         </div>
         <MainButton
           onClick={() => {

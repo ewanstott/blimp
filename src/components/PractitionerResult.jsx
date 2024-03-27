@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import { selectLoggedIn } from "../redux/accountSlice";
@@ -6,12 +6,13 @@ import { selectLoggedIn } from "../redux/accountSlice";
 const PractitionerResult = ({ practitioner }) => {
   // const history = useHistory();
   const loggedIn = useSelector(selectLoggedIn);
+  // const navigate = useNavigate();
 
-  // const handleSeeMore = () => {
-  //   if (!loggedIn) {
-  //     history.push("/login"); //or signup / or make seperate login/signup component
+  // const onSeeMore = () => {
+  //   if (loggedIn) {
+  //     navigate(`/practitioner/${practitioner.id}`); // Navigate to practitioner details page
   //   } else {
-  //     history.push("/practitioner/" + practitioner.id);
+  //     navigate("/login"); // Navigate to login page if not logged in
   //   }
   // };
 
@@ -48,6 +49,7 @@ const PractitionerResult = ({ practitioner }) => {
         <Link to={"/practitioner/" + practitioner.id}>See More...</Link>
       ) : (
         <Link to="/login">Log in to see more</Link>
+        // <button onClick={onSeeMore}>Log in to see more</button>
       )}
     </div>
   );
