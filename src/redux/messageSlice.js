@@ -8,10 +8,30 @@ export const messageSlice = createSlice({
   name: "message",
   initialState,
   reducers: {
+    // sendMessage: (state, { payload }) => {
+    //   state.messages.push(payload); //this data will now live in the store
+    // },
     sendMessage: (state, { payload }) => {
-      state.messages.push(payload); //this data will now live in the store
+      // Find message by ID
+      const message = state.messages.find((msg) => msg.id === payload.id);
+      // check if message with id found
+      if (message) {
+        // Add reply to message
+        if (!message.replies) {
+          //if message found, reply to message
+          message.replies = []; // If replies array doesn't exist, initialize it
+        }
+        //push reply onto replies array
+        message.replies.push({
+          content: payload.content,
+          sender: payload.sender,
+          // timestamp: new Date(),
+        });
+      } else {
+        //If msg doesnt exist, push entire message
+        state.messages.push(payload);
+      }
     },
-    // Add additional reducers for receiving messages, if needed
   },
 });
 

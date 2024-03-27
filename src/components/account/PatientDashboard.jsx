@@ -6,15 +6,20 @@ import {
   selectPractitionerData,
 } from "../../redux/practitionerSlice";
 import MainButton from "../MainButton";
+import { selectMessages } from "../../redux/messageSlice";
+import { useState } from "react";
 
 const PatientDashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const messages = useSelector(selectMessages);
 
   // Access the currently logged-in user directly
   const user = useSelector(selectUser);
   const favourites = useSelector(selectFavourites);
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
+  const [replyContent, setReplyContent] = useState("");
+
   console.log(favourites);
   console.log(practitionerData);
 
@@ -34,6 +39,31 @@ const PatientDashboard = () => {
           <h1>Patient Dashboard</h1>
           <p>Name: {user.name}</p>
           <p>Email: {user.email}</p>
+
+          <div className="patientDashMessages">
+            <h3>Latest Messages</h3>
+            <ul>
+              {messages.map((message, index) => (
+                <li key={index}>
+                  {" "}
+                  Your Message
+                  {message.sender}: {message.content}
+                  {message.replies && (
+                    <ul>
+                      {message.replies.map((reply, index) => (
+                        <li key={index}>
+                          {" "}
+                          Reply
+                          {reply.sender}: {reply.content}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <p>Favourite Health Heroes:</p>
           <div>
             {favourites.map((favId) => {

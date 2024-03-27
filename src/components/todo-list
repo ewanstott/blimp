@@ -1,5 +1,11 @@
 //Todos:
 
+Backend:
+
+- When practitioner signsup, their account is added to database so patients can search for them.
+
+  - When patient messages profile, message goes to correct practitioner ONLY
+
 - add messaging functionality & to implement a booking system allowing patients to schedule appointments with practitioners
 - filter by favourites - How to store this data localy so saved on refresh
 - Add new practitioner to the Database so searchable
