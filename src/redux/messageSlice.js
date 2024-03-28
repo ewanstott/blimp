@@ -24,8 +24,10 @@ export const messageSlice = createSlice({
         }
         //push reply onto replies array
         message.replies.push({
+          id,
           content,
           sender,
+          senderType,
           // senderType === "patient"
           //   ? state.user.name
           //   : state.practitionerData.name,
@@ -37,6 +39,7 @@ export const messageSlice = createSlice({
           id,
           content,
           sender,
+          senderType,
           // senderType === "patient"
           //   ? state.user.name
           //   : state.practitionerData.name,

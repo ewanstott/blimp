@@ -4,7 +4,7 @@ import { sendMessage } from "../../redux/messageSlice";
 import MainButton from "../MainButton";
 import { selectUser } from "../../redux/accountSlice";
 
-const MessageInput = () => {
+const MessageInput = ({ sender, senderType }) => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState(""); //store message in local state
   const user = useSelector(selectUser);
@@ -15,7 +15,13 @@ const MessageInput = () => {
   const onSubmit = () => {
     if (message.trim() !== "") {
       // Check if message is not empty or just whitespace
-      dispatch(sendMessage({ content: message, patientName: user.name })); //dispatch action to store
+      dispatch(
+        sendMessage({
+          content: message,
+          senderType: senderType,
+          sender: sender,
+        })
+      ); //dispatch action to store
       setMessage(""); //clear message input
     }
   };

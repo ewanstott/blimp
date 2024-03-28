@@ -8,6 +8,7 @@ import {
 import MainButton from "../MainButton";
 import { selectMessages, sendMessage } from "../../redux/messageSlice";
 import { useState } from "react";
+import MessageInput from "../message/MessageInput";
 
 const PatientDashboard = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,8 @@ const PatientDashboard = () => {
   const favourites = useSelector(selectFavourites);
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
   const [replyContent, setReplyContent] = useState("");
+
+  console.log(messages);
 
   const onReply = (messageId) => {
     dispatch(
@@ -60,18 +63,20 @@ const PatientDashboard = () => {
                     <ul>
                       {message.replies.map((reply, index) => (
                         <li key={index}>
-                          {reply.sender}: {reply.content}
+                          {reply.sender} {reply.content}
                         </li>
                       ))}
                     </ul>
                   )}
                   <div>
-                    <textarea
+                    {/* <textarea
                       value={replyContent}
                       onChange={(e) => setReplyContent(e.target.value)}
                       placeholder="Type your reply here"
-                    />
-                    <button onClick={() => onReply(message.id)}>Reply</button>
+                    /> */}
+                    <MessageInput senderType="patient" sender={user.name} />
+
+                    {/* <button onClick={() => onReply(message.id)}>Reply</button> */}
                   </div>
                 </li>
               ))}

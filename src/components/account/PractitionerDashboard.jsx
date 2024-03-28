@@ -5,6 +5,7 @@ import { selectPractitionerData } from "../../redux/practitionerSlice";
 import MainButton from "../MainButton";
 import { selectMessages, sendMessage } from "../../redux/messageSlice";
 import { useState } from "react";
+import MessageInput from "../message/MessageInput";
 
 const PractitionerDashboard = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,8 @@ const PractitionerDashboard = () => {
 
   // console.log("Messages received:", messages);
   console.log(replyContent);
+  console.log(messages);
+  // console.log(practitionerData.name);
 
   const onReply = (messageId) => {
     //replyContent in params?
@@ -54,23 +57,27 @@ const PractitionerDashboard = () => {
                 messages.map((message, index) => (
                   <li key={index}>
                     {message.sender}: {message.content}
-                    <div>
+                    {message.replies && (
+                      <ul>
+                        {message.replies.map((reply, index) => (
+                          <li key={index}>
+                            {reply.sender} {reply.content}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {/* <div>
                       <textarea
                         value={replyContent}
                         onChange={(e) => setReplyContent(e.target.value)}
                         placeholder="Type your reply here"
                       />
-                    </div>
-                    <button onClick={() => onReply(message.id)}>Reply</button>
-                    {message.replies && (
-                      <ul>
-                        {message.replies.map((reply, index) => (
-                          <li key={index}>
-                            {reply.sender}: {reply.content}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    </div> */}
+                    <MessageInput
+                      senderType="practitioner"
+                      sender={practitionerData.name}
+                    />
+                    {/* <button onClick={() => onReply(message.id)}>Reply</button> */}
                   </li>
                 ))}
             </ul>

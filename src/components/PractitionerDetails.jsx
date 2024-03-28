@@ -8,12 +8,15 @@ import MessageInput from "../components/message/MessageInput";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
+import { selectUser } from "../redux/accountSlice";
 
 const PractitionerDetails = () => {
   const { id } = useParams();
 
   //selector
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
+  const user = useSelector(selectUser);
 
   if (!practitionerData) {
     return <p>Loading data...</p>;
@@ -71,9 +74,19 @@ const PractitionerDetails = () => {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DateCalendar />
             </LocalizationProvider>
+            {/* <DemoItem label="Controlled calendar">
+              <DateCalendar
+                value={value}
+                onChange={(newValue) => setValue(newValue)}
+              />
+            </DemoItem> */}
           </div>
           <div>
-            <MessageInput practitionerId={practitioner.id} />
+            <MessageInput
+              practitionerId={practitioner.id}
+              sender={user.name}
+              senderType="patient"
+            />
           </div>
         </div>
       </div>
