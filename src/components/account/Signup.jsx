@@ -8,6 +8,7 @@ import {
 import PatientForm from "./PatientForm";
 import PractitionerForm from "./PractitionerForm";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Signup = () => {
   const [userType, setUserType] = useState(); //patient or practioner
@@ -29,17 +30,45 @@ const Signup = () => {
   //   dispatch(setLoggedIn(true)); // Set loggedIn to True
   // };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault(); //stops page re-rendering
     const userData = { ...userInput, userType }; // Include userType in userData
-    dispatch(setNewUser(userData)); // Dispatch user data including userType
-    // dispatch(setLoggedIn(userData)); // Set loggedIn to True
+    // dispatch(setNewUser(userData)); // Dispatch user data including userType
 
-    if (userType === "patient") {
-      navigate("/patient-dashboard");
-    }
-    if (userType === "practitioner") {
-      navigate("/practitioner-dashboard");
+    //send to API
+
+    // const { data } = await axios.post(
+    //   "http://localhost:6001/user/add",
+    //   userData
+    // );
+    // console.log(data);
+
+    //send to API based on user type
+    try {
+      let response;
+      if (userType === "patient") {
+        response = await axios.post(
+          "http://localhost:6001/patient/add",
+          userData
+        );
+      } else if (userType === "practitioner") {
+        response = await axios.post(
+          "http://localhost:6001/practitioner/add",
+          userData
+        );
+      }
+
+      console.log(response.data);
+
+      // Redirect based on user type
+      if (userType === "patient") {
+        navigate("/patient-dashboard");
+      } else if (userType === "practitioner") {
+        navigate("/practitioner-dashboard");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle error
     }
   };
 
