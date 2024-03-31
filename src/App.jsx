@@ -23,23 +23,40 @@ const App = () => {
     }, 300);
   }, [notification]); //updates everytime message changes in store
 
-  const getInitialPractitioners = async () => {
-    try {
-      const { data } = await axios.get(`/localStorage.json`);
+  // const getInitialPractitioners = async () => {
+  //   try {
+  //     const { data } = await axios.get(`/localStorage.json`);
 
-      data.practitioner.forEach((element, index) => {
-        element.id = index + 1000;
-      });
+  //     data.practitioner.forEach((element, index) => {
+  //       element.id = index + 1000;
+  //     });
 
-      dispatch(setPractitionerData(data.practitioner));
-    } catch (error) {
-      console.log("Error fetching initial practitioners:", error);
-    }
-  };
+  //     dispatch(setPractitionerData(data.practitioner));
+  //   } catch (error) {
+  //     console.log("Error fetching initial practitioners:", error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getInitialPractitioners();
+  // }, []);
 
   useEffect(() => {
+    const getInitialPractitioners = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:6001/practitioner/get"
+        );
+        dispatch(setPractitionerData(response.data));
+      } catch (error) {
+        console.error("Error fetching initial data:", error);
+      }
+    };
     getInitialPractitioners();
-  }, []);
+    setInterval(() => {
+      getInitialPractitioners();
+    }, 30000);
+  }, [dispatch]);
 
   return (
     <>

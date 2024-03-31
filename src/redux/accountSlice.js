@@ -5,7 +5,7 @@ import { getStore, saveStore } from "./diskUtils";
 //Initial State
 // const initialState = { screen: 0 }; //screen 0 = signup //screen 1: login //screen 2: dashboard
 const initialState = {
-  user: null,
+  // user: null,
   loggedIn: false,
   users: [],
   currentUser: null,
@@ -24,24 +24,27 @@ export const accountSlice = createSlice({
   initialState: diskData ? diskData : initialState, //use diskData if exists, otherwise use ititialState
   //reducer mutates the store -> adding, deleting, editing
   reducers: {
-    //change to setCurrentUser?
-    setNewUser: (state, { payload }) => {
-      console.log(payload);
-      const tempData = { ...payload };
-      const tempPassword = sha256(tempData.password);
-      tempData.password = tempPassword;
-      state.user = tempData;
+    //changed from setNewUser?
+    setCurrentUser: (state, { payload }) => {
+      state.currentUser = payload;
       state.loggedIn = true;
+      state.users.push(payload);
+      console.log("Received userData in setCurrentUser:", payload.userData);
+      console.log("Payload:", payload);
+      // const tempData = { ...payload };
+      // const tempPassword = sha256(tempData.password);
+      // tempData.password = tempPassword;
+      // state.user = tempData;
+
       //ADD ARRAY FOR USERS HERE (overwriting at present)
 
       // Check if state.users exists before pushing into it
-      if (state.users) {
-        state.users.push(tempData);
-      } else {
-        state.users = [tempData]; // Initialize state.users if it's undefined
-      }
-
-      saveStore(state);
+      // if (state.users) {
+      //   state.users.push(tempData);
+      // } else {
+      //   state.users = [tempData]; // Initialize state.users if it's undefined
+      // }
+      // saveStore(state); //remove?
     },
     setLoggedIn: (state, { payload }) => {
       state.loggedIn = payload;
@@ -52,19 +55,19 @@ export const accountSlice = createSlice({
       } else {
         state.user = null; // Clear currentUser when logging out
       }
-      saveStore(state);
+      // saveStore(state);
     },
   },
 });
 
 //Action Creators
-export const { setNewUser, setLoggedIn } = accountSlice.actions;
+export const { setCurrentUser, setLoggedIn } = accountSlice.actions;
 //setLoggedOut - not needed
 
 //Selectors - extract specific pieces of state from the Redux store.
 // gets data from store
-export const selectUser = (state) => state.account.user;
-// export const selectCurrentUser = (state) => state.account.currentUser;
+// export const selectUser = (state) => state.account.user;
+export const selectCurrentUser = (state) => state.account.currentUser;
 // export const selectScreen = (state) => state.account.screen;
 export const selectLoggedIn = (state) => state.account.loggedIn;
 

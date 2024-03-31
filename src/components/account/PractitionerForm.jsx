@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectLoggedIn, setNewUser } from "../../redux/accountSlice";
+import { selectLoggedIn, setCurrentUser } from "../../redux/accountSlice";
 
 const PractitionerForm = () => {
   const loggedIn = useSelector(selectLoggedIn); // Get the loggedIn state from Redux

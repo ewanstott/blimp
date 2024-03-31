@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  selectUser,
+  // selectCurrentUser,
   setLoggedIn,
   selectLoggedIn,
 } from "../../redux/accountSlice";
@@ -16,7 +16,6 @@ import MainButton from "../MainButton";
 const Login = () => {
   const dispatch = useDispatch();
   const [userInput, setUserInput] = useState({});
-  // const user = useSelector(selectUser);
   const users = useSelector((state) => state.account.users);
   const navigate = useNavigate();
   const loggedIn = useSelector(selectLoggedIn);

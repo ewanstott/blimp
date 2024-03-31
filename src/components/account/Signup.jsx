@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setLoggedIn,
   selectLoggedIn,
-  setNewUser,
+  setCurrentUser,
+  selectCurrentUser,
 } from "../../redux/accountSlice";
 import PatientForm from "./PatientForm";
 import PractitionerForm from "./PractitionerForm";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { setPractitionerData } from "../../redux/practitionerSlice";
 
 const Signup = () => {
   const [userType, setUserType] = useState(); //patient or practioner
@@ -17,12 +19,14 @@ const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loggedIn = useSelector(selectLoggedIn);
+  const user = useSelector(selectCurrentUser);
 
   const onInput = (e) => {
     setUserInput({ ...userInput, [e.target.id]: e.target.value });
     // console.log("userType:", userType); // Check the value of userType - sending patient correctly
   };
 
+  // Old Redux code:
   // const onSubmit = (e) => {
   //   e.preventDefault(); //stops page re-rendering
   //   setUserInput({ ...userInput, userType });
@@ -30,19 +34,21 @@ const Signup = () => {
   //   dispatch(setLoggedIn(true)); // Set loggedIn to True
   // };
 
+  // after making API call to the backend for signing up a practitioner,
+  // receive the practitionerDataBackEnd in the response.
+  // Extract this data and dispatch it to the Redux store.
   const onSubmit = async (e) => {
     e.preventDefault(); //stops page re-rendering
     const userData = { ...userInput, userType }; // Include userType in userData
-    // dispatch(setNewUser(userData)); // Dispatch user data including userType
+
+    console.log("Submitting user data:", userData); // Log the user data before sending it to the backend
 
     //send to API
-
     // const { data } = await axios.post(
-    //   "http://localhost:6001/user/add",
+    //   "http://localhost:6001/practitioner/add",
     //   userData
     // );
-    // console.log(data);
-
+    userData.qualifications = [userData.qualifications];
     //send to API based on user type
     try {
       let response;
@@ -58,7 +64,24 @@ const Signup = () => {
         );
       }
 
-      console.log(response.data);
+      // dispatch(setNewUser(response.data.user)); // Dispatch user data including userType
+      // const practitionerDataBackEnd = response.data.practitionerDataBackEnd;
+      // dispatch(setCurrentUser(response.data.practitionerDataBackEnd));
+
+      // Extract currentUserData and practitionerDataBackEnd from the response
+      const { currentUser } = response.data;
+      console.log("responce data:", response.data);
+
+      // console.log("User state after dispatching setCurrentUser:", user);
+
+      // Dispatch action to store currentUserData and practitionerDataBackEnd in Redux store
+      dispatch(
+        setCurrentUser(
+          currentUser
+          // practitionerDataBackEnd: practitionerDataBackEnd,
+        )
+      );
+      console.log("Received currentUserData:", currentUser);
 
       // Redirect based on user type
       if (userType === "patient") {
@@ -68,7 +91,6 @@ const Signup = () => {
       }
     } catch (error) {
       console.error("Error:", error);
-      // Handle error
     }
   };
 

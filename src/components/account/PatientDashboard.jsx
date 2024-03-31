@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser, setLoggedIn } from "../../redux/accountSlice";
+import { selectCurrentUser, setLoggedIn } from "../../redux/accountSlice";
 import { Link, useNavigate } from "react-router-dom";
 import {
   selectFavourites,
@@ -16,7 +16,7 @@ const PatientDashboard = () => {
   const messages = useSelector(selectMessages);
 
   // Access the currently logged-in user directly
-  const user = useSelector(selectUser);
+  const user = useSelector(selectCurrentUser);
   const favourites = useSelector(selectFavourites);
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
   const [replyContent, setReplyContent] = useState("");

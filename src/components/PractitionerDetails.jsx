@@ -9,14 +9,14 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
-import { selectUser } from "../redux/accountSlice";
+import { selectCurrentUser } from "../redux/accountSlice";
 
 const PractitionerDetails = () => {
   const { id } = useParams();
 
   //selector
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
-  const user = useSelector(selectUser);
+  const user = useSelector(selectCurrentUser);
 
   if (!practitionerData) {
     return <p>Loading data...</p>;

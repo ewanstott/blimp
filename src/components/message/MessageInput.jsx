@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendMessage } from "../../redux/messageSlice";
 import MainButton from "../MainButton";
-import { selectUser } from "../../redux/accountSlice";
+import { selectCurrentUser } from "../../redux/accountSlice";
 
 const MessageInput = ({ sender, senderType }) => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState(""); //store message in local state
-  const user = useSelector(selectUser);
+  const user = useSelector(selectCurrentUser);
 
   console.log(user);
   console.log(message);

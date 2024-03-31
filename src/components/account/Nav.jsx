@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectLoggedIn, selectUser } from "../../redux/accountSlice";
+import { selectLoggedIn, selectCurrentUser } from "../../redux/accountSlice";
 
 const Nav = () => {
   // extracting the loggedIn state from the Redux store.
   const loggedIn = useSelector(selectLoggedIn);
-  const user = useSelector(selectUser);
+  const user = useSelector(selectCurrentUser);
 
   // console.log(user);
   // console.log(user.userType);

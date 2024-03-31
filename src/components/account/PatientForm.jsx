@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectLoggedIn, setNewUser } from "../../redux/accountSlice";
+import { selectLoggedIn } from "../../redux/accountSlice"; // setCurrentUser
 import { Link } from "react-router-dom";
 
 const PatientForm = ({ onInput, onSubmit }) => {

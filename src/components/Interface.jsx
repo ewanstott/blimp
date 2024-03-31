@@ -52,6 +52,13 @@ const Interface = () => {
 
   if (loading) return <Splash logoRef={logoRef} />;
 
+  console.log(practitionerData);
+
+  // if (!Array.isArray(practitionerData)) {
+  //   // Handle the case where practitionerData is not an array
+  //   return <p>Error: Data format not recognized</p>;
+  // }
+
   if (!practitionerData) {
     return <p>Loading...</p>;
   }

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser, setLoggedIn } from "../../redux/accountSlice";
+import { selectCurrentUser, setLoggedIn } from "../../redux/accountSlice";
 import { useNavigate } from "react-router-dom";
 import { selectPractitionerData } from "../../redux/practitionerSlice";
 import MainButton from "../MainButton";
@@ -10,31 +10,35 @@ import MessageInput from "../message/MessageInput";
 const PractitionerDashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector(selectUser);
+  const user = useSelector(selectCurrentUser);
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
   const messages = useSelector(selectMessages);
+
   const [replyContent, setReplyContent] = useState("");
 
   // console.log("Messages received:", messages);
-  console.log(replyContent);
-  console.log(messages);
+  // console.log(currentUserData);
+  console.log("User data:", user);
+  // console.log(currentUserData);
+  // console.log(practitionerDataBackEnd);
   // console.log(practitionerData.name);
 
-  const onReply = (messageId) => {
-    //replyContent in params?
-    dispatch(
-      sendMessage({
-        id: messageId,
-        content: replyContent,
-        senderType: "practitioner",
-        sender: practitionerData.name,
-      })
-    );
-    // Clear reply content after sending
-    setReplyContent("");
-  };
+  // const onReply = (messageId) => {
+  //   //replyContent in params?
+  //   dispatch(
+  //     sendMessage({
+  //       id: messageId,
+  //       content: replyContent,
+  //       senderType: "practitioner",
+  //       sender: practitionerData.name,
+  //     })
+  //   );
+  //   // Clear reply content after sending
+  //   setReplyContent("");
+  // };
 
-  if (!practitionerData) {
+  //check if there is a practitionerData
+  if (!user) {
     return <p>Loading data...</p>;
   }
 
@@ -52,7 +56,7 @@ const PractitionerDashboard = () => {
 
           <div className="practitionerDashMessages">
             <h3>Latest Messages</h3>
-            <ul>
+            {/* <ul>
               {messages &&
                 messages.map((message, index) => (
                   <li key={index}>
@@ -65,22 +69,22 @@ const PractitionerDashboard = () => {
                           </li>
                         ))}
                       </ul>
-                    )}
-                    {/* <div>
+                    )} */}
+            {/* <div>
                       <textarea
                         value={replyContent}
                         onChange={(e) => setReplyContent(e.target.value)}
                         placeholder="Type your reply here"
                       />
                     </div> */}
-                    <MessageInput
-                      senderType="practitioner"
-                      sender={practitionerData.name}
-                    />
-                    {/* <button onClick={() => onReply(message.id)}>Reply</button> */}
-                  </li>
+            <MessageInput
+              senderType="practitioner"
+              sender={practitionerData.name}
+            />
+            {/* <button onClick={() => onReply(message.id)}>Reply</button> */}
+            {/* </li>
                 ))}
-            </ul>
+            </ul> */}
           </div>
         </div>
         <MainButton

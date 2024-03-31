@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 //Initial State
-const initialState = { favourites: [] };
+const initialState = { favourites: [] }; //  practitionerData: null, add
 
 //Slice creation
 export const practitionerSlice = createSlice({
@@ -49,10 +49,10 @@ export const {
 
 //Selectors - extract specific pieces of state from the Redux store.
 // gets data from store
-export const selectNotification = (state) => state.practitioner.notification;
 export const selectPractitionerData = (state) =>
   state.practitioner.practitionerData;
 export const selectSearchTerm = (state) => state.practitioner.searchTerm;
+export const selectNotification = (state) => state.practitioner.notification;
 export const selectFavourites = (state) => state.practitioner.favourites; // Select favourites from state
 // export const selectSinglePractitioner = (state) => {
 //   return state.practitioner.practitionerData.find((practitioner) => {
