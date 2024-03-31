@@ -39,6 +39,7 @@ const Login = () => {
 
     // if found - does this user have correct password
     if (foundUser && foundUser.password === hashedPassword) {
+      ``;
       dispatch(setNotification("Login correct"));
       dispatch(setLoggedIn(foundUser));
 

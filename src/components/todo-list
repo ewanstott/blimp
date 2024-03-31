@@ -18,6 +18,7 @@ Backend:
 - search should reset after searching for user
 - signup/login page should appear if user not logged in and clicks view details of a practitioner
 - Add sorting ability to search results (stars etc )
+- Add webcam (https://www.npmjs.com/package/react-webcam) for signup image
 
 Bonus:
 
