@@ -6,6 +6,7 @@ import MainButton from "../MainButton";
 import { selectMessages, sendMessage } from "../../redux/messageSlice";
 import { useState } from "react";
 import MessageInput from "../message/MessageInput";
+import axios from "axios";
 
 const PractitionerDashboard = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,28 @@ const PractitionerDashboard = () => {
   // console.log("Messages received:", messages);
   // console.log(currentUserData);
   console.log("User data:", user);
+  console.log("User ID:", user.id);
+
+  const handleDeleteAccount = async () => {
+    try {
+      // Send delete request to backend
+      const response = await axios.delete(
+        `http://localhost:6001/practitioner/delete/${user.id}`
+      );
+      console.log(response.data);
+      if (response.data.status === 1) {
+        // If deletion is successful, logout the user and navigate to the home page
+        dispatch(setLoggedIn(false));
+        navigate("/");
+      } else {
+        // Handle deletion failure
+        console.error("Failed to delete account:", response.data.reason);
+      }
+    } catch (error) {
+      console.error("Error deleting account:", error);
+    }
+  };
+
   // console.log(currentUserData);
   // console.log(practitionerDataBackEnd);
   // console.log(practitionerData.name);
@@ -47,8 +70,8 @@ const PractitionerDashboard = () => {
       <div className="practitionerDashboardContainer">
         <div className="practitionerDashboardText">
           <h1>Practitioner Dashboard</h1>
-          <p>Name: {user.name}</p>
-          <p>Email: {user.email}</p>
+          <p>Name: {user.currentUser.name}</p>
+          <p>Email: {user.currentUser.email}</p>
           <h3>Your Details</h3>
           <p>About: {user.about}</p>
           <p>Qualifications: {user.qualifications}</p>
@@ -94,6 +117,7 @@ const PractitionerDashboard = () => {
           }}
           text="Logout"
         />
+        <MainButton onClick={handleDeleteAccount} text="Delete Account" />
         {/* <button
           className="button"
           onClick={() => {

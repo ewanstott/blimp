@@ -48,7 +48,7 @@ const Signup = () => {
     //   "http://localhost:6001/practitioner/add",
     //   userData
     // );
-    userData.qualifications = [userData.qualifications];
+    // userData.qualifications = [userData.qualifications];
     //send to API based on user type
     try {
       let response;
@@ -69,7 +69,7 @@ const Signup = () => {
       // dispatch(setCurrentUser(response.data.practitionerDataBackEnd));
 
       // Extract currentUserData and practitionerDataBackEnd from the response
-      const { currentUser } = response.data;
+      const { currentUser, id } = response.data;
       console.log("responce data:", response.data);
 
       // console.log("User state after dispatching setCurrentUser:", user);
@@ -77,7 +77,7 @@ const Signup = () => {
       // Dispatch action to store currentUserData and practitionerDataBackEnd in Redux store
       dispatch(
         setCurrentUser(
-          currentUser
+          { currentUser, id }
           // practitionerDataBackEnd: practitionerDataBackEnd,
         )
       );

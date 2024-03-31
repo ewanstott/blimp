@@ -9,8 +9,8 @@ const MessageInput = ({ sender, senderType }) => {
   const [message, setMessage] = useState(""); //store message in local state
   const user = useSelector(selectCurrentUser);
 
-  console.log(user);
-  console.log(message);
+  // console.log(user);
+  // console.log(message);
 
   const onSubmit = () => {
     if (message.trim() !== "") {

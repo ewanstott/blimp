@@ -9,6 +9,7 @@ import MainButton from "../MainButton";
 import { selectMessages, sendMessage } from "../../redux/messageSlice";
 import { useState } from "react";
 import MessageInput from "../message/MessageInput";
+import axios from "axios";
 
 const PatientDashboard = () => {
   const dispatch = useDispatch();
@@ -21,22 +22,43 @@ const PatientDashboard = () => {
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
   const [replyContent, setReplyContent] = useState("");
 
-  console.log(messages);
+  console.log("User:", user);
+  console.log("User ID:", user.id);
 
-  const onReply = (messageId) => {
-    dispatch(
-      sendMessage({
-        id: messageId,
-        content: replyContent,
-        senderType: "patient",
-        sender: user.name,
-      })
-    );
-    // Clear reply content after sending
-    setReplyContent("");
+  const handleDeleteAccount = async () => {
+    try {
+      // Send delete request to backend
+      const response = await axios.delete(
+        `http://localhost:6001/patient/delete/${user.id}`
+      );
+      console.log(response.data);
+      if (response.data.status === 1) {
+        // If deletion is successful, logout the user and navigate to the home page
+        dispatch(setLoggedIn(false));
+        navigate("/");
+      } else {
+        // Handle deletion failure
+        console.error("Failed to delete account:", response.data.reason);
+      }
+    } catch (error) {
+      console.error("Error deleting account:", error);
+    }
   };
 
-  if (!practitionerData) {
+  // const onReply = (messageId) => {
+  //   dispatch(
+  //     sendMessage({
+  //       id: messageId,
+  //       content: replyContent,
+  //       senderType: "patient",
+  //       sender: user.name,
+  //     })
+  //   );
+  //   // Clear reply content after sending
+  //   setReplyContent("");
+  // };
+
+  if (!user) {
     return <p>Loading data...</p>;
   }
 
@@ -50,8 +72,8 @@ const PatientDashboard = () => {
       <div className="patientDashboardContainer">
         <div className="patientDashboardText">
           <h1>Patient Dashboard</h1>
-          <p>Name: {user.name}</p>
-          <p>Email: {user.email}</p>
+          <p>Name: {user.currentUser.name}</p>
+          <p>Email: {user.currentUser.email}</p>
 
           <div className="patientDashMessages">
             <h3>Latest Messages</h3>
@@ -111,6 +133,7 @@ const PatientDashboard = () => {
           }}
           text="Logout"
         />
+        <MainButton onClick={handleDeleteAccount} text="Delete Account" />
         {/* <button
           className="button"
           onClick={() => {
