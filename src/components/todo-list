@@ -1,5 +1,14 @@
 //Todos:
 
+PRIORITY:
+
+- Authentication/login
+- Complete signup inputs for practitioner form
+- Fix search
+- Messaging
+- Webcam
+- Calendar
+
 Backend:
 
 - When practitioner signsup, their account is added to database so patients can search for them.

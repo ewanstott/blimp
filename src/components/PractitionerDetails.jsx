@@ -51,17 +51,19 @@ const PractitionerDetails = () => {
         {/* Add Practitioner Intro Video  */}
         <div className="textContainer">
           <h5>Super Powers: {practitioner.specialization}</h5>
-          <p>Location: {practitioner.location}</p>
+          <p>
+            <b>Location:</b> {practitioner.location}
+          </p>
           <p>Words of Wisdom: {practitioner.about}</p>
           <p>Treatment Style: {practitioner.style}</p>
           <p>Years of Wisdom: {practitioner.experience}</p>
           {/* <p className="practitionerQualifications"></p> */}
-          <p>Qualifications:</p>
-          <ul className="practitionerQualifications">
+          <p>Qualifications: {practitioner.qualifications}</p>
+          {/* <ul className="practitionerQualifications">
             {practitioner.qualifications.map((qualification, index) => (
               <li key={index}>{qualification}</li>
             ))}
-          </ul>
+          </ul> */}
           <p>
             Stars: <span className="stars">{stars}</span>
           </p>

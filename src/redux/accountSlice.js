@@ -29,7 +29,6 @@ export const accountSlice = createSlice({
       state.currentUser = payload;
       state.loggedIn = true;
       state.users.push(payload);
-      console.log("Received userData in setCurrentUser:", payload.userData);
       console.log("Payload:", payload);
       // const tempData = { ...payload };
       // const tempPassword = sha256(tempData.password);

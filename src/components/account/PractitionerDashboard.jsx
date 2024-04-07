@@ -73,7 +73,7 @@ const PractitionerDashboard = () => {
           <p>Name: {user.currentUser.name}</p>
           <p>Email: {user.currentUser.email}</p>
           <h3>Your Details</h3>
-          <p>About: {user.about}</p>
+          <p>About: {user.currentUser.about}</p>
           <p>Qualifications: {user.qualifications}</p>
           <p>Specialization: {user.specialization}</p>
 

@@ -57,32 +57,26 @@ const Signup = () => {
           "http://localhost:6001/patient/add",
           userData
         );
+        // Extract currentUserData and practitionerDataBackEnd from the response
+        const { name, email, id } = response.data;
+        console.log("responce data:", response.data);
+
+        dispatch(
+          setCurrentUser({ currentUser: { name, email }, id }) // Dispatch action to update current user state
+        );
       } else if (userType === "practitioner") {
         response = await axios.post(
           "http://localhost:6001/practitioner/add",
           userData
         );
+        // Extract currentUserData and practitionerDataBackEnd from the response
+        const { name, email, id, about } = response.data;
+        console.log("responce data:", response.data);
+
+        dispatch(
+          setCurrentUser({ currentUser: { name, email, about }, id }) // Dispatch action to update current user state
+        );
       }
-
-      // dispatch(setNewUser(response.data.user)); // Dispatch user data including userType
-      // const practitionerDataBackEnd = response.data.practitionerDataBackEnd;
-      // dispatch(setCurrentUser(response.data.practitionerDataBackEnd));
-
-      // Extract currentUserData and practitionerDataBackEnd from the response
-      const { currentUser, id } = response.data;
-      console.log("responce data:", response.data);
-
-      // console.log("User state after dispatching setCurrentUser:", user);
-
-      // Dispatch action to store currentUserData and practitionerDataBackEnd in Redux store
-      dispatch(
-        setCurrentUser(
-          { currentUser, id }
-          // practitionerDataBackEnd: practitionerDataBackEnd,
-        )
-      );
-      console.log("Received currentUserData:", currentUser);
-
       // Redirect based on user type
       if (userType === "patient") {
         navigate("/patient-dashboard");

@@ -24,6 +24,7 @@ const PatientDashboard = () => {
 
   console.log("User:", user);
   console.log("User ID:", user.id);
+  console.log(user.currentUser.name);
 
   const handleDeleteAccount = async () => {
     try {
@@ -61,11 +62,6 @@ const PatientDashboard = () => {
   if (!user) {
     return <p>Loading data...</p>;
   }
-
-  // const practitioner = practitionerData.find((item) => {
-  //   return item.id === Number(id);
-  // });
-  // console.log(practitioner);
 
   return (
     <>
