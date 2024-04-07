@@ -30,29 +30,15 @@ export const accountSlice = createSlice({
       state.loggedIn = true;
       state.users.push(payload);
       console.log("Payload:", payload);
-      // const tempData = { ...payload };
-      // const tempPassword = sha256(tempData.password);
-      // tempData.password = tempPassword;
-      // state.user = tempData;
-
-      //ADD ARRAY FOR USERS HERE (overwriting at present)
-
-      // Check if state.users exists before pushing into it
-      // if (state.users) {
-      //   state.users.push(tempData);
-      // } else {
-      //   state.users = [tempData]; // Initialize state.users if it's undefined
-      // }
-      // saveStore(state); //remove?
     },
     setLoggedIn: (state, { payload }) => {
       state.loggedIn = payload;
 
       if (payload) {
         // Set the currently logged-in user when logging in
-        state.user = payload;
+        state.currentUser = payload;
       } else {
-        state.user = null; // Clear currentUser when logging out
+        state.currentUser = null; // Clear currentUser when logging out
       }
       // saveStore(state);
     },

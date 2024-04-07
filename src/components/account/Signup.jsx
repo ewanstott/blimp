@@ -21,10 +21,17 @@ const Signup = () => {
   const loggedIn = useSelector(selectLoggedIn);
   const user = useSelector(selectCurrentUser);
 
+  // const onInput = (e) => {
+  //   setUserInput({ ...userInput, [e.target.id]: e.target.value });
+
   const onInput = (e) => {
-    setUserInput({ ...userInput, [e.target.id]: e.target.value });
-    // console.log("userType:", userType); // Check the value of userType - sending patient correctly
+    if (e.target.type === "file") {
+      setUserInput({ ...userInput, [e.target.name]: e.target.files[0] });
+    } else {
+      setUserInput({ ...userInput, [e.target.id]: e.target.value });
+    }
   };
+  // };
 
   // Old Redux code:
   // const onSubmit = (e) => {
@@ -55,26 +62,48 @@ const Signup = () => {
       if (userType === "patient") {
         response = await axios.post(
           "http://localhost:6001/patient/add",
-          userData
+          userData,
+          userType
         );
         // Extract currentUserData and practitionerDataBackEnd from the response
         const { name, email, id } = response.data;
         console.log("responce data:", response.data);
 
         dispatch(
-          setCurrentUser({ currentUser: { name, email }, id }) // Dispatch action to update current user state
+          setCurrentUser({ currentUser: { name, email, userType }, id }) // Dispatch action to update current user state
         );
       } else if (userType === "practitioner") {
         response = await axios.post(
           "http://localhost:6001/practitioner/add",
-          userData
+          userData,
+          userType
         );
         // Extract currentUserData and practitionerDataBackEnd from the response
-        const { name, email, id, about } = response.data;
+        const {
+          name,
+          email,
+          id,
+          about,
+          specialization,
+          qualifications,
+          userType,
+          image,
+        } = response.data;
         console.log("responce data:", response.data);
 
         dispatch(
-          setCurrentUser({ currentUser: { name, email, about }, id }) // Dispatch action to update current user state
+          setCurrentUser({
+            currentUser: {
+              name,
+              email,
+              about,
+              specialization,
+              qualifications,
+              userType,
+              image,
+            },
+            id,
+          }) // Dispatch action to update current user state
         );
       }
       // Redirect based on user type
@@ -96,7 +125,13 @@ const Signup = () => {
     <>
       <p>Please enter your signup details below</p>
 
-      <form onInput={onInput} onSubmit={onSubmit}>
+      <form
+        onInput={onInput}
+        onSubmit={onSubmit}
+        action="/profile"
+        method="post"
+        encType="multipart/form-data"
+      >
         <label htmlFor="signup-patient">
           Patient
           <input

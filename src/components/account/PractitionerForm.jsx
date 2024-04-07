@@ -71,6 +71,16 @@ const PractitionerForm = () => {
         <input type="about" id="about" name="about" required />
       </div>
       <div>
+        <label htmlFor="image">Upload Your Photo:</label>
+        <input
+          type="file"
+          id="image"
+          name="image"
+          accept="image/*"
+          encType="multipart/form-data"
+        />
+      </div>
+      <div>
         <button type="submit">Submit</button>
       </div>
       {/* </form> */}

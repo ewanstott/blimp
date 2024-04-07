@@ -54,20 +54,28 @@ const PractitionerDetails = () => {
           <p>
             <b>Location:</b> {practitioner.location}
           </p>
-          <p>Words of Wisdom: {practitioner.about}</p>
-          <p>Treatment Style: {practitioner.style}</p>
-          <p>Years of Wisdom: {practitioner.experience}</p>
+          <p>
+            <b>Words of Wisdom:</b> {practitioner.about}
+          </p>
+          {/* <p>Treatment Style: {practitioner.style}</p> */}
+          <p>
+            <b>Years of Wisdom:</b> {practitioner.experience}
+          </p>
           {/* <p className="practitionerQualifications"></p> */}
-          <p>Qualifications: {practitioner.qualifications}</p>
+          <p>
+            <b>Qualifications:</b> {practitioner.qualifications}
+          </p>
           {/* <ul className="practitionerQualifications">
             {practitioner.qualifications.map((qualification, index) => (
               <li key={index}>{qualification}</li>
             ))}
           </ul> */}
           <p>
-            Stars: <span className="stars">{stars}</span>
+            <b>Stars:</b> <span className="stars">{stars}</span>
           </p>
-          <p>Reviews: ...</p>
+          <p>
+            <b>Reviews:</b> ...
+          </p>
 
           <div className="practitionerControls">
             <PractitionerControls practitioner={practitioner} />

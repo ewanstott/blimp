@@ -22,6 +22,9 @@ const PractitionerDashboard = () => {
   console.log("User data:", user);
   console.log("User ID:", user.id);
 
+  console.log(user.userType);
+  console.log(user.currentUser.userType);
+
   const handleDeleteAccount = async () => {
     try {
       // Send delete request to backend
@@ -72,10 +75,13 @@ const PractitionerDashboard = () => {
           <h1>Practitioner Dashboard</h1>
           <p>Name: {user.currentUser.name}</p>
           <p>Email: {user.currentUser.email}</p>
+          <p>
+            <img>{user.currentUser.image}</img>
+          </p>
           <h3>Your Details</h3>
           <p>About: {user.currentUser.about}</p>
-          <p>Qualifications: {user.qualifications}</p>
-          <p>Specialization: {user.specialization}</p>
+          <p>Qualifications: {user.currentUser.qualifications}</p>
+          <p>Specialization: {user.currentUser.specialization}</p>
 
           <div className="practitionerDashMessages">
             <h3>Latest Messages</h3>
