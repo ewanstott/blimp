@@ -62,46 +62,46 @@ const Interface = () => {
   if (!practitionerData) {
     return <p>Loading...</p>;
   }
-  console.log(practitionerData);
-  console.log(practitionerData[0].name);
+  // console.log(practitionerData);
+  // console.log(practitionerData[0].name);
   // practitionerData.forEach((practitioner) => {
   //   console.log(practitioner.name);
   // });
 
-  // let filtered = [...practitionerData]; //make copy of store as NOT allowed to mutate store data
-  // if (searchTerm) {
-  //   filtered = filtered.filter((practitioner) => {
-  //     return (
-  //       practitioner.name.toLowerCase().includes(searchTerm) ||
-  //       practitioner.specialization.toLowerCase().includes(searchTerm) ||
-  //       practitioner.about.toLowerCase().includes(searchTerm) ||
-  //       practitioner.location.toLowerCase().includes(searchTerm)
-  //     );
-  //   });
-  // }
-
-  let filtered = [...practitionerData]; // Make a copy of the array
-
+  let filtered = [...practitionerData]; //make copy of store as NOT allowed to mutate store data
   if (searchTerm) {
     filtered = filtered.filter((practitioner) => {
-      // Convert both the practitioner property and the search term to lowercase for case-insensitive matching
-      const lowercaseSearchTerm = searchTerm.toLowerCase();
-
-      // Ensure that each property exists before trying to access it
       return (
-        (practitioner.name &&
-          practitioner.name.toLowerCase().includes(lowercaseSearchTerm)) ||
-        (practitioner.specialization &&
-          practitioner.specialization
-            .toLowerCase()
-            .includes(lowercaseSearchTerm)) ||
-        (practitioner.about &&
-          practitioner.about.toLowerCase().includes(lowercaseSearchTerm)) ||
-        (practitioner.location &&
-          practitioner.location.toLowerCase().includes(lowercaseSearchTerm))
+        practitioner.name.toLowerCase().includes(searchTerm) ||
+        practitioner.specialization.toLowerCase().includes(searchTerm) ||
+        practitioner.about.toLowerCase().includes(searchTerm) ||
+        practitioner.location.toLowerCase().includes(searchTerm)
       );
     });
   }
+
+  // let filtered = [...practitionerData]; // Make a copy of the array
+
+  // if (searchTerm) {
+  //   filtered = filtered.filter((practitioner) => {
+  //     // Convert both the practitioner property and the search term to lowercase for case-insensitive matching
+  //     const lowercaseSearchTerm = searchTerm.toLowerCase();
+
+  //     // Ensure that each property exists before trying to access it
+  //     return (
+  //       (practitioner.name &&
+  //         practitioner.name.toLowerCase().includes(lowercaseSearchTerm)) ||
+  //       (practitioner.specialization &&
+  //         practitioner.specialization
+  //           .toLowerCase()
+  //           .includes(lowercaseSearchTerm)) ||
+  //       (practitioner.about &&
+  //         practitioner.about.toLowerCase().includes(lowercaseSearchTerm)) ||
+  //       (practitioner.location &&
+  //         practitioner.location.toLowerCase().includes(lowercaseSearchTerm))
+  //     );
+  //   });
+  // }
 
   return (
     <>

@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import sha256 from "sha256";
 import { getStore, saveStore } from "./diskUtils";
 
 //Initial State

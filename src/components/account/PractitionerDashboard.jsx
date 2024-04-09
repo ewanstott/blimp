@@ -55,29 +55,12 @@ const PractitionerDashboard = () => {
     }
   };
 
-  // console.log(currentUserData);
-  // console.log(practitionerDataBackEnd);
-  // console.log(practitionerData.name);
-
-  // const onReply = (messageId) => {
-  //   //replyContent in params?
-  //   dispatch(
-  //     sendMessage({
-  //       id: messageId,
-  //       content: replyContent,
-  //       senderType: "practitioner",
-  //       sender: practitionerData.name,
-  //     })
-  //   );
-  //   // Clear reply content after sending
-  //   setReplyContent("");
-  // };
-
   //check if there is a practitionerData
   if (!user) {
     return <p>Loading data...</p>;
   }
 
+  console.log(user);
   return (
     <>
       <div className="practitionerDashboardContainer">

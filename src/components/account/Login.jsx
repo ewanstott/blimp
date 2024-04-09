@@ -7,7 +7,6 @@ import {
   setCurrentUser,
 } from "../../redux/accountSlice";
 import EmailPasswordForm from "./EmailPasswordForm";
-import sha256 from "sha256";
 import { setNotification } from "../../redux/practitionerSlice";
 import { useNavigate } from "react-router-dom";
 import MainButton from "../MainButton";
@@ -18,7 +17,7 @@ import axios from "axios";
 const Login = () => {
   const dispatch = useDispatch();
   const [userInput, setUserInput] = useState({});
-  const users = useSelector((state) => state.account.users);
+  // const users = useSelector((state) => state.account.users);
   const navigate = useNavigate();
   const loggedIn = useSelector(selectLoggedIn);
   // const [userType, setUserType] = useState(""); //patient or practioner
@@ -39,11 +38,15 @@ const Login = () => {
         userData
       );
       console.log(response);
+      console.log(response.data);
+      console.log(response.data.user);
       if (response.data.status === 1) {
         // Set the logged-in user in the Redux store
         dispatch(setLoggedIn(true));
         dispatch(setCurrentUser(response.data.user));
-
+        // dispatch(
+        //   setCurrentUser({ ...response.data }) // Dispatch action to update current user state
+        // );
         // Store the user's token in local storage
         localStorage.setItem("token", response.data.token);
 
@@ -60,6 +63,7 @@ const Login = () => {
         if (response.data.status === 1) {
           // Set the logged-in user in the Redux store
           dispatch(setLoggedIn(true));
+          dispatch(setCurrentUser(response.data.user));
 
           // Store the user's token in local storage
           localStorage.setItem("token", response.data.token);

@@ -70,8 +70,8 @@ const PatientDashboard = () => {
       <div className="patientDashboardContainer">
         <div className="patientDashboardText">
           <h1>Patient Dashboard</h1>
-          {/* <p>Name: {user.currentUser.name}</p>
-          <p>Email: {user.currentUser.email}</p> */}
+          <p>Name: {user.name}</p>
+          <p>Email: {user.email}</p>
 
           <div className="patientDashMessages">
             <h3>Latest Messages</h3>

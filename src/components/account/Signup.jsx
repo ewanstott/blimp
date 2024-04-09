@@ -32,15 +32,6 @@ const Signup = () => {
       setUserInput({ ...userInput, [e.target.id]: e.target.value });
     }
   };
-  // };
-
-  // Old Redux code:
-  // const onSubmit = (e) => {
-  //   e.preventDefault(); //stops page re-rendering
-  //   setUserInput({ ...userInput, userType });
-  //   dispatch(setNewUser(userInput)); //when submit pressed, dispatch -> setNewUser -> send store all user input (email, password)
-  //   dispatch(setLoggedIn(true)); // Set loggedIn to True
-  // };
 
   // after making API call to the backend for signing up a practitioner,
   // receive the practitionerDataBackEnd in the response.
@@ -62,7 +53,7 @@ const Signup = () => {
         console.log("responce data:", response.data);
 
         dispatch(
-          setCurrentUser({ ...response.data.user }) // Dispatch action to update current user state
+          setCurrentUser({ ...response.data }) // Dispatch action to update current user state
         );
         // Add token to local storage
         localStorage.setItem("token", response.data.token);
@@ -72,7 +63,7 @@ const Signup = () => {
         });
         // Extract currentUserData and practitionerDataBackEnd from the response
         dispatch(
-          setCurrentUser({ ...response.data.user }) // Dispatch action to update current user state
+          setCurrentUser({ ...response.data }) // Dispatch action to update current user state
         );
         // Add token to local storage
         localStorage.setItem("token", response.data.token);
@@ -91,7 +82,7 @@ const Signup = () => {
   const radioHandler = (input) => {
     setUserType(input);
   };
-  console.log(userInput);
+  // console.log(userInput);
   return (
     <>
       <p>Please enter your signup details below</p>
