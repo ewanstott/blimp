@@ -24,7 +24,6 @@ export const accountSlice = createSlice({
   initialState: diskData ? diskData : initialState, //use diskData if exists, otherwise use ititialState
   //reducer mutates the store -> adding, deleting, editing
   reducers: {
-    //changed from setNewUser?
     setCurrentUser: (state, { payload }) => {
       state.currentUser = payload;
       state.loggedIn = true;
@@ -33,17 +32,10 @@ export const accountSlice = createSlice({
     },
     setLoggedIn: (state, { payload }) => {
       state.loggedIn = payload;
-      if (payload) {
-        // Set the currently logged-in user when logging in
-        state.currentUser = payload;
-      } else {
+      if (!payload) {
         state.currentUser = null; // Clear currentUser when logging out
       }
     },
-    // logoutUser: (state) => {
-    //   state.loggedIn = false;
-    //   state.currentUser = null;
-    // },
   },
 });
 

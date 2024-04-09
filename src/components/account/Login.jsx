@@ -4,6 +4,7 @@ import {
   // selectCurrentUser,
   setLoggedIn,
   selectLoggedIn,
+  setCurrentUser,
 } from "../../redux/accountSlice";
 import EmailPasswordForm from "./EmailPasswordForm";
 import sha256 from "sha256";
@@ -37,10 +38,11 @@ const Login = () => {
         "http://localhost:6001/patient/login",
         userData
       );
-
+      console.log(response);
       if (response.data.status === 1) {
         // Set the logged-in user in the Redux store
         dispatch(setLoggedIn(true));
+        dispatch(setCurrentUser(response.data.user));
 
         // Store the user's token in local storage
         localStorage.setItem("token", response.data.token);

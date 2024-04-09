@@ -1,9 +1,19 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useState } from "react";
+import { useSelector } from "react-redux";
 import { selectLoggedIn, setCurrentUser } from "../../redux/accountSlice";
 
-const PractitionerForm = () => {
+const PractitionerForm = ({ onInput }) => {
   const loggedIn = useSelector(selectLoggedIn); // Get the loggedIn state from Redux
+
+  const onChangeImage = (e) => {
+    console.log(e);
+    const reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.addEventListener("load", (e) => {
+      console.log(e.target.result);
+      onInput({ type: "file", file: e.target.result });
+    });
+  };
 
   //@Ask - duplicate code below - combine with patientForm??
   // const [userInput, setUserInput] = useState({});
@@ -73,11 +83,11 @@ const PractitionerForm = () => {
       <div>
         <label htmlFor="image">Upload Your Photo:</label>
         <input
+          onChange={onChangeImage}
           type="file"
           id="image"
           name="image"
           accept="image/*"
-          encType="multipart/form-data"
         />
       </div>
       <div>

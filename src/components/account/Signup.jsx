@@ -25,8 +25,9 @@ const Signup = () => {
   //   setUserInput({ ...userInput, [e.target.id]: e.target.value });
 
   const onInput = (e) => {
-    if (e.target.type === "file") {
-      setUserInput({ ...userInput, [e.target.name]: e.target.files[0] });
+    console.log(e);
+    if (e.type === "file") {
+      setUserInput({ ...userInput, file: e.file });
     } else {
       setUserInput({ ...userInput, [e.target.id]: e.target.value });
     }
@@ -54,56 +55,27 @@ const Signup = () => {
     try {
       let response;
       if (userType === "patient") {
-        response = await axios.post(
-          "http://localhost:6001/patient/add",
-          userData,
-          userType
-        );
+        response = await axios.post("http://localhost:6001/patient/add", {
+          ...userData,
+        });
         // Extract currentUserData and practitionerDataBackEnd from the response
-        const { name, email, id, token } = response.data;
         console.log("responce data:", response.data);
 
         dispatch(
-          setCurrentUser({ currentUser: { name, email, userType }, id }) // Dispatch action to update current user state
+          setCurrentUser({ ...response.data.user }) // Dispatch action to update current user state
         );
         // Add token to local storage
-        localStorage.setItem("token", token);
+        localStorage.setItem("token", response.data.token);
       } else if (userType === "practitioner") {
-        response = await axios.post(
-          "http://localhost:6001/practitioner/add",
-          userData,
-          userType
-        );
+        response = await axios.post("http://localhost:6001/practitioner/add", {
+          ...userData,
+        });
         // Extract currentUserData and practitionerDataBackEnd from the response
-        const {
-          name,
-          email,
-          id,
-          about,
-          specialization,
-          qualifications,
-          userType,
-          image,
-          token,
-        } = response.data;
-        console.log("responce data:", response.data);
-
         dispatch(
-          setCurrentUser({
-            currentUser: {
-              name,
-              email,
-              about,
-              specialization,
-              qualifications,
-              userType,
-              image,
-            },
-            id,
-          }) // Dispatch action to update current user state
+          setCurrentUser({ ...response.data.user }) // Dispatch action to update current user state
         );
         // Add token to local storage
-        localStorage.setItem("token", token);
+        localStorage.setItem("token", response.data.token);
       }
       // Redirect based on user type
       if (userType === "patient") {
@@ -119,18 +91,12 @@ const Signup = () => {
   const radioHandler = (input) => {
     setUserType(input);
   };
-
+  console.log(userInput);
   return (
     <>
       <p>Please enter your signup details below</p>
 
-      <form
-        onInput={onInput}
-        onSubmit={onSubmit}
-        action="/profile"
-        method="post"
-        encType="multipart/form-data"
-      >
+      <form onInput={onInput} onSubmit={onSubmit}>
         <label htmlFor="signup-patient">
           Patient
           <input

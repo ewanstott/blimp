@@ -7,7 +7,9 @@ const Nav = () => {
   const loggedIn = useSelector(selectLoggedIn);
   const user = useSelector(selectCurrentUser);
 
-  const userType = user && user.currentUser ? user.currentUser.userType : null;
+  // console.log(user.currentUser.userType);
+
+  // const userType = user && user.currentUser ? user.currentUser.userType : null;
   // const token = localStorage.getItem("token");
 
   return (
@@ -18,7 +20,7 @@ const Nav = () => {
         <Link to="/">Home</Link>
         {/* Dash should only show when user logged in  */}
         {loggedIn &&
-          (userType === "patient" ? (
+          (user.userType === "patient" ? (
             <Link to="/patient-dashboard">Dashboard</Link>
           ) : (
             <Link to="/practitioner-dashboard">Dashboard</Link>

@@ -15,15 +15,25 @@ const PractitionerDashboard = () => {
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
   const messages = useSelector(selectMessages);
 
-  const [replyContent, setReplyContent] = useState("");
+  // const [replyContent, setReplyContent] = useState("");
 
-  // console.log("Messages received:", messages);
-  // console.log(currentUserData);
   console.log("User data:", user);
-  console.log("User ID:", user.id);
 
-  console.log(user.userType);
-  console.log(user.currentUser.userType);
+  const handleLogout = async () => {
+    console.log("Logout button clicked");
+    const { data } = await axios.delete(
+      `http://localhost:6001/practitioner/logout`, //add ${user.id} ??
+      {
+        headers: { token: localStorage.getItem("token") },
+      }
+    );
+    console.log("Logout response:", data); // Log the response
+    if (data.status) {
+      localStorage.removeItem("token");
+      dispatch(setLoggedIn(false));
+      navigate("/");
+    }
+  };
 
   const handleDeleteAccount = async () => {
     try {
@@ -73,15 +83,15 @@ const PractitionerDashboard = () => {
       <div className="practitionerDashboardContainer">
         <div className="practitionerDashboardText">
           <h1>Practitioner Dashboard</h1>
-          <p>Name: {user.currentUser.name}</p>
-          <p>Email: {user.currentUser.email}</p>
+          <p>Name: {user.name}</p>
+          <p>Email: {user.email}</p>
           <p>
-            <img>{user.currentUser.image}</img>
+            <img src={user.image} />
           </p>
           <h3>Your Details</h3>
-          <p>About: {user.currentUser.about}</p>
-          <p>Qualifications: {user.currentUser.qualifications}</p>
-          <p>Specialization: {user.currentUser.specialization}</p>
+          <p>About: {user.about}</p>
+          <p>Qualifications: {user.qualifications}</p>
+          <p>Specialization: {user.specialization}</p>
 
           <div className="practitionerDashMessages">
             <h3>Latest Messages</h3>
@@ -117,10 +127,11 @@ const PractitionerDashboard = () => {
           </div>
         </div>
         <MainButton
-          onClick={() => {
-            dispatch(setLoggedIn(false));
-            navigate("/");
-          }}
+          onClick={handleLogout}
+          // onClick={() => {
+          //   dispatch(setLoggedIn(false));
+          //   navigate("/");
+          // }}
           text="Logout"
         />
         <MainButton onClick={handleDeleteAccount} text="Delete Account" />

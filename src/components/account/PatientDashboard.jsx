@@ -12,6 +12,7 @@ import MessageInput from "../message/MessageInput";
 import axios from "axios";
 
 const PatientDashboard = () => {
+  //{userType}
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const messages = useSelector(selectMessages);
@@ -20,7 +21,7 @@ const PatientDashboard = () => {
   const user = useSelector(selectCurrentUser);
   const favourites = useSelector(selectFavourites);
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
-  const [replyContent, setReplyContent] = useState("");
+  // const [replyContent, setReplyContent] = useState("");
 
   console.log("User:", user);
 
