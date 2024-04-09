@@ -8,6 +8,7 @@ const Nav = () => {
   const user = useSelector(selectCurrentUser);
 
   const userType = user && user.currentUser ? user.currentUser.userType : null;
+  // const token = localStorage.getItem("token");
 
   return (
     <>

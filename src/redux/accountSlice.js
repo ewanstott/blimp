@@ -33,20 +33,23 @@ export const accountSlice = createSlice({
     },
     setLoggedIn: (state, { payload }) => {
       state.loggedIn = payload;
-
       if (payload) {
         // Set the currently logged-in user when logging in
         state.currentUser = payload;
       } else {
         state.currentUser = null; // Clear currentUser when logging out
       }
-      // saveStore(state);
     },
+    // logoutUser: (state) => {
+    //   state.loggedIn = false;
+    //   state.currentUser = null;
+    // },
   },
 });
 
 //Action Creators
-export const { setCurrentUser, setLoggedIn } = accountSlice.actions;
+export const { setCurrentUser, setLoggedIn, logoutUsers } =
+  accountSlice.actions;
 //setLoggedOut - not needed
 
 //Selectors - extract specific pieces of state from the Redux store.

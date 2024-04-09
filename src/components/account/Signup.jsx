@@ -50,12 +50,6 @@ const Signup = () => {
 
     console.log("Submitting user data:", userData); // Log the user data before sending it to the backend
 
-    //send to API
-    // const { data } = await axios.post(
-    //   "http://localhost:6001/practitioner/add",
-    //   userData
-    // );
-    // userData.qualifications = [userData.qualifications];
     //send to API based on user type
     try {
       let response;
@@ -66,12 +60,14 @@ const Signup = () => {
           userType
         );
         // Extract currentUserData and practitionerDataBackEnd from the response
-        const { name, email, id } = response.data;
+        const { name, email, id, token } = response.data;
         console.log("responce data:", response.data);
 
         dispatch(
           setCurrentUser({ currentUser: { name, email, userType }, id }) // Dispatch action to update current user state
         );
+        // Add token to local storage
+        localStorage.setItem("token", token);
       } else if (userType === "practitioner") {
         response = await axios.post(
           "http://localhost:6001/practitioner/add",
@@ -88,6 +84,7 @@ const Signup = () => {
           qualifications,
           userType,
           image,
+          token,
         } = response.data;
         console.log("responce data:", response.data);
 
@@ -105,6 +102,8 @@ const Signup = () => {
             id,
           }) // Dispatch action to update current user state
         );
+        // Add token to local storage
+        localStorage.setItem("token", token);
       }
       // Redirect based on user type
       if (userType === "patient") {

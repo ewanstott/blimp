@@ -10,6 +10,7 @@ import sha256 from "sha256";
 import { setNotification } from "../../redux/practitionerSlice";
 import { useNavigate } from "react-router-dom";
 import MainButton from "../MainButton";
+import axios from "axios";
 
 //add logic so user directed to correct dash based on type (patient vs prac)
 
@@ -19,50 +20,61 @@ const Login = () => {
   const users = useSelector((state) => state.account.users);
   const navigate = useNavigate();
   const loggedIn = useSelector(selectLoggedIn);
-  // const [userType, setUserType] = useState(); //patient or practioner
+  // const [userType, setUserType] = useState(""); //patient or practioner
 
   const onInput = (e) => {
     setUserInput({ ...userInput, [e.target.id]: e.target.value });
   };
 
-  ///
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault(); //stops page re-rendering
-    console.log("user:", users); // Check the value of user
-    // const { password } = userInput;
+    const userData = { ...userInput }; // Include userType?
 
-    const hashedPassword = sha256(userInput.password);
-    console.log(userInput);
-
-    //find user from users matching on email
-    const foundUser = users.find((user) => user.email === userInput.email);
-
-    // if found - does this user have correct password
-    if (foundUser && foundUser.password === hashedPassword) {
-      ``;
-      dispatch(setNotification("Login correct"));
-      dispatch(setLoggedIn(foundUser));
-
-      //add user type here
-
-      console.log("loggedIn:", loggedIn); // Check the value of loggedIn
-      console.log("user:", foundUser); // Check the value of user
-
-      if (foundUser.userType === "patient") {
-        navigate("/patient-dashboard");
-      } else if (foundUser.userType === "practitioner") {
-        navigate("/practitioner-dashboard");
-      }
-    } else {
-      dispatch(
-        setNotification("Email and/or password incorrect, please try again")
+    try {
+      let response;
+      // Send login request to the patient login endpoint
+      response = await axios.post(
+        "http://localhost:6001/patient/login",
+        userData
       );
+
+      if (response.data.status === 1) {
+        // Set the logged-in user in the Redux store
+        dispatch(setLoggedIn(true));
+
+        // Store the user's token in local storage
+        localStorage.setItem("token", response.data.token);
+
+        // Redirect to the patient dashboard
+        navigate("/patient-dashboard");
+      } else {
+        // If login as patient fails, try logging in as practitioner
+        // Send login request to the practitioner login endpoint
+        response = await axios.post(
+          "http://localhost:6001/practitioner/login",
+          userData
+        );
+
+        if (response.data.status === 1) {
+          // Set the logged-in user in the Redux store
+          dispatch(setLoggedIn(true));
+
+          // Store the user's token in local storage
+          localStorage.setItem("token", response.data.token);
+
+          // Redirect to the practitioner dashboard
+          navigate("/practitioner-dashboard");
+        } else {
+          // Handle login failure
+          dispatch(setNotification("Please check your email or password!"));
+        }
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      // Handle error
+      // For example, dispatch an action to set an error message
     }
   };
-
-  // const handleLoginButtonClick = () => {
-  //   navigate("/login");
-  // };
 
   return (
     <>

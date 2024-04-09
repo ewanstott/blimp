@@ -23,8 +23,22 @@ const PatientDashboard = () => {
   const [replyContent, setReplyContent] = useState("");
 
   console.log("User:", user);
-  console.log("User ID:", user.id);
-  console.log(user.currentUser.name);
+
+  const handleLogout = async () => {
+    console.log("Logout button clicked");
+    const { data } = await axios.delete(
+      `http://localhost:6001/patient/logout`, //add ${user.id} ??
+      {
+        headers: { token: localStorage.getItem("token") },
+      }
+    );
+    console.log("Logout response:", data); // Log the response
+    if (data.status) {
+      localStorage.removeItem("token");
+      dispatch(setLoggedIn(false));
+      navigate("/");
+    }
+  };
 
   const handleDeleteAccount = async () => {
     try {
@@ -46,19 +60,6 @@ const PatientDashboard = () => {
     }
   };
 
-  // const onReply = (messageId) => {
-  //   dispatch(
-  //     sendMessage({
-  //       id: messageId,
-  //       content: replyContent,
-  //       senderType: "patient",
-  //       sender: user.name,
-  //     })
-  //   );
-  //   // Clear reply content after sending
-  //   setReplyContent("");
-  // };
-
   if (!user) {
     return <p>Loading data...</p>;
   }
@@ -68,8 +69,8 @@ const PatientDashboard = () => {
       <div className="patientDashboardContainer">
         <div className="patientDashboardText">
           <h1>Patient Dashboard</h1>
-          <p>Name: {user.currentUser.name}</p>
-          <p>Email: {user.currentUser.email}</p>
+          {/* <p>Name: {user.currentUser.name}</p>
+          <p>Email: {user.currentUser.email}</p> */}
 
           <div className="patientDashMessages">
             <h3>Latest Messages</h3>
@@ -123,10 +124,10 @@ const PatientDashboard = () => {
           </div>
         </div>
         <MainButton
-          onClick={() => {
-            dispatch(setLoggedIn(false));
-            navigate("/");
-          }}
+          onClick={handleLogout}
+          // onClick={() => {
+          //   dispatch(setLoggedIn(false));
+          //   navigate("/");
           text="Logout"
         />
         <MainButton onClick={handleDeleteAccount} text="Delete Account" />
