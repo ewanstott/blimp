@@ -13,7 +13,7 @@ Blimp is a personal project aimed at connecting clients with self-employed healt
 - Database: MySQL relational database (hosted separately)
 - UI Library: Material-UI
 - Responsiveness: Fully Responsive Design
-- UX/UI Design: Collaborated with Tahmina Mustafayeva, a gifted UX/UI designer
+- UX/UI Design: designed to be modern and responsive (plan to work with a UI/UX designer in the future to improve)
 - Logo Design: Created by Myself
 - Form Validation: Joi Validator (both front and backend)
 - Authentication: Token-based
