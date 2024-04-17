@@ -6,9 +6,11 @@ const Nav = () => {
   // extracting the loggedIn state from the Redux store.
   const loggedIn = useSelector(selectLoggedIn);
   const user = useSelector(selectCurrentUser);
+  // console.log(user);
+  // console.log(user.userType);
 
-  //check this
-  const userType = user && user.currentUser ? user.currentUser.userType : null;
+  // Extracting userType from the user object
+  const userType = user ? user.userType : null;
 
   return (
     <>

@@ -38,13 +38,12 @@ const Login = () => {
         userData
       );
       console.log(response.data);
+      console.log(userData);
       if (response.data.status === 1) {
         // Set the logged-in user in the Redux store
         dispatch(setLoggedIn(true));
         dispatch(setCurrentUser(response.data));
-        // dispatch(
-        //   setCurrentUser({ ...response.data }) // Dispatch action to update current user state
-        // );
+
         // Store the user's token in local storage
         localStorage.setItem("token", response.data.token);
 
@@ -61,7 +60,7 @@ const Login = () => {
         if (response.data.status === 1) {
           // Set the logged-in user in the Redux store
           dispatch(setLoggedIn(true));
-          dispatch(setCurrentUser(response.data.user));
+          dispatch(setCurrentUser(response.data));
 
           // Store the user's token in local storage
           localStorage.setItem("token", response.data.token);

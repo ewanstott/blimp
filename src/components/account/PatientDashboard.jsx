@@ -43,12 +43,16 @@ const PatientDashboard = () => {
     try {
       // Send delete request to backend
       const response = await axios.delete(
-        `http://localhost:6001/patient/delete/${user.id}`
+        `http://localhost:6001/patient/delete`,
+        {
+          headers: { token: localStorage.getItem("token") },
+        }
       );
       console.log(response.data);
       if (response.data.status === 1) {
         // If deletion is successful, logout the user and navigate to the home page
         dispatch(setLoggedIn(false));
+        localStorage.removeItem("token");
         navigate("/");
       } else {
         // Handle deletion failure
