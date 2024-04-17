@@ -23,8 +23,6 @@ const PatientDashboard = () => {
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
   // const [replyContent, setReplyContent] = useState("");
 
-  console.log("User:", user);
-
   const handleLogout = async () => {
     console.log("Logout button clicked");
     const { data } = await axios.delete(
@@ -60,6 +58,7 @@ const PatientDashboard = () => {
       console.error("Error deleting account:", error);
     }
   };
+  console.log("User:", user);
 
   if (!user) {
     return <p>Loading data...</p>;

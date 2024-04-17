@@ -37,13 +37,11 @@ const Login = () => {
         "http://localhost:6001/patient/login",
         userData
       );
-      console.log(response);
       console.log(response.data);
-      console.log(response.data.user);
       if (response.data.status === 1) {
         // Set the logged-in user in the Redux store
         dispatch(setLoggedIn(true));
-        dispatch(setCurrentUser(response.data.user));
+        dispatch(setCurrentUser(response.data));
         // dispatch(
         //   setCurrentUser({ ...response.data }) // Dispatch action to update current user state
         // );

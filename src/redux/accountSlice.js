@@ -27,6 +27,7 @@ export const accountSlice = createSlice({
       state.currentUser = payload;
       state.loggedIn = true;
       state.users.push(payload);
+      // console.log(state);
       console.log("Payload:", payload);
     },
     setLoggedIn: (state, { payload }) => {
