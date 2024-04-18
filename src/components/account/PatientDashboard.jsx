@@ -11,6 +11,8 @@ import { selectMessages, sendMessage } from "../../redux/messageSlice";
 import { useState } from "react";
 import MessageInput from "../message/MessageInput";
 import axios from "axios";
+import { MessageBox } from "react-chat-elements";
+import Chat from "../message/chat";
 
 const PatientDashboard = () => {
   //{userType}
@@ -80,32 +82,11 @@ const PatientDashboard = () => {
 
           <div className="patientDashMessages">
             <h3>Latest Messages</h3>
-            <ul>
-              {messages.map((message, index) => (
-                <li key={index}>
-                  {user.name}: {message.content}
-                  {message.replies && (
-                    <ul>
-                      {message.replies.map((reply, index) => (
-                        <li key={index}>
-                          {reply.sender} {reply.content}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  <div>
-                    {/* <textarea
-                      value={replyContent}
-                      onChange={(e) => setReplyContent(e.target.value)}
-                      placeholder="Type your reply here"
-                    /> */}
-                    <MessageInput senderType="patient" sender={user.name} />
-
-                    {/* <button onClick={() => onReply(message.id)}>Reply</button> */}
-                  </div>
-                </li>
-              ))}
-            </ul>
+            {/* <div className="App">
+              <h1>My Chat App</h1>
+              <Chat />
+            </div> */}
+            <MessageInput senderType="patient" sender={user.name} />
           </div>
 
           <p>Favourite Health Heroes:</p>

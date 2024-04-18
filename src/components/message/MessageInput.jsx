@@ -27,6 +27,9 @@ const MessageInput = ({ senderType, sender }) => {
   );
 };
 
+export default MessageInput;
+
+//old//
 // const MessageInput = ({ sender, senderType }) => {
 //   const dispatch = useDispatch();
 //   const [message, setMessage] = useState(""); //store message in local state
