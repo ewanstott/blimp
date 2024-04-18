@@ -73,8 +73,11 @@ const PractitionerForm = ({ onInput }) => {
         <option value="3">3 years</option>
         <option value="4">4 years</option>
         <option value="5">5 years</option>
-        <option value="15">15 years</option>
-        <option value="15+">15+ years</option>
+        <option value="5">6 years</option>
+        <option value="5">7 years</option>
+        <option value="5">8 years</option>
+        <option value="5">9 years</option>
+        <option value="15">10+ years</option>
       </select>
       <div>
         <label htmlFor="about">About:</label>

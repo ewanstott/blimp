@@ -1,7 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser, setLoggedIn } from "../../redux/accountSlice";
 import { useNavigate } from "react-router-dom";
-import { selectPractitionerData } from "../../redux/practitionerSlice";
+import {
+  selectPractitionerData,
+  setNotification,
+} from "../../redux/practitionerSlice";
 import MainButton from "../MainButton";
 import { selectMessages, sendMessage } from "../../redux/messageSlice";
 import { useState } from "react";
@@ -39,12 +42,17 @@ const PractitionerDashboard = () => {
     try {
       // Send delete request to backend
       const response = await axios.delete(
-        `http://localhost:6001/practitioner/delete/${user.id}`
+        `http://localhost:6001/practitioner/delete/`,
+        {
+          headers: { token: localStorage.getItem("token") },
+        }
       );
       console.log(response.data);
       if (response.data.status === 1) {
         // If deletion is successful, logout the user and navigate to the home page
         dispatch(setLoggedIn(false));
+        localStorage.removeItem("token");
+        dispatch(setNotification("Account deleted!"));
         navigate("/");
       } else {
         // Handle deletion failure
@@ -54,7 +62,7 @@ const PractitionerDashboard = () => {
       console.error("Error deleting account:", error);
     }
   };
-
+  console.log("User:", user);
   //check if there is a practitionerData
   if (!user) {
     return <p>Loading data...</p>;
@@ -68,14 +76,12 @@ const PractitionerDashboard = () => {
           <h1>Practitioner Dashboard</h1>
           <p>Name: {user.name}</p>
           <p>Email: {user.email}</p>
-          <p>
-            <img src={user.image} />
-          </p>
+          <p>{user.image && <img src={user.image} />}</p>
           <h3>Your Details</h3>
-          <p>About: {user.about}</p>
           <p>Qualifications: {user.qualifications}</p>
           <p>Specialization: {user.specialization}</p>
-
+          <p>Experience: {user.experience}</p>
+          <p>About: {user.about}</p>
           <div className="practitionerDashMessages">
             <h3>Latest Messages</h3>
             {/* <ul>

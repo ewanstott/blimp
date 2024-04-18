@@ -49,7 +49,6 @@ const Signup = () => {
         response = await axios.post("http://localhost:6001/patient/add", {
           ...userData,
         });
-        // Extract currentUserData and practitionerDataBackEnd from the response
         console.log("responce data:", response.data);
 
         dispatch(
@@ -61,7 +60,7 @@ const Signup = () => {
         response = await axios.post("http://localhost:6001/practitioner/add", {
           ...userData,
         });
-        // Extract currentUserData and practitionerDataBackEnd from the response
+        console.log("responce data:", response.data);
         dispatch(
           setCurrentUser({ ...response.data }) // Dispatch action to update current user state
         );

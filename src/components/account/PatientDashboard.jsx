@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   selectFavourites,
   selectPractitionerData,
+  setNotification,
 } from "../../redux/practitionerSlice";
 import MainButton from "../MainButton";
 import { selectMessages, sendMessage } from "../../redux/messageSlice";
@@ -53,6 +54,7 @@ const PatientDashboard = () => {
         // If deletion is successful, logout the user and navigate to the home page
         dispatch(setLoggedIn(false));
         localStorage.removeItem("token");
+        dispatch(setNotification("Account deleted!"));
         navigate("/");
       } else {
         // Handle deletion failure
