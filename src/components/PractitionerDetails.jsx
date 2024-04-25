@@ -8,7 +8,7 @@ import MessageInput from "../components/message/MessageInput";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
-import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
+// import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { selectCurrentUser } from "../redux/accountSlice";
 
 const PractitionerDetails = () => {

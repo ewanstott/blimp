@@ -7,7 +7,7 @@ import {
 } from "../../redux/practitionerSlice";
 import MainButton from "../MainButton";
 import { selectMessages, sendMessage } from "../../redux/messageSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MessageInput from "../message/MessageInput";
 import axios from "axios";
 
@@ -19,6 +19,25 @@ const PractitionerDashboard = () => {
   const messages = useSelector(selectMessages);
 
   // const [replyContent, setReplyContent] = useState("");
+
+  useEffect(() => {
+    //fetch messages when component mounts
+    fetchMessages();
+  }, []);
+
+  const fetchMessages = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:6001/message/get/${user.id}`,
+        {
+          headers: { token: localStorage.getItem("token") },
+        }
+      );
+      console.log("Message received:", response.data);
+    } catch (error) {
+      console.error("Error fetching messages:", error);
+    }
+  };
 
   console.log("User data:", user);
 
@@ -84,20 +103,18 @@ const PractitionerDashboard = () => {
           <p>About: {user.about}</p>
           <div className="practitionerDashMessages">
             <h3>Latest Messages</h3>
-            {/* <ul>
+            <ul>
               {messages &&
                 messages.map((message, index) => (
-                  <li key={index}>
+                  <li
+                    key={index}
+                    className={message.receiver.id ? "receiver" : "sender"} //add diff styling for sender/receiver
+                  >
                     {message.sender}: {message.content}
-                    {message.replies && (
-                      <ul>
-                        {message.replies.map((reply, index) => (
-                          <li key={index}>
-                            {reply.sender} {reply.content}
-                          </li>
-                        ))}
-                      </ul>
-                    )} */}
+                  </li>
+                ))}
+            </ul>
+
             {/* <div>
                       <textarea
                         value={replyContent}
@@ -115,24 +132,8 @@ const PractitionerDashboard = () => {
             </ul> */}
           </div>
         </div>
-        <MainButton
-          onClick={handleLogout}
-          // onClick={() => {
-          //   dispatch(setLoggedIn(false));
-          //   navigate("/");
-          // }}
-          text="Logout"
-        />
+        <MainButton onClick={handleLogout} text="Logout" />
         <MainButton onClick={handleDeleteAccount} text="Delete Account" />
-        {/* <button
-          className="button"
-          onClick={() => {
-            dispatch(setLoggedIn(false)); //updates logged in status
-            navigate("/"); //naviages back to home page
-          }}
-        >
-          Logout
-        </button> */}
       </div>
     </>
   );

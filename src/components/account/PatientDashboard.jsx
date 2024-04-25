@@ -110,23 +110,8 @@ const PatientDashboard = () => {
             })}
           </div>
         </div>
-        <MainButton
-          onClick={handleLogout}
-          // onClick={() => {
-          //   dispatch(setLoggedIn(false));
-          //   navigate("/");
-          text="Logout"
-        />
+        <MainButton onClick={handleLogout} text="Logout" />
         <MainButton onClick={handleDeleteAccount} text="Delete Account" />
-        {/* <button
-          className="button"
-          onClick={() => {
-            dispatch(setLoggedIn(false)); 
-            navigate("/"); 
-          }}
-        >
-          Logout
-        </button> */}
       </div>
     </>
   );
