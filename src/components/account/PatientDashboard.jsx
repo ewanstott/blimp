@@ -8,17 +8,17 @@ import {
 } from "../../redux/practitionerSlice";
 import MainButton from "../MainButton";
 import { selectMessages, sendMessage } from "../../redux/messageSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MessageInput from "../message/MessageInput";
 import axios from "axios";
-import { MessageBox } from "react-chat-elements";
-import Chat from "../message/chat";
+// import { MessageBox } from "react-chat-elements";
+// import Chat from "../message/chat";
 
 const PatientDashboard = () => {
-  //{userType}
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const messages = useSelector(selectMessages);
+  const [messagedPractitioners, setMessagedPractitioners] = useState([]);
 
   // Access the currently logged-in user directly
   const user = useSelector(selectCurrentUser);
@@ -68,6 +68,26 @@ const PatientDashboard = () => {
   };
   console.log("User:", user);
 
+  //////////////////////////////////////////////////
+  useEffect(() => {
+    const fetchMessagedPractitioners = async () => {
+      try {
+        const response = await axios.get("http://localhost:6001/message/get");
+        if (response.data.status === 1) {
+          setMessagedPractitioners(response.data.practitioners);
+        } else {
+          console.error("Failed to fetch messaged practitioners");
+        }
+      } catch (error) {
+        console.error("Error fetching messaged practitioners:", error);
+      }
+    };
+
+    fetchMessagedPractitioners();
+  }, []);
+
+  //////////////////////////////////////////////////
+
   if (!user) {
     return <p>Loading data...</p>;
   }
@@ -81,15 +101,21 @@ const PatientDashboard = () => {
           <p>Email: {user.email}</p>
 
           <div className="patientDashMessages">
-            <h3>Latest Messages</h3>
-            {/* <div className="App">
-              <h1>My Chat App</h1>
-              <Chat />
-            </div> */}
-            <MessageInput senderType="patient" sender={user.name} />
+            <h3>Practitioners You've Messaged:</h3>
+            <ul>
+              {/* {practitionerData.map((practitioner) => ( */}
+              {messagedPractitioners.map((practitioner) => (
+                <li key={practitioner.id}>
+                  <Link to={`/practitioner/${practitioner.id}`}>
+                    {practitioner.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            {/* <MessageInput senderType="patient" sender={user.name} /> */}
           </div>
 
-          <p>Favourite Health Heroes:</p>
+          <h3>Favourite Health Heroes:</h3>
           <div>
             {favourites.map((favId) => {
               const practitioner = practitionerData.find(
