@@ -315,6 +315,226 @@ textarea:focus {
   box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
 }
 
+/* .signupForm {
+  margin: 10px;
+  height: 400px;
+} */
+
+/* Sign up form */
+/* .signupForm {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.signupForm label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.signupForm input[type="text"],
+.signupForm input[type="email"],
+.signupForm input[type="password"],
+.signupForm input[type="radio"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.signupForm input[type="radio"] {
+  display: inline-block;
+  width: auto;
+  margin-right: 10px;
+}
+
+.signupForm input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signupForm input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.signupForm p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+} */
+
+.signupForm {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.signupForm label {
+  margin-bottom: 8px;
+  display: block;
+  font-weight: bold;
+}
+
+.signupForm input[type="text"],
+.signupForm input[type="email"],
+.signupForm input[type="password"],
+.signupForm select,
+.signupForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.signupForm input[type="file"] {
+  margin-top: 5px;
+}
+
+.signupForm input[type="submit"] {
+  background-color: #4caf;
+}
+
+/* signup form end */
+
+/* patient dashboard */
+.patientDashboardContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.patientDashboardCard {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.patientDashboardCard h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.patientDashboardCard p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.patientDashboardCard ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.patientDashboardCard ul li {
+  margin-bottom: 5px;
+}
+
+.MainButton {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.MainButton:hover {
+  background-color: #45a049;
+}
+
+/* patient dash end */
+
+/* practitioner dash */
+.practitionerDashboardContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.practitionerDashboardCard {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.practitionerDashboardCard h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.practitionerDashboardCard p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.practitionerDashMessages {
+  margin-top: 20px;
+}
+
+.practitionerDashMessages h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.practitionerDashMessages ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.practitionerDashMessages ul li {
+  margin-bottom: 5px;
+}
+
+.MessageInput {
+  margin-top: 20px;
+}
+
+.MainButton {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.MainButton:hover {
+  background-color: #45a049;
+}
+
+/* practitioner dash end*/
+
 @media screen and (max-width: 500px) {
   .searchResults {
     flex-direction: column;

@@ -28,7 +28,7 @@ const PractitionerDashboard = () => {
   const fetchMessages = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:6001/message/get/${user.id}`,
+        `http://localhost:6001/message/history/${user.id}`,
         {
           headers: { token: localStorage.getItem("token") },
         }
@@ -89,53 +89,55 @@ const PractitionerDashboard = () => {
 
   console.log(user);
   return (
-    <>
-      <div className="practitionerDashboardContainer">
-        <div className="practitionerDashboardText">
-          <h1>Practitioner Dashboard</h1>
-          <p>Name: {user.name}</p>
-          <p>Email: {user.email}</p>
-          <p>{user.image && <img src={user.image} />}</p>
-          <h3>Your Details</h3>
-          <p>Qualifications: {user.qualifications}</p>
-          <p>Specialization: {user.specialization}</p>
-          <p>Experience: {user.experience}</p>
-          <p>About: {user.about}</p>
-          <div className="practitionerDashMessages">
-            <h3>Latest Messages</h3>
-            <ul>
-              {messages &&
-                messages.map((message, index) => (
-                  <li
-                    key={index}
-                    className={message.receiver.id ? "receiver" : "sender"} //add diff styling for sender/receiver
-                  >
-                    {message.sender}: {message.content}
-                  </li>
-                ))}
-            </ul>
-
-            {/* <div>
-                      <textarea
-                        value={replyContent}
-                        onChange={(e) => setReplyContent(e.target.value)}
-                        placeholder="Type your reply here"
-                      />
-                    </div> */}
-            <MessageInput
-              senderType="practitioner"
-              sender={practitionerData.name}
-            />
-            {/* <button onClick={() => onReply(message.id)}>Reply</button> */}
-            {/* </li>
-                ))}
-            </ul> */}
-          </div>
-        </div>
-        <MainButton onClick={handleLogout} text="Logout" />
-        <MainButton onClick={handleDeleteAccount} text="Delete Account" />
+    <div className="practitionerDashboardContainer">
+      <div className="practitionerDashboardCard">
+        <h2>Practitioner Details</h2>
+        <p>
+          <strong>Name:</strong> {user.name}
+        </p>
+        <p>
+          <strong>Email:</strong> {user.email}
+        </p>
+        {user.image && (
+          <p>
+            <img src={user.image} alt={user.name} />
+          </p>
+        )}
+        <h3>Your Details</h3>
+        <p>
+          <strong>Qualifications:</strong> {user.qualifications}
+        </p>
+        <p>
+          <strong>Specialization:</strong> {user.specialization}
+        </p>
+        <p>
+          <strong>Experience:</strong> {user.experience}
+        </p>
+        <p>
+          <strong>About:</strong> {user.about}
+        </p>
       </div>
-    </>
+      <div className="practitionerDashboardCard practitionerDashMessages">
+        <h2>Latest Messages</h2>
+        <ul>
+          {messages &&
+            messages.map((message, index) => (
+              <li
+                key={index}
+                className={message.receiver.id ? "receiver" : "sender"}
+              >
+                {message.sender}: {message.content}
+              </li>
+            ))}
+        </ul>
+        <MessageInput
+          senderType="practitioner"
+          sender={practitionerData.name}
+        />
+      </div>
+      <MainButton onClick={handleLogout} text="Logout" />
+      <MainButton onClick={handleDeleteAccount} text="Delete Account" />
+    </div>
   );
 };
 

@@ -72,9 +72,11 @@ const PatientDashboard = () => {
   useEffect(() => {
     const fetchMessagedPractitioners = async () => {
       try {
-        const response = await axios.get("http://localhost:6001/message/get");
+        const response = await axios.get("http://localhost:6001/message/list");
         if (response.data.status === 1) {
           setMessagedPractitioners(response.data.practitioners);
+          console.log(response.data.practitioners);
+          console.log(setMessagedPractitioners);
         } else {
           console.error("Failed to fetch messaged practitioners");
         }
@@ -86,6 +88,8 @@ const PatientDashboard = () => {
     fetchMessagedPractitioners();
   }, []);
 
+  console.log(messagedPractitioners);
+
   //////////////////////////////////////////////////
 
   if (!user) {
@@ -93,53 +97,54 @@ const PatientDashboard = () => {
   }
 
   return (
-    <>
-      <div className="patientDashboardContainer">
-        <div className="patientDashboardText">
-          <h1>Patient Dashboard</h1>
-          <p>Name: {user.name}</p>
-          <p>Email: {user.email}</p>
-
-          <div className="patientDashMessages">
-            <h3>Practitioners You've Messaged:</h3>
-            <ul>
-              {/* {practitionerData.map((practitioner) => ( */}
-              {messagedPractitioners.map((practitioner) => (
-                <li key={practitioner.id}>
-                  <Link to={`/practitioner/${practitioner.id}`}>
-                    {practitioner.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            {/* <MessageInput senderType="patient" sender={user.name} /> */}
-          </div>
-
-          <h3>Favourite Health Heroes:</h3>
-          <div>
-            {favourites.map((favId) => {
-              const practitioner = practitionerData.find(
-                (practitioner) => practitioner.id === favId
-              );
-              return practitioner ? (
-                <div key={practitioner.id}>
-                  <div className="favouriteCardContainer">
-                    <h3>{practitioner.name}</h3>
-                    <img src={practitioner.image} alt={practitioner.name} />
-                    <p>{practitioner.specialization}</p>
-                    <Link to={`/practitioner/${practitioner.id}`}>
-                      View Details
-                    </Link>
-                  </div>
-                </div>
-              ) : null;
-            })}
-          </div>
-        </div>
+    <div className="patientDashboardContainer">
+      <div className="patientDashboardCard">
+        <h2>Patient Details</h2>
+        <p>
+          <strong>Name:</strong> {user.name}
+        </p>
+        <p>
+          <strong>Email:</strong> {user.email}
+        </p>
+      </div>
+      <div className="patientDashboardCard">
+        <h2>Practitioners You've Messaged</h2>
+        <ul>
+          {messagedPractitioners.length > 0 ? (
+            messagedPractitioners.map((practitioner) => (
+              <li key={practitioner.id}>
+                <Link to={`/practitioner/${practitioner.id}`}>
+                  {practitioner.name}
+                </Link>
+              </li>
+            ))
+          ) : (
+            <p>No practitioners messaged.</p>
+          )}
+        </ul>
+      </div>
+      <div className="patientDashboardCard">
+        <h2>Favourite Health Heroes</h2>
+        {favourites.map((favId) => {
+          const practitioner = practitionerData.find(
+            (practitioner) => practitioner.id === favId
+          );
+          return practitioner ? (
+            <div key={practitioner.id}>
+              <h3>{practitioner.name}</h3>
+              <img src={practitioner.image} alt={practitioner.name} />
+              <p>{practitioner.specialization}</p>
+              <Link to={`/practitioner/${practitioner.id}`}>View Details</Link>
+            </div>
+          ) : null;
+        })}
+      </div>
+      <div className="patientDashboardActions">
         <MainButton onClick={handleLogout} text="Logout" />
+
         <MainButton onClick={handleDeleteAccount} text="Delete Account" />
       </div>
-    </>
+    </div>
   );
 };
 

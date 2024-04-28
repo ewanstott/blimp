@@ -23,10 +23,12 @@ const PractitionerDetails = () => {
     const fetchMessageHistory = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:6001/message/get/${id}`
+          `http://localhost:6001/message/history/${id}`
         );
         if (response.data.status === 1) {
+          console.log(response.data.messages);
           setMessageHistory(response.data.messages);
+          console.log(setMessageHistory);
         } else {
           console.error("Failed to fetch message history");
         }
@@ -37,6 +39,9 @@ const PractitionerDetails = () => {
 
     fetchMessageHistory();
   }, [id]);
+
+  console.log(messageHistory);
+  console.log(setMessageHistory);
 
   if (!practitionerData) {
     return <p>Loading data...</p>;
@@ -114,11 +119,15 @@ const PractitionerDetails = () => {
         </div>
         <div className="messageHistoryContainer">
           <h2>Message History</h2>
-          <ul>
-            {messageHistory.map((message) => (
-              <li key={message.messageId}>{message.message}</li>
-            ))}
-          </ul>
+          {messageHistory.length > 0 ? (
+            <ul>
+              {messageHistory.map((message) => (
+                <li key={message.messageId}>{message.message}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>No message history available.</p>
+          )}
         </div>
       </div>
     </div>

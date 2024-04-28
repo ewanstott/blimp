@@ -85,43 +85,44 @@ const Signup = () => {
   return (
     <>
       <p>Please enter your signup details below</p>
-
-      <form onInput={onInput} onSubmit={onSubmit}>
-        <label htmlFor="signup-patient">
-          Patient
-          <input
-            type="radio"
-            id="signup-patient"
-            name="user-type"
-            value="patient"
-            // onChange={(e) => radioHandler(e.target.value)}
-            onChange={() => radioHandler("patient")}
-          ></input>
-        </label>
-        <label htmlFor="signup-practitioner">
-          Practitioner
-          <input
-            type="radio"
-            id="signup-practitioner"
-            name="user-type"
-            value="practitioner"
-            // onChange={(e) => radioHandler(e.target.value)}
-            onChange={() => radioHandler("practitioner")}
-          ></input>
-        </label>
-        {userType === "patient" && (
-          <div>
-            {/* <PatientForm /> */}
-            <PatientForm onInput={onInput} onSubmit={onSubmit} />
-          </div>
-        )}
-        {userType === "practitioner" && (
-          <div>
-            {/* <PractitionerForm /> */}
-            <PractitionerForm onInput={onInput} onSubmit={onSubmit} />
-          </div>
-        )}
-      </form>
+      <div className="signupForm">
+        <form onInput={onInput} onSubmit={onSubmit}>
+          <label htmlFor="signup-patient">
+            Patient
+            <input
+              type="radio"
+              id="signup-patient"
+              name="user-type"
+              value="patient"
+              // onChange={(e) => radioHandler(e.target.value)}
+              onChange={() => radioHandler("patient")}
+            ></input>
+          </label>
+          <label htmlFor="signup-practitioner">
+            Practitioner
+            <input
+              type="radio"
+              id="signup-practitioner"
+              name="user-type"
+              value="practitioner"
+              // onChange={(e) => radioHandler(e.target.value)}
+              onChange={() => radioHandler("practitioner")}
+            ></input>
+          </label>
+          {userType === "patient" && (
+            <div>
+              {/* <PatientForm /> */}
+              <PatientForm onInput={onInput} onSubmit={onSubmit} />
+            </div>
+          )}
+          {userType === "practitioner" && (
+            <div>
+              {/* <PractitionerForm /> */}
+              <PractitionerForm onInput={onInput} onSubmit={onSubmit} />
+            </div>
+          )}
+        </form>
+      </div>
     </>
   );
 };
