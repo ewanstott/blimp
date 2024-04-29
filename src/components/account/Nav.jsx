@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectLoggedIn, selectCurrentUser } from "../../redux/accountSlice";
 
+//move NAV into header??
+
 const Nav = () => {
   // extracting the loggedIn state from the Redux store.
   const loggedIn = useSelector(selectLoggedIn);

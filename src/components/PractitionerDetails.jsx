@@ -21,12 +21,16 @@ const PractitionerDetails = () => {
 
   useEffect(() => {
     const fetchMessageHistory = async () => {
+      setMessageHistory([]);
       try {
         const response = await axios.get(
-          `http://localhost:6001/message/history/${id}`
+          `http://localhost:6001/message/history/${id}`,
+          {
+            headers: { token: localStorage.getItem("token") },
+          }
         );
+        console.log(response.data);
         if (response.data.status === 1) {
-          console.log(response.data.messages);
           setMessageHistory(response.data.messages);
           console.log(setMessageHistory);
         } else {
@@ -65,7 +69,7 @@ const PractitionerDetails = () => {
     return stars;
   };
   const stars = renderStars(practitioner.starReviews);
-
+  console.log(messageHistory);
   return (
     <div className="singlePractitioner">
       <div className="practitionerDetails">

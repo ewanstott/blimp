@@ -41,7 +41,7 @@ const Login = () => {
       console.log(userData);
       if (response.data.status === 1) {
         // Set the logged-in user in the Redux store
-        dispatch(setLoggedIn(true));
+        dispatch(setLoggedIn(response.data.token));
         dispatch(setCurrentUser(response.data));
 
         // Store the user's token in local storage
@@ -59,7 +59,7 @@ const Login = () => {
 
         if (response.data.status === 1) {
           // Set the logged-in user in the Redux store
-          dispatch(setLoggedIn(true));
+          dispatch(setLoggedIn(response.data.token));
           dispatch(setCurrentUser(response.data));
 
           // Store the user's token in local storage

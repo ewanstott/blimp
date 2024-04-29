@@ -5,9 +5,9 @@ import { getStore, saveStore } from "./diskUtils";
 // const initialState = { screen: 0 }; //screen 0 = signup //screen 1: login //screen 2: dashboard
 const initialState = {
   // user: null,
-  loggedIn: false,
+  loggedIn: localStorage.getItem("token"), //enginerr out this line (we don't need this as token store in current user)
   users: [],
-  currentUser: null,
+  currentUser: JSON.parse(localStorage.getItem("currentUser")),
 };
 
 //Show as initial state in dash:
@@ -25,7 +25,8 @@ export const accountSlice = createSlice({
   reducers: {
     setCurrentUser: (state, { payload }) => {
       state.currentUser = payload;
-      state.loggedIn = true;
+      // state.loggedIn = localStorage.getItem("token");
+      localStorage.setItem("currentUser", JSON.stringify(payload));
       state.users.push(payload);
       // console.log(state);
       console.log("Payload:", payload);

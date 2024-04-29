@@ -47,7 +47,9 @@ const App = () => {
         const response = await axios.get(
           "http://localhost:6001/practitioner/get"
         );
-        dispatch(setPractitionerData(response.data));
+        console.log(response);
+
+        dispatch(setPractitionerData(response.data.practitioners));
       } catch (error) {
         console.error("Error fetching initial data:", error);
       }

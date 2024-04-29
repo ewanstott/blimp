@@ -8,8 +8,8 @@ export const messageSlice = createSlice({
   name: "message",
   initialState,
   reducers: {
-    // sendMessage: (state, { payload }) => {
-    //   state.messages.push(payload); //this data will now live in the store
+    // clearMessages: (state) => {
+    //   state.messages = []; //this data will now live in the store
     // },
     sendMessage: (state, { payload }) => {
       const { id, content, sender, senderType } = payload;
@@ -51,7 +51,7 @@ export const messageSlice = createSlice({
 });
 
 //Action Creators
-export const { sendMessage } = messageSlice.actions;
+export const { sendMessage, clearMessages } = messageSlice.actions;
 
 //Selectors - extract specific pieces of state from the Redux store.
 // gets data from store
