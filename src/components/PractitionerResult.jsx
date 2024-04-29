@@ -8,14 +8,6 @@ const PractitionerResult = ({ practitioner }) => {
   const loggedIn = useSelector(selectLoggedIn);
   // const navigate = useNavigate();
 
-  // const onSeeMore = () => {
-  //   if (loggedIn) {
-  //     navigate(`/practitioner/${practitioner.id}`); // Navigate to practitioner details page
-  //   } else {
-  //     navigate("/login"); // Navigate to login page if not logged in
-  //   }
-  // };
-
   const renderStars = (starReviews) => {
     const fullStars = Math.floor(starReviews);
     const halfStar = starReviews - fullStars >= 0.5;
@@ -42,14 +34,12 @@ const PractitionerResult = ({ practitioner }) => {
       <p>Years of Wisdom: {practitioner.experience}</p>
       <p>
         Stars: <span className="stars">{stars}</span>
+        {/* //ternary use folder if not, use image... */}
       </p>
-      {/* <Link to={"/practitioner/" + practitioner.id}>See More...</Link> */}
-      {/* <button onClick={handleSeeMore}>See More...</button> */}
       {loggedIn ? (
         <Link to={"/practitioner/" + practitioner.id}>See More...</Link>
       ) : (
         <Link to="/login">Log in to see more</Link>
-        // <button onClick={onSeeMore}>Log in to see more</button>
       )}
     </div>
   );

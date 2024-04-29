@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { setSearchTerm } from "../redux/practitionerSlice";
-// import { FaSearch } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 
 //Search box speaks to store directly
 const Search = () => {
@@ -10,7 +10,7 @@ const Search = () => {
     <>
       <div className="searchBar">
         <label htmlFor="search"></label>
-        {/* <FaSearch className="searchIcon" /> */}
+        <FaSearch className="searchIcon" />
         <input
           type="text"
           name="search"

@@ -137,6 +137,8 @@ img {
   background-color: #6a11cb;
 } */
 
+/* search bar */
+
 /* .searchBar {
   display: flex;
   justify-content: center;
@@ -146,7 +148,7 @@ img {
   width: 100%;
 } */
 
-#search {
+/* #search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -156,7 +158,59 @@ img {
   margin-left: auto;
   margin-right: auto;
   max-width: 800px;
+} */
+.searchBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.searchBar input[type="text"] {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  outline: none;
+}
+
+.searchIcon {
+  margin: 0 10px;
+  color: #555;
+}
+*/ .searchBar input[type="text"]::placeholder {
+  color: #999;
+}
+
+.searchBar input[type="text"]:focus::placeholder {
+  color: transparent;
+}
+/* searchBar end */
+
+/* nav */
+.navContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.navContainer a {
+  color: #4546e5;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navContainer a:hover {
+  color: #fff;
+}
+/* nav end */
 
 .searchResults {
   display: flex;
@@ -534,6 +588,75 @@ textarea:focus {
 }
 
 /* practitioner dash end*/
+
+/* practitioner searchResults */
+
+.searchResultCard {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.searchResultCard:hover {
+  transform: translateY(-5px);
+}
+
+.searchResultCard h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.searchResultCard img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.searchResultCard p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.practitionerAbout {
+  margin-bottom: 15px;
+}
+
+.stars {
+  color: gold;
+}
+
+.searchResultCard a {
+  display: inline-block;
+  text-decoration: none;
+  color: #4546e5;
+  font-weight: bold;
+  border: 2px solid #4546e5;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.searchResultCard a:hover {
+  color: #fff;
+  background-color: #4546e5;
+}
+
+/* .searchResultCard a {
+  display: inline-block;
+  text-decoration: none;
+  color: #4546e5;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.searchResultCard a:hover {
+  color: #4546e5;
+} */
+
+/* practitioner searchResults end*/
 
 @media screen and (max-width: 500px) {
   .searchResults {
