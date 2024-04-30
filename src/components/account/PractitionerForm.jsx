@@ -43,6 +43,16 @@ const PractitionerForm = ({ onInput, onSubmit }) => {
         />
       </div>
       <div>
+        <label htmlFor="location">Location</label>
+        <input
+          type="text"
+          name="location"
+          id="location"
+          placeholder="Location"
+          required
+        />
+      </div>
+      <div>
         <label htmlFor="specialization">Specialization</label>
         <input
           type="text"
@@ -64,7 +74,8 @@ const PractitionerForm = ({ onInput, onSubmit }) => {
       </div>
       <div>
         <label htmlFor="experience">Experience</label>
-        <select id="experience" name="experience">
+        <select id="experience" name="experience" required>
+          <option value="#">Select Experience</option>
           <option value="1">1 year</option>
           <option value="2">2 years</option>
           <option value="3">3 years</option>
@@ -91,7 +102,7 @@ const PractitionerForm = ({ onInput, onSubmit }) => {
         <label htmlFor="image">Upload Your Photo</label>
         <input
           onChange={onChangeImage}
-          type="file"
+          type="image" //or file?
           id="image"
           name="image"
           accept="image/*"

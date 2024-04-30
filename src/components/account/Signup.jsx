@@ -50,7 +50,6 @@ const Signup = () => {
           ...userData,
         });
         console.log("responce data:", response.data);
-
         dispatch(
           setCurrentUser({ ...response.data }) // Dispatch action to update current user state
         );

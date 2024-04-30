@@ -23,16 +23,31 @@ const PractitionerResult = ({ practitioner }) => {
   };
 
   const stars = renderStars(practitioner.star_reviews);
-  console.log(practitioner);
+  console.log(practitioner.image);
 
   return (
     <div className="searchResultCard">
       <h3>{practitioner.name}</h3>
-      {practitioner.image !== undefined && (
+      {/* {practitioner.image !== undefined && (
+        <img src={practitioner.image} alt={practitioner.name} />
+      )} */}
+      {practitioner.image && ( // Check if image data is available
         <img src={practitioner.image} alt={practitioner.name} />
       )}
+      {/* 
+      {practitioner.image && (
+        <img
+          src={
+            practitioner.image.startsWith("data:")
+              ? practitioner.image
+              : `/public/images/${practitioner.image}`
+          }
+          alt={practitioner.name}
+        />
+      )} */}
+
       <h3>{practitioner.specialization}</h3>
-      <h6>{practitioner.experience} of wisdom</h6>
+      <h6>{practitioner.experience} years of wisdom</h6>
       <p>{practitioner.location}</p>
       <p className="practitionerAbout">{practitioner.about}</p>
       <p>

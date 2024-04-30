@@ -26,6 +26,33 @@ const PatientDashboard = () => {
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
   // const [replyContent, setReplyContent] = useState("");
 
+  //////////////////////////////////////////////////
+  useEffect(() => {
+    const fetchMessagedPractitioners = async () => {
+      try {
+        const response = await axios.get("http://localhost:6001/message/list", {
+          headers: { token: localStorage.getItem("token") },
+        });
+        console.log(response);
+        if (response.data.status === 1) {
+          setMessagedPractitioners(response.data.practitioners);
+          console.log(response.data.practitioners);
+          console.log(setMessagedPractitioners);
+        } else {
+          console.error("Failed to fetch messaged practitioners");
+        }
+      } catch (error) {
+        console.error("Error fetching messaged practitioners:", error);
+      }
+    };
+
+    fetchMessagedPractitioners();
+  }, []);
+
+  console.log(messagedPractitioners);
+
+  //////////////////////////////////////////////////
+
   const handleLogout = async () => {
     console.log("Logout button clicked");
     const { data } = await axios.delete(
@@ -67,33 +94,6 @@ const PatientDashboard = () => {
     }
   };
   console.log("User:", user);
-
-  //////////////////////////////////////////////////
-  useEffect(() => {
-    const fetchMessagedPractitioners = async () => {
-      try {
-        const response = await axios.get("http://localhost:6001/message/list", {
-          headers: { token: localStorage.getItem("token") },
-        });
-        console.log(response);
-        if (response.data.status === 1) {
-          setMessagedPractitioners(response.data.practitioners);
-          console.log(response.data.practitioners);
-          console.log(setMessagedPractitioners);
-        } else {
-          console.error("Failed to fetch messaged practitioners");
-        }
-      } catch (error) {
-        console.error("Error fetching messaged practitioners:", error);
-      }
-    };
-
-    fetchMessagedPractitioners();
-  }, []);
-
-  console.log(messagedPractitioners);
-
-  //////////////////////////////////////////////////
 
   if (!user) {
     return <p>Loading data...</p>;

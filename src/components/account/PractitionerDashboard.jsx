@@ -21,23 +21,23 @@ const PractitionerDashboard = () => {
   // const [replyContent, setReplyContent] = useState("");
 
   useEffect(() => {
-    //fetch messages when component mounts
-    fetchMessages();
-  }, []);
+    const fetchMessages = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:6001/message/history/${user.id}`,
+          {
+            headers: { token: localStorage.getItem("token") },
+          }
+        );
+        console.log(response);
+        console.log("Message received:", response.data);
+      } catch (error) {
+        console.error("Error fetching messages:", error);
+      }
+    };
 
-  const fetchMessages = async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:6001/message/history/${user.id}`,
-        {
-          headers: { token: localStorage.getItem("token") },
-        }
-      );
-      console.log("Message received:", response.data);
-    } catch (error) {
-      console.error("Error fetching messages:", error);
-    }
-  };
+    fetchMessages();
+  }, [user.id]); //remove user.id ??
 
   console.log("User data:", user);
 
@@ -81,13 +81,12 @@ const PractitionerDashboard = () => {
       console.error("Error deleting account:", error);
     }
   };
-  console.log("User:", user);
+
   //check if there is a practitionerData
   if (!user) {
     return <p>Loading data...</p>;
   }
 
-  console.log(user);
   return (
     <div className="practitionerDashboardContainer">
       <div className="practitionerDashboardCard">
@@ -103,7 +102,7 @@ const PractitionerDashboard = () => {
             <img src={user.image} alt={user.name} />
           </p>
         )}
-        <h3>Your Details</h3>
+
         <p>
           <strong>Qualifications:</strong> {user.qualifications}
         </p>
@@ -111,7 +110,7 @@ const PractitionerDashboard = () => {
           <strong>Specialization:</strong> {user.specialization}
         </p>
         <p>
-          <strong>Experience:</strong> {user.experience}
+          <strong>Experience (years):</strong> {user.experience}
         </p>
         <p>
           <strong>About:</strong> {user.about}
