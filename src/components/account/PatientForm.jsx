@@ -7,32 +7,6 @@ import MainButton from "../MainButton";
 const PatientForm = ({ onInput, onSubmit }) => {
   const loggedIn = useSelector(selectLoggedIn); // Get the loggedIn state from Redux
 
-  //   return (
-  //     <>
-  //       {/* <form onInput={onInput} onSubmit={onSubmit}> */}
-  //       <div>
-  //         <label htmlFor="name">Name</label>
-  //         <input type="name" name="name" id="name" required />
-  //       </div>
-  //       <div>
-  //         <label htmlFor="email">Email</label>
-  //         <input type="email" name="email" id="email" required />
-  //       </div>
-  //       <div>
-  //         <label htmlFor="password">Password</label>
-  //         <input type="password" name="password" id="password" required />
-  //       </div>
-  //       <div>
-  //         {/* <button type="submit">Submit</button> */}
-  //         <MainButton onClick={onSubmit} type="submit" text="Submit" />
-  //       </div>
-  //       {/* Conditionally render the Link based on loggedIn state */}
-  //       {/* {loggedIn && <Link to="/dashboard">Go to Dashboard</Link>} */}
-  //       {/* </form> */}
-  //     </>
-  //   );
-  // };
-
   return (
     <div className="signupForm">
       <div>

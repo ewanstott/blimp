@@ -83,50 +83,49 @@ const Signup = () => {
   };
   // console.log(userInput);
   return (
-    <>
-      <p>Please enter your signup details below</p>
+    <div className="signupContainer">
       <div className="signupForm">
+        <div className="signUpFormHeader">
+          <h2>Sign Up</h2>
+          <p>Please enter your signup details below</p>
+        </div>
         <form onInput={onInput} onSubmit={onSubmit}>
-          <label htmlFor="signup-patient">
-            Patient
-            <input
-              type="radio"
-              id="signup-patient"
-              name="user-type"
-              value="patient"
-              // onChange={(e) => radioHandler(e.target.value)}
-              onChange={() => radioHandler("patient")}
-            ></input>
-          </label>
-          <label htmlFor="signup-practitioner">
-            Practitioner
-            <input
-              type="radio"
-              id="signup-practitioner"
-              name="user-type"
-              value="practitioner"
-              // onChange={(e) => radioHandler(e.target.value)}
-              onChange={() => radioHandler("practitioner")}
-            ></input>
-          </label>
+          <div className="userTypeSelection">
+            <label htmlFor="signup-patient">
+              <input
+                type="radio"
+                id="signup-patient"
+                name="user-type"
+                value="patient"
+                onChange={() => radioHandler("patient")}
+              />
+              Patient
+            </label>
+            <label htmlFor="signup-practitioner">
+              <input
+                type="radio"
+                id="signup-practitioner"
+                name="user-type"
+                value="practitioner"
+                onChange={() => radioHandler("practitioner")}
+              />
+              Practitioner
+            </label>
+          </div>
           {userType === "patient" && (
-            <div>
-              {/* <PatientForm /> */}
+            <div className="formSection">
               <PatientForm onInput={onInput} onSubmit={onSubmit} />
             </div>
           )}
           {userType === "practitioner" && (
-            <div>
-              {/* <PractitionerForm /> */}
+            <div className="formSection">
               <PractitionerForm onInput={onInput} onSubmit={onSubmit} />
             </div>
           )}
         </form>
       </div>
-    </>
+    </div>
   );
 };
-
-// Add a Generic form here which conditionally renders extra fields for the practitioner
 
 export default Signup;

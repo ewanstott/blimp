@@ -13,9 +13,9 @@
   text-align: center;
 } */
 
-body {
+/* body {
   margin: 0;
-}
+} */
 
 #root {
   background-color: #f5f6f8;
@@ -123,16 +123,6 @@ img {
   /* margin-bottom: 20px; */
 }
 
-.navContainer {
-  display: flex;
-  justify-content: center;
-}
-
-.navContainer > * {
-  margin-top: 10px;
-  margin-right: 10px;
-}
-
 /* .searchResults {
   background-color: #6a11cb;
 } */
@@ -192,7 +182,7 @@ img {
 /* searchBar end */
 
 /* nav */
-.navContainer {
+/* .navContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -209,6 +199,30 @@ img {
 
 .navContainer a:hover {
   color: #fff;
+} */
+.navContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 10px; */
+}
+
+.navContainer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navContainer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navContainer a:hover {
+  transform: translateY(-1px); /* Apply transform on hover */
 }
 /* nav end */
 
@@ -304,17 +318,62 @@ img {
   color: red;
 }
 
-.signUpContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+/* Login  */
+
+.loginContainer {
+  max-width: 400px;
+  margin: 0 auto;
   padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.loginContainer h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.loginContainer input[type="email"],
+.loginContainer input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.loginContainer input[type="email"]:focus,
+.loginContainer input[type="password"]:focus {
+  outline: none;
+  border-color: #4546e5;
+}
+
+.loginButtonContainer {
+  text-align: center;
+}
+
+.loginButtonContainer .mainButton {
+  width: 100%;
+}
+
+.signUpContainer {
+  text-align: center;
   margin-top: 20px;
   background-color: red;
   color: white;
+  padding: 20px;
 }
 
+.signUpContainer h3 {
+  margin-bottom: 10px;
+}
+
+/* Login end */
+/* 
 .loginContainer {
   display: flex;
   justify-content: center;
@@ -323,7 +382,7 @@ img {
   padding: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
-}
+} */
 
 .emailContainer {
   margin-bottom: 20px;
@@ -334,10 +393,6 @@ img {
 }
 .emailContainer input::placeholder {
   padding: 5px;
-}
-
-.loginButtonContainer {
-  margin-top: 10px;
 }
 
 .sendMessageContainer {
@@ -369,66 +424,28 @@ textarea:focus {
   box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
 }
 
-/* .signupForm {
-  margin: 10px;
-  height: 400px;
-} */
-
 /* Sign up form */
-/* .signupForm {
-  max-width: 400px;
-  margin: 0 auto;
+
+/* .signUpFormHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUpContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.signupForm label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.signupForm input[type="text"],
-.signupForm input[type="email"],
-.signupForm input[type="password"],
-.signupForm input[type="radio"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-.signupForm input[type="radio"] {
-  display: inline-block;
-  width: auto;
-  margin-right: 10px;
-}
-
-.signupForm input[type="submit"] {
-  background-color: #4caf50;
+  margin-top: 20px;
+  background-color: red;
   color: white;
-  padding: 15px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
-
-.signupForm input[type="submit"]:hover {
-  background-color: #45a049;
-}
-
-.signupForm p {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 20px;
-} */
 
 .signupForm {
   max-width: 400px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -460,9 +477,84 @@ textarea:focus {
 
 .signupForm input[type="submit"] {
   background-color: #4caf;
-}
+} */
 
 /* signup form end */
+
+/* CSS for SignUp Component */
+
+/* Header Section */
+.signUpFormHeader {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.signUpFormHeader h2 {
+  font-size: 28px;
+  color: #333;
+}
+
+.signUpFormHeader p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Form Section */
+.signupForm {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.userTypeSelection {
+  margin-bottom: 20px;
+}
+
+.userTypeSelection label {
+  margin-right: 20px;
+  font-size: 18px;
+  color: #333;
+}
+
+.userTypeSelection input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Form Sections */
+.formSection {
+  margin-bottom: 20px;
+}
+
+/* Input Fields */
+.signupForm label {
+  margin-bottom: 8px;
+  display: block;
+  font-weight: bold;
+}
+
+.signupForm input[type="text"],
+.signupForm input[type="email"],
+.signupForm input[type="password"],
+.signupForm select,
+.signupForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.signupForm input[type="file"] {
+  margin-top: 5px;
+}
+
+.signupForm input[type="submit"] {
+  background-color: #4caf;
+}
 
 /* patient dashboard */
 .patientDashboardContainer {
@@ -512,6 +604,7 @@ textarea:focus {
   text-decoration: none;
   display: inline-block;
   transition: background-color 0.3s ease;
+  margin-top: 5px;
 }
 
 .MainButton:hover {
@@ -621,6 +714,7 @@ textarea:focus {
 }
 
 .practitionerAbout {
+  text-align: center;
   margin-bottom: 15px;
 }
 
@@ -643,18 +737,6 @@ textarea:focus {
   color: #fff;
   background-color: #4546e5;
 }
-
-/* .searchResultCard a {
-  display: inline-block;
-  text-decoration: none;
-  color: #4546e5;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.searchResultCard a:hover {
-  color: #4546e5;
-} */
 
 /* practitioner searchResults end*/
 

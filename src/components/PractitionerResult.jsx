@@ -8,9 +8,9 @@ const PractitionerResult = ({ practitioner }) => {
   const loggedIn = useSelector(selectLoggedIn);
   // const navigate = useNavigate();
 
-  const renderStars = (starReviews) => {
-    const fullStars = Math.floor(starReviews);
-    const halfStar = starReviews - fullStars >= 0.5;
+  const renderStars = (star_reviews) => {
+    const fullStars = Math.floor(star_reviews);
+    const halfStar = star_reviews - fullStars >= 0.5;
 
     const stars = [];
     for (let i = 0; i < fullStars; i++) {
@@ -22,18 +22,21 @@ const PractitionerResult = ({ practitioner }) => {
     return stars;
   };
 
-  const stars = renderStars(practitioner.starReviews);
+  const stars = renderStars(practitioner.star_reviews);
+  console.log(practitioner);
 
   return (
     <div className="searchResultCard">
       <h3>{practitioner.name}</h3>
-      <img src={practitioner.image} alt={practitioner.name} />
+      {practitioner.image !== undefined && (
+        <img src={practitioner.image} alt={practitioner.name} />
+      )}
       <h3>{practitioner.specialization}</h3>
+      <h6>{practitioner.experience} of wisdom</h6>
       <p>{practitioner.location}</p>
       <p className="practitionerAbout">{practitioner.about}</p>
-      <p>Years of Wisdom: {practitioner.experience}</p>
       <p>
-        Stars: <span className="stars">{stars}</span>
+        <span className="stars">{stars}</span>
         {/* //ternary use folder if not, use image... */}
       </p>
       {loggedIn ? (

@@ -15,12 +15,12 @@ const Header = () => {
           <div className="subHeader">
             <h4>Find Your Perfect Health Care Hero Today</h4>
           </div>
+          <nav>
+            <ul>
+              <Nav />
+            </ul>
+          </nav>
         </div>
-        <nav>
-          <ul>
-            <Nav />
-          </ul>
-        </nav>
       </header>
     </>
   );
