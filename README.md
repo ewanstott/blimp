@@ -18,7 +18,6 @@ Blimp is a personal project aimed at connecting clients with self-employed healt
 - Form Validation: Joi Validator (both front and backend)
 - Authentication: Token-based
 - Security: Implemented security measures to safeguard user data
-- Integration: Played with third-party open banking integration using TrueLayer (in development phase)
 - Local Storage: Used for persistence and enhanced functionality
 - Version Control: Git
 - CSS: Custom Styling with some Material-UI components integrated
