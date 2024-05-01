@@ -10,7 +10,10 @@ import PatientForm from "./PatientForm";
 import PractitionerForm from "./PractitionerForm";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { setPractitionerData } from "../../redux/practitionerSlice";
+import {
+  setNotification,
+  setPractitionerData,
+} from "../../redux/practitionerSlice";
 
 const Signup = () => {
   const [userType, setUserType] = useState(); //patient or practioner
@@ -32,6 +35,7 @@ const Signup = () => {
       setUserInput({ ...userInput, [e.target.id]: e.target.value });
     }
   };
+  console.log(userInput);
 
   // after making API call to the backend for signing up a practitioner,
   // receive the practitionerDataBackEnd in the response.
@@ -50,6 +54,13 @@ const Signup = () => {
           ...userData,
         });
         console.log("responce data:", response.data);
+        if (response.data.status === 0) {
+          //send message
+          dispatch(setNotification("Duplicate account. Please try again!"));
+          //Redirect to signup page
+          navigate("/signup");
+          return;
+        }
         dispatch(
           setCurrentUser({ ...response.data }) // Dispatch action to update current user state
         );
@@ -60,6 +71,13 @@ const Signup = () => {
           ...userData,
         });
         console.log("responce data:", response.data);
+        if (response.data.status === 0) {
+          //send message
+          dispatch(setNotification("Duplicate account. Please try again!"));
+          //Redirect to signup page
+          navigate("/signup");
+          return;
+        }
         dispatch(
           setCurrentUser({ ...response.data }) // Dispatch action to update current user state
         );

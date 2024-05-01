@@ -102,9 +102,9 @@ const PractitionerForm = ({ onInput, onSubmit }) => {
         <label htmlFor="image">Upload Your Photo</label>
         <input
           onChange={onChangeImage}
-          type="image" //or file?
-          id="image"
-          name="image"
+          type="file"
+          id="file"
+          name="file"
           accept="image/*"
         />
       </div>

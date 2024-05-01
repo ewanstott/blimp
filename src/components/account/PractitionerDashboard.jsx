@@ -20,6 +20,11 @@ const PractitionerDashboard = () => {
 
   // const [replyContent, setReplyContent] = useState("");
 
+  //all message between practitioner and patients
+  //seperate screen for each conversation
+  //Pateitn profile shows conversation between practitioner and patient
+  //same SQL, just other way round i.e. sender switches to receiver...
+
   useEffect(() => {
     const fetchMessages = async () => {
       try {
