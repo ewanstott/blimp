@@ -30,9 +30,12 @@ const PatientDashboard = () => {
   useEffect(() => {
     const fetchMessagedPractitioners = async () => {
       try {
-        const response = await axios.get("http://localhost:6001/message/list", {
-          headers: { token: localStorage.getItem("token") },
-        });
+        const response = await axios.get(
+          "http://localhost:6001/message/list-practitioners",
+          {
+            headers: { token: localStorage.getItem("token") },
+          }
+        );
         console.log(response);
         if (response.data.status === 1) {
           setMessagedPractitioners(response.data.practitioners);

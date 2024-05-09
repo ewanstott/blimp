@@ -17,6 +17,9 @@ const PractitionerDashboard = () => {
   const user = useSelector(selectCurrentUser);
   const practitionerData = useSelector(selectPractitionerData); //access to practinioner data here
   const messages = useSelector(selectMessages);
+  const [patients, setPatients] = useState([]);
+  const [selectedPatient, setSelectedPatient] = useState(null);
+  const [messageHistory, setMessageHistory] = useState([]);
 
   // const [replyContent, setReplyContent] = useState("");
 
@@ -26,23 +29,54 @@ const PractitionerDashboard = () => {
   //same SQL, just other way round i.e. sender switches to receiver...
 
   useEffect(() => {
-    const fetchMessages = async () => {
+    const fetchMessageHistory = async () => {
+      setMessageHistory([]);
+      try {
+        if (selectedPatient) {
+          const response = await axios.get(
+            `http://localhost:6001/message/history/${selectedPatient.id}`,
+            {
+              headers: { token: localStorage.getItem("token") },
+            }
+          );
+          console.log(response.data);
+          if (response.data.status === 1) {
+            setMessageHistory(response.data.messages);
+            console.log(setMessageHistory);
+          } else {
+            console.error("Failed to fetch message history");
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching message history:", error);
+      }
+    };
+
+    fetchMessageHistory();
+  }, [selectedPatient]);
+
+  useEffect(() => {
+    const fetchMessagedPatients = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:6001/message/history/${user.id}`,
+          `http://localhost:6001/message/list-patients`,
           {
             headers: { token: localStorage.getItem("token") },
           }
         );
-        console.log(response);
-        console.log("Message received:", response.data);
+        console.log(response.data);
+        setPatients(response.data.patients);
       } catch (error) {
-        console.error("Error fetching messages:", error);
+        console.error("Error fetching messaged patients:", error);
       }
     };
 
-    fetchMessages();
-  }, [user.id]); //remove user.id ??
+    fetchMessagedPatients();
+  }, []);
+
+  const handlePatientSelect = (patient) => {
+    setSelectedPatient(patient);
+  };
 
   console.log("User data:", user);
 
@@ -121,7 +155,7 @@ const PractitionerDashboard = () => {
           <strong>About:</strong> {user.about}
         </p>
       </div>
-      <div className="practitionerDashboardCard practitionerDashMessages">
+      {/* <div className="practitionerDashboardCard practitionerDashMessages">
         <h2>Latest Messages</h2>
         <ul>
           {messages &&
@@ -138,7 +172,36 @@ const PractitionerDashboard = () => {
           senderType="practitioner"
           sender={practitionerData.name}
         />
+      </div> */}
+      <div className="practitionerDashboardCard">
+        <h2>List of Patients</h2>
+        <ul>
+          {patients.map((patient) => (
+            <li key={patient.id}>
+              {patient.name}
+              <button onClick={() => handlePatientSelect(patient)}>
+                View Correspondence
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
+      {selectedPatient && (
+        <div className="practitionerDashboardCard">
+          <h2>Correspondence with {selectedPatient.name}</h2>
+          <div className="messageHistoryContainer">
+            {messageHistory.length > 0 ? (
+              <ul>
+                {messageHistory.map((message) => (
+                  <li key={message.messageId}>{message.message}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>No message history available.</p>
+            )}
+          </div>
+        </div>
+      )}
       <MainButton onClick={handleLogout} text="Logout" />
       <MainButton onClick={handleDeleteAccount} text="Delete Account" />
     </div>
