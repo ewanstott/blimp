@@ -680,6 +680,77 @@ textarea:focus {
   background-color: #45a049;
 }
 
+/* Styles for messages sent by patients */
+.patient-message {
+  background-color: #e2f0cb;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  /* width: 100%; */
+  list-style-type: none;
+}
+
+/* Styles for messages sent by practitioners */
+.practitioner-message {
+  background-color: #cfe2f3;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  /* width: 100%; */
+  list-style-type: none;
+}
+
+.correspondanceButton {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 2px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 5px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.correspondanceButton:hover {
+  background-color: #45a049;
+}
+
+.patientCard {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.patientName {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.correspondenceButton {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.correspondenceButton:hover {
+  background-color: #45a049;
+}
+
 /* practitioner dash end*/
 
 /* practitioner searchResults */

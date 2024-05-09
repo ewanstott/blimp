@@ -7,6 +7,7 @@ import MessageInput from "../components/message/MessageInput";
 import { selectCurrentUser } from "../redux/accountSlice";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { formatTimestamp } from "../utils";
 
 // import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 // import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -113,25 +114,35 @@ const PractitionerDetails = () => {
               />
             </DemoItem> */}
           {/* </div> */}
-          <div>
-            <MessageInput
-              practitionerId={practitioner.id}
-              sender={user.name}
-              senderType="patient"
-            />
-          </div>
         </div>
         <div className="messageHistoryContainer">
           <h2>Message History</h2>
           {messageHistory.length > 0 ? (
             <ul>
               {messageHistory.map((message) => (
-                <li key={message.messageId}>{message.message}</li>
+                <li
+                  key={message.messageId}
+                  className={
+                    message.senderType === "patient"
+                      ? "patient-message"
+                      : "practitioner-message"
+                  }
+                >
+                  <p>{message.message}</p>
+                  <p>Sent at: {formatTimestamp(message.sent_at)}</p>{" "}
+                </li>
               ))}
             </ul>
           ) : (
             <p>No message history available.</p>
           )}
+        </div>
+        <div>
+          <MessageInput
+            practitionerId={practitioner.id}
+            sender={user.name}
+            senderType="patient"
+          />
         </div>
       </div>
     </div>
