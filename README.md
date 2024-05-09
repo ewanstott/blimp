@@ -2,7 +2,12 @@
 ---
 Blimp is a personal project aimed at connecting clients with self-employed healthcare professionals. This mobile-friendly Single Page Application is features user authentication, profile creation, messaging capabilities, appointment booking functionalities, seamless integration with backend systems and more. 
 
-![Screenshot 2024-04-09 at 20 37 12](https://github.com/ewanstott/blimp/assets/56144409/63273d87-d11c-4615-9794-e7273b1d251c)
+<img width="250" alt="Screenshot 2024-05-01 at 12 19 51" src="https://github.com/ewanstott/blimp/assets/56144409/cede4ddf-edae-4147-9b42-0e8c04383d49">
+
+<img width="250" alt="Screenshot 2024-05-01 at 12 18 03" src="https://github.com/ewanstott/blimp/assets/56144409/681fff79-0b9e-449d-b179-11a56ada5c6f">
+
+<img width="250" alt="Screenshot 2024-05-01 at 12 18 28" src="https://github.com/ewanstott/blimp/assets/56144409/d4adcba3-0a13-41d3-a83c-605b3063d7e2">
+
 
 ---
 💻 Tech Stack
