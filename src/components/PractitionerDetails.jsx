@@ -8,6 +8,7 @@ import { selectCurrentUser } from "../redux/accountSlice";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { formatTimestamp } from "../utils";
+// import AppointmentBooking from "./AppointmentBooking";
 
 // import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 // import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -103,17 +104,12 @@ const PractitionerDetails = () => {
           <div className="practitionerControls">
             <PractitionerControls practitioner={practitioner} />
           </div>
-          {/* <div className="bookingCalendar"> */}
-          {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DateCalendar />
-            </LocalizationProvider> */}
-          {/* <DemoItem label="Controlled calendar">
-              <DateCalendar
-                value={value}
-                onChange={(newValue) => setValue(newValue)}
-              />
-            </DemoItem> */}
-          {/* </div> */}
+          {/* <AppointmentBooking
+            practitionerId={practitionerId}
+            selectedSlot={selectedSlot}
+            handleSlotSelection={handleSlotSelection}
+            handleBookingRequest={handleBookingRequest}
+          /> */}
         </div>
         <div className="messageHistoryContainer">
           <h2>Message History</h2>

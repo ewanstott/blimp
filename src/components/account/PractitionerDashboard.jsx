@@ -21,7 +21,9 @@ const PractitionerDashboard = () => {
   const [patients, setPatients] = useState([]);
   const [selectedPatient, setSelectedPatient] = useState(null);
   const [messageHistory, setMessageHistory] = useState([]);
+  const [sortedMessages, setSortedMessages] = useState([]);
 
+  // const [appointmentRequests, setAppointmentRequests] = useState([]);
   // const [replyContent, setReplyContent] = useState("");
 
   //all message between practitioner and patients
@@ -75,6 +77,13 @@ const PractitionerDashboard = () => {
     fetchMessagedPatients();
   }, []);
 
+  useEffect(() => {
+    const sorted = messageHistory.sort((a, b) => {
+      return new Date(a.sent_at) - new Date(b.sent_at);
+    });
+    setSortedMessages(sorted);
+  }, [messageHistory]);
+
   const handlePatientSelect = (patient) => {
     setSelectedPatient(patient);
   };
@@ -122,17 +131,231 @@ const PractitionerDashboard = () => {
     }
   };
 
-  // console.log(selectedPatient.name);
-  // console.log(user.name);
-  // console.log(user.senderType);
-  // console.log(selectedPatient.senderType);
-  // console.log(user.sender_name);
-  // console.log(selectedPatient.sender_name);
+  //////////APPOINTMENTS - to be implemented///////////////
+  // useEffect(() => {
+  //   const fetchMessageHistory = async () => {
+  //     setMessageHistory([]);
+  //     try {
+  //       if (selectedPatient) {
+  //         const response = await axios.get(
+  //           `http://localhost:6001/message/history/${selectedPatient.id}`,
+  //           {
+  //             headers: { token: localStorage.getItem("token") },
+  //           }
+  //         );
+  //         console.log(response.data);
+  //         if (response.data.status === 1) {
+  //           setMessageHistory(response.data.messages);
+  //         } else {
+  //           console.error("Failed to fetch message history");
+  //         }
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching message history:", error);
+  //     }
+  //   };
+
+  //   fetchMessageHistory();
+  // }, [selectedPatient]);
+
+  // useEffect(() => {
+  //   const fetchMessagedPatients = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `http://localhost:6001/message/list-patients`,
+  //         {
+  //           headers: { token: localStorage.getItem("token") },
+  //         }
+  //       );
+  //       setPatients(response.data.patients);
+  //     } catch (error) {
+  //       console.error("Error fetching messaged patients:", error);
+  //     }
+  //   };
+
+  //   fetchMessagedPatients();
+  // }, []);
+
+  // useEffect(() => {
+  //   const fetchAppointmentRequests = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `http://localhost:6001/appointments/requests`,
+  //         {
+  //           headers: { token: localStorage.getItem("token") },
+  //         }
+  //       );
+  //       setAppointmentRequests(response.data.appointmentRequests);
+  //     } catch (error) {
+  //       console.error("Error fetching appointment requests:", error);
+  //     }
+  //   };
+
+  //   fetchAppointmentRequests();
+  // }, []);
+
+  // const handleAcceptAppointment = async (appointmentId) => {
+  //   try {
+  //     const response = await axios.post(
+  //       `http://localhost:6001/appointments/${appointmentId}/accept`,
+  //       {},
+  //       {
+  //         headers: { token: localStorage.getItem("token") },
+  //       }
+  //     );
+  //     console.log("Appointment accepted:", response.data);
+  //     setAppointmentRequests((prevRequests) =>
+  //       prevRequests.filter((req) => req.id !== appointmentId)
+  //     );
+  //   } catch (error) {
+  //     console.error("Error accepting appointment:", error);
+  //   }
+  // };
+
+  // const handleRejectAppointment = async (appointmentId) => {
+  //   try {
+  //     const response = await axios.post(
+  //       `http://localhost:6001/appointments/${appointmentId}/reject`,
+  //       {},
+  //       {
+  //         headers: { token: localStorage.getItem("token") },
+  //       }
+  //     );
+  //     console.log("Appointment rejected:", response.data);
+  //     setAppointmentRequests((prevRequests) =>
+  //       prevRequests.filter((req) => req.id !== appointmentId)
+  //     );
+  //   } catch (error) {
+  //     console.error("Error rejecting appointment:", error);
+  //   }
+  // };
+
+  //////////APPOINTMENTS END - to be implemented///////////////
 
   //check if there is a practitionerData
   if (!user) {
     return <p>Loading data...</p>;
   }
+  // return (
+  //   <div className="practitionerDashboardContainer">
+  //     <div className="practitionerDashboardCard">
+  //       <h2>Practitioner Details</h2>
+  //       <p>
+  //         <strong>Name:</strong> {user.name}
+  //       </p>
+  //       <p>
+  //         <strong>Email:</strong> {user.email}
+  //       </p>
+  //       {user.image && (
+  //         <p>
+  //           <img src={user.image} alt={user.name} />
+  //         </p>
+  //       )}
+
+  //       <p>
+  //         <strong>Qualifications:</strong> {user.qualifications}
+  //       </p>
+  //       <p>
+  //         <strong>Specialization:</strong> {user.specialization}
+  //       </p>
+  //       <p>
+  //         <strong>Experience (years):</strong> {user.experience}
+  //       </p>
+  //       <p>
+  //         <strong>About:</strong> {user.about}
+  //       </p>
+  //     </div>
+
+  //     <div className="practitionerDashboardCard">
+  //       <div className="practitionerDashboardContainer">
+  //         {/* <h2>Appointment Requests</h2>
+  //         <ul>
+  //           {appointmentRequests.map((appointment) => (
+  //             <li key={appointment.id}>
+  //               <p>Patient: {appointment.patientName}</p>
+  //               <p>Date and Time: {appointment.appointmentDatetime}</p>
+  //               <p>Status: {appointment.status}</p>
+  //               <div>
+  //                 <MainButton
+  //                   onClick={() => handleAcceptAppointment(appointment.id)}
+  //                   text="Accept"
+  //                 />
+  //                 <MainButton
+  //                   onClick={() => handleRejectAppointment(appointment.id)}
+  //                   text="Reject"
+  //                 />
+  //               </div>
+  //             </li>
+  //           ))}
+  //         </ul> */}
+  //       </div>
+  //       <h2>List of Patients</h2>
+  //       <ul>
+  //         {patients.map((patient) => (
+  //           <li key={patient.id} className="patientCard">
+  //             <div className="patientInfo">
+  //               <p className="patientName">{patient.name}</p>
+  //             </div>
+  //             <div className="correspondenceButtonContainer">
+  //               <button
+  //                 className="correspondenceButton"
+  //                 onClick={() => handlePatientSelect(patient)}
+  //               >
+  //                 View Correspondence
+  //               </button>
+  //             </div>
+  //           </li>
+  //         ))}
+  //       </ul>
+  //     </div>
+  //     {selectedPatient && (
+  //       <div className="practitionerDashboardCard">
+  //         <h2>Correspondence with {selectedPatient.name}</h2>
+  //         <div className="messageHistoryContainer">
+  //           {sortedMessages.length > 0 ? (
+  //             <ul>
+  //               {sortedMessages.map((message) => (
+  //                 <li
+  //                   key={message.messageId}
+  //                   className={
+  //                     message.senderType === "patient"
+  //                       ? "patient-message"
+  //                       : "practitioner-message"
+  //                   }
+  //                 >
+  //                   <p>
+  //                     <strong>
+  //                       {message.senderType === "patient"
+  //                         ? selectedPatient.name
+  //                         : user.name}
+  //                       :{" "}
+  //                     </strong>
+  //                     {message.message}
+  //                   </p>
+  //                   <p>Sent at: {formatTimestamp(message.sent_at)}</p>
+  //                 </li>
+  //               ))}
+  //             </ul>
+  //           ) : (
+  //             <p>No message history available.</p>
+  //           )}
+
+  //           <div>
+  //             <MessageInput
+  //               practitionerId={selectedPatient.id}
+  //               sender={user.name}
+  //               senderType="practitioner"
+  //             />
+  //           </div>
+  //         </div>
+  //       </div>
+  //     )}
+  //     <div className="buttonContainer">
+  //       <MainButton onClick={handleLogout} text="Logout" />
+  //       <MainButton onClick={handleDeleteAccount} text="Delete Account" />
+  //     </div>
+  //   </div>
+  // );
   return (
     <div className="practitionerDashboardContainer">
       <div className="practitionerDashboardCard">
@@ -148,7 +371,6 @@ const PractitionerDashboard = () => {
             <img src={user.image} alt={user.name} />
           </p>
         )}
-
         <p>
           <strong>Qualifications:</strong> {user.qualifications}
         </p>
@@ -176,7 +398,7 @@ const PractitionerDashboard = () => {
                   className="correspondenceButton"
                   onClick={() => handlePatientSelect(patient)}
                 >
-                  View Correspondence
+                  See Messages
                 </button>
               </div>
             </li>
@@ -185,36 +407,37 @@ const PractitionerDashboard = () => {
       </div>
       {selectedPatient && (
         <div className="practitionerDashboardCard">
-          <h2>Correspondence with {selectedPatient.name}</h2>
+          <h2>Messages with {selectedPatient.name}</h2>
           <div className="messageHistoryContainer">
-            {messageHistory.length > 0 ? (
-              <ul>
-                {messageHistory.map((message) => (
-                  <li
-                    key={message.messageId}
-                    className={
-                      message.senderType === "patient"
-                        ? "patient-message"
-                        : "practitioner-message"
-                    }
-                  >
-                    <p>
-                      {/* <strong>
-                        {message.senderType === "patient"
-                          ? selectedPatient.name
-                          : user.name}
-                        :{" "}
-                      </strong> */}
-                      {message.message}
-                    </p>
-                    <p>Sent at: {formatTimestamp(message.sent_at)}</p>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>No message history available.</p>
-            )}
-
+            <div className="messageHistoryBox">
+              {sortedMessages.length > 0 ? (
+                <ul>
+                  {sortedMessages.map((message) => (
+                    <li
+                      key={message.messageId}
+                      className={
+                        message.senderType === "patient"
+                          ? "patient-message"
+                          : "practitioner-message"
+                      }
+                    >
+                      <p>
+                        <strong>
+                          {message.senderType === "patient"
+                            ? selectedPatient.name
+                            : user.name}
+                          :{" "}
+                        </strong>
+                        {message.message}
+                      </p>
+                      <p>Sent at: {formatTimestamp(message.sent_at)}</p>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p>No message history available.</p>
+              )}
+            </div>
             <div>
               <MessageInput
                 practitionerId={selectedPatient.id}
