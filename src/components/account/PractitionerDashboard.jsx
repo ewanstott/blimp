@@ -122,6 +122,13 @@ const PractitionerDashboard = () => {
     }
   };
 
+  // console.log(selectedPatient.name);
+  // console.log(user.name);
+  // console.log(user.senderType);
+  // console.log(selectedPatient.senderType);
+  // console.log(user.sender_name);
+  // console.log(selectedPatient.sender_name);
+
   //check if there is a practitionerData
   if (!user) {
     return <p>Loading data...</p>;
@@ -192,12 +199,12 @@ const PractitionerDashboard = () => {
                     }
                   >
                     <p>
-                      <strong>
+                      {/* <strong>
                         {message.senderType === "patient"
                           ? selectedPatient.name
-                          : practitionerData.name}
+                          : user.name}
                         :{" "}
-                      </strong>
+                      </strong> */}
                       {message.message}
                     </p>
                     <p>Sent at: {formatTimestamp(message.sent_at)}</p>
@@ -218,105 +225,12 @@ const PractitionerDashboard = () => {
           </div>
         </div>
       )}
-
-      <MainButton onClick={handleLogout} text="Logout" />
-      <MainButton onClick={handleDeleteAccount} text="Delete Account" />
+      <div className="buttonContainer">
+        <MainButton onClick={handleLogout} text="Logout" />
+        <MainButton onClick={handleDeleteAccount} text="Delete Account" />
+      </div>
     </div>
   );
-
-  // return (
-  //   <div className="practitionerDashboardContainer">
-  //     <div className="practitionerDashboardCard">
-  //       <h2>Practitioner Details</h2>
-  //       <p>
-  //         <strong>Name:</strong> {user.name}
-  //       </p>
-  //       <p>
-  //         <strong>Email:</strong> {user.email}
-  //       </p>
-  //       {user.image && (
-  //         <p>
-  //           <img src={user.image} alt={user.name} />
-  //         </p>
-  //       )}
-
-  //       <p>
-  //         <strong>Qualifications:</strong> {user.qualifications}
-  //       </p>
-  //       <p>
-  //         <strong>Specialization:</strong> {user.specialization}
-  //       </p>
-  //       <p>
-  //         <strong>Experience (years):</strong> {user.experience}
-  //       </p>
-  //       <p>
-  //         <strong>About:</strong> {user.about}
-  //       </p>
-  //     </div>
-
-  //     <div className="practitionerDashboardCard">
-  //       <h2>List of Patients</h2>
-  //       <ul>
-  //         {patients.map((patient) => (
-  //           <li key={patient.id}>
-  //             {patient.name}
-  //             <button
-  //               className="correspondanceButton"
-  //               onClick={() => handlePatientSelect(patient)}
-  //             >
-  //               View Correspondence
-  //             </button>
-  //           </li>
-  //         ))}
-  //       </ul>
-  //     </div>
-  //     {selectedPatient && (
-  //       <div className="practitionerDashboardCard">
-  //         <h2>Correspondence with {selectedPatient.name}</h2>
-  //         <div className="messageHistoryContainer">
-  //           {messageHistory.length > 0 ? (
-  //             <ul>
-  //               {messageHistory.map((message) => (
-  //                 <li
-  //                   key={message.messageId}
-  //                   className={
-  //                     message.senderType === "patient"
-  //                       ? "patient-message"
-  //                       : "practitioner-message"
-  //                   }
-  //                 >
-  //                   <p>
-  //                     <strong>
-  //                       {message.senderType === "patient"
-  //                         ? selectedPatient.name
-  //                         : practitionerData.name}
-  //                       :{" "}
-  //                     </strong>
-  //                     {message.message}
-  //                   </p>
-  //                   <p>Sent at: {formatTimestamp(message.sent_at)}</p>
-  //                 </li>
-  //               ))}
-  //             </ul>
-  //           ) : (
-  //             <p>No message history available.</p>
-  //           )}
-
-  //           <div>
-  //             <MessageInput
-  //               practitionerId={selectedPatient.id}
-  //               sender={user.name}
-  //               senderType="practitioner"
-  //             />
-  //           </div>
-  //         </div>
-  //       </div>
-  //     )}
-
-  //     <MainButton onClick={handleLogout} text="Logout" />
-  //     <MainButton onClick={handleDeleteAccount} text="Delete Account" />
-  //   </div>
-  // );
 };
 
 export default PractitionerDashboard;

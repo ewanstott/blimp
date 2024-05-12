@@ -137,7 +137,7 @@ const PractitionerDetails = () => {
             <p>No message history available.</p>
           )}
         </div>
-        <div>
+        <div className="MessageInputContainer">
           <MessageInput
             practitionerId={practitioner.id}
             sender={user.name}
