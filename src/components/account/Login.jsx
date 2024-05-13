@@ -11,6 +11,7 @@ import { setNotification } from "../../redux/practitionerSlice";
 import { useNavigate } from "react-router-dom";
 import MainButton from "../MainButton";
 import axios from "axios";
+import { url } from "../../config";
 
 //add logic so user directed to correct dash based on type (patient vs prac)
 
@@ -34,7 +35,7 @@ const Login = () => {
       let response;
       // Send login request to the patient login endpoint
       response = await axios.post(
-        "http://localhost:6001/patient/login",
+        `${url}/patient/login`,
         userData
       );
       console.log(response.data);
@@ -53,7 +54,7 @@ const Login = () => {
         // If login as patient fails, try logging in as practitioner
         // Send login request to the practitioner login endpoint
         response = await axios.post(
-          "http://localhost:6001/practitioner/login",
+          `${url}/practitioner/login`,
           userData
         );
 

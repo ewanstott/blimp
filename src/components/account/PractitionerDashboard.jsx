@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import MessageInput from "../message/MessageInput";
 import axios from "axios";
 import { formatTimestamp } from "../../utils";
+import { url } from "../../config";
 
 const PractitionerDashboard = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ const PractitionerDashboard = () => {
       try {
         if (selectedPatient) {
           const response = await axios.get(
-            `http://localhost:6001/message/history/${selectedPatient.id}`,
+            `${url}/message/history/${selectedPatient.id}`,
             {
               headers: { token: localStorage.getItem("token") },
             }
@@ -62,7 +63,7 @@ const PractitionerDashboard = () => {
     const fetchMessagedPatients = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:6001/message/list-patients`,
+          `${url}/message/list-patients`,
           {
             headers: { token: localStorage.getItem("token") },
           }
@@ -93,7 +94,7 @@ const PractitionerDashboard = () => {
   const handleLogout = async () => {
     console.log("Logout button clicked");
     const { data } = await axios.delete(
-      `http://localhost:6001/practitioner/logout`, //add ${user.id} ??
+      `${url}/practitioner/logout`, //add ${user.id} ??
       {
         headers: { token: localStorage.getItem("token") },
       }
@@ -110,7 +111,7 @@ const PractitionerDashboard = () => {
     try {
       // Send delete request to backend
       const response = await axios.delete(
-        `http://localhost:6001/practitioner/delete/`,
+        `${url}/practitioner/delete/`,
         {
           headers: { token: localStorage.getItem("token") },
         }
@@ -138,7 +139,7 @@ const PractitionerDashboard = () => {
   //     try {
   //       if (selectedPatient) {
   //         const response = await axios.get(
-  //           `http://localhost:6001/message/history/${selectedPatient.id}`,
+  //           `${url}/message/history/${selectedPatient.id}`,
   //           {
   //             headers: { token: localStorage.getItem("token") },
   //           }
@@ -162,7 +163,7 @@ const PractitionerDashboard = () => {
   //   const fetchMessagedPatients = async () => {
   //     try {
   //       const response = await axios.get(
-  //         `http://localhost:6001/message/list-patients`,
+  //         `${url}/message/list-patients`,
   //         {
   //           headers: { token: localStorage.getItem("token") },
   //         }
@@ -180,7 +181,7 @@ const PractitionerDashboard = () => {
   //   const fetchAppointmentRequests = async () => {
   //     try {
   //       const response = await axios.get(
-  //         `http://localhost:6001/appointments/requests`,
+  //         `${url}/appointments/requests`,
   //         {
   //           headers: { token: localStorage.getItem("token") },
   //         }
@@ -197,7 +198,7 @@ const PractitionerDashboard = () => {
   // const handleAcceptAppointment = async (appointmentId) => {
   //   try {
   //     const response = await axios.post(
-  //       `http://localhost:6001/appointments/${appointmentId}/accept`,
+  //       `http://:6001/appointments/${appointmentId}/accept`,
   //       {},
   //       {
   //         headers: { token: localStorage.getItem("token") },
@@ -215,7 +216,7 @@ const PractitionerDashboard = () => {
   // const handleRejectAppointment = async (appointmentId) => {
   //   try {
   //     const response = await axios.post(
-  //       `http://localhost:6001/appointments/${appointmentId}/reject`,
+  //       `http://:6001/appointments/${appointmentId}/reject`,
   //       {},
   //       {
   //         headers: { token: localStorage.getItem("token") },
@@ -366,11 +367,18 @@ const PractitionerDashboard = () => {
         <p>
           <strong>Email:</strong> {user.email}
         </p>
-        {user.image && (
-          <p>
-            <img src={user.image} alt={user.name} />
-          </p>
-        )}
+        {user.image ? (
+  <p>
+    <img src={user.image} alt={user.name} className="practitionerProfileImage"/>
+  </p>
+) : (
+  user.file && (
+    <p>
+      <img src={user.file} alt={user.name} className="practitionerProfileImage"/>
+    </p>
+  )
+)}
+
         <p>
           <strong>Qualifications:</strong> {user.qualifications}
         </p>

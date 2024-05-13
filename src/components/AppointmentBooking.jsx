@@ -1,5 +1,6 @@
 // import React, { useState } from "react";
 // import axios from "axios";
+// import { url } from "./config";
 
 // console.log(practitioner.practitionerId);
 // const AppointmentBooking = ({ practitionerId, selectedSlot }) => {
@@ -17,7 +18,7 @@
 
 //     try {
 //       const response = await axios.post(
-//         "http://localhost:6001/appointments/book",
+//         "${url}/appointments/book",
 //         {
 //           practitionerId,
 //           timeSlot: selectedSlot,

@@ -14,6 +14,7 @@ import {
   setNotification,
   setPractitionerData,
 } from "../../redux/practitionerSlice";
+import { url } from "../../config";
 
 const Signup = () => {
   const [userType, setUserType] = useState(); //patient or practioner
@@ -43,14 +44,17 @@ const Signup = () => {
   const onSubmit = async (e) => {
     e.preventDefault(); //stops page re-rendering
     const userData = { ...userInput, userType }; // Include userType in userData
-
+    if (userData.file.length > 1000000) {
+      dispatch(setNotification("File too large!"));
+      return;
+    }
     console.log("Submitting user data:", userData); // Log the user data before sending it to the backend
 
     //send to API based on user type
     try {
       let response;
       if (userType === "patient") {
-        response = await axios.post("http://localhost:6001/patient/add", {
+        response = await axios.post(`${url}/patient/add`, {
           ...userData,
         });
         console.log("responce data:", response.data);
@@ -64,10 +68,11 @@ const Signup = () => {
         dispatch(
           setCurrentUser({ ...response.data }) // Dispatch action to update current user state
         );
+        dispatch(setLoggedIn(true));
         // Add token to local storage
         localStorage.setItem("token", response.data.token);
       } else if (userType === "practitioner") {
-        response = await axios.post("http://localhost:6001/practitioner/add", {
+        response = await axios.post(`${url}/practitioner/add`, {
           ...userData,
         });
         console.log("responce data:", response.data);
@@ -92,6 +97,7 @@ const Signup = () => {
       }
     } catch (error) {
       console.error("Error:", error);
+      dispatch(setNotification("Unable to accept your account, please try again!"));
     }
   };
 

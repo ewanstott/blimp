@@ -8,6 +8,7 @@ import { selectCurrentUser } from "../redux/accountSlice";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { formatTimestamp } from "../utils";
+import { url } from "../config";
 // import AppointmentBooking from "./AppointmentBooking";
 
 // import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -26,7 +27,7 @@ const PractitionerDetails = () => {
       setMessageHistory([]);
       try {
         const response = await axios.get(
-          `http://localhost:6001/message/history/${id}`,
+          `${url}/message/history/${id}`,
           {
             headers: { token: localStorage.getItem("token") },
           }

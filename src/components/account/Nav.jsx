@@ -13,6 +13,7 @@ const Nav = () => {
 
   // Extracting userType from the user object
   const userType = user ? user.userType : null;
+  console.log(userType);
 
   return (
     <>

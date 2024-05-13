@@ -256,9 +256,7 @@ img {
   /* white-space: nowrap; */
 }
 
-.searchResultCard img {
-  max-width: 128px;
-}
+
 
 .practitionerDetails {
   display: flex;
@@ -271,6 +269,11 @@ img {
   margin-left: 20px;
   margin-right: 20px;
   padding: 15px;
+}
+
+.practitionerProfileImage {
+  max-width: 100%;
+  max-height: 400px;
 }
 
 /* .practitionerDetails img {
@@ -324,6 +327,7 @@ img {
   width: 100%;
   max-width: 200px;
   height: auto;
+  max-height: 200px;
   border-radius: 8px;
   margin-bottom: 20px;
 }
@@ -886,7 +890,9 @@ textarea:focus {
 
 .searchResultCard img {
   width: 100%;
-  height: auto;
+  max-width: 128px;
+  /* height: auto; */
+  max-height: 128px;
   border-radius: 8px;
   margin-bottom: 10px;
 }
