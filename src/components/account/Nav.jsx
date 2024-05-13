@@ -16,24 +16,22 @@ const Nav = () => {
   console.log(userType);
 
   return (
-    <>
-      <div className="navContainer">
-        <Link to="/">Home</Link>
-        {loggedIn &&
-          (userType === "patient" ? (
-            <Link to="/patient-dashboard">Dashboard</Link>
-          ) : (
-            <Link to="/practitioner-dashboard">Dashboard</Link>
-          ))}
-        {!loggedIn && (
-          <>
-            <Link to="/signup">Sign Up</Link>
-            <Link to="/login">Login</Link>
-          </>
-        )}
-      </div>
-    </>
+    <div className="navContainer">
+      <Link to="/">Home</Link>
+      {loggedIn && (
+        <Link to={userType === 'patient' ? '/patient-dashboard' : '/practitioner-dashboard'}>
+          Dashboard
+        </Link>
+      )}
+      {!loggedIn && (
+        <>
+          <Link to="/signup">Sign Up</Link>
+          <Link to="/login">Login</Link>
+        </>
+      )}
+    </div>
   );
 };
+
 
 export default Nav;
