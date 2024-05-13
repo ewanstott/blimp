@@ -17,11 +17,8 @@ const Nav = () => {
 
   return (
     <>
-      {/* //used to style a particular button when in an active state (it knows what state its in) */}
-      {/* <NavLink />  */}
       <div className="navContainer">
         <Link to="/">Home</Link>
-        {/* Dash should only show when user logged in  */}
         {loggedIn &&
           (userType === "patient" ? (
             <Link to="/patient-dashboard">Dashboard</Link>
