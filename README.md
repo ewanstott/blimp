@@ -1,12 +1,11 @@
-🧑‍⚕️ Blimp - Health Tech Web App 📈
+🧑‍⚕️ Blimp - Health Tech Web App 📈 | [blimp-health.com](https://www.blimp-health.com)
 ---
-Blimp is a personal project aimed at connecting clients with self-employed healthcare professionals. This mobile-friendly Single Page Application is features user authentication, profile creation, messaging capabilities, appointment booking functionalities, seamless integration with backend systems and more. 
+Blimp is a personal project aimed at connecting clients with self-employed healthcare professionals. This mobile-friendly Single Page Application features user authentication, profile creation, messaging capabilities, appointment booking functionalities, seamless integration with backend systems and more. 
 
-<img width="250" alt="Screenshot 2024-05-01 at 12 19 51" src="https://github.com/ewanstott/blimp/assets/56144409/cede4ddf-edae-4147-9b42-0e8c04383d49">
+<img width="500" alt="1" src="https://github.com/ewanstott/blimp/assets/56144409/17ebeb6f-999c-4e8b-a5c4-00e51b3f77c7">
+<img width="500" alt="2" src="https://github.com/ewanstott/blimp/assets/56144409/eb4a4207-dfcb-4e48-b169-5273467a42cf">
+<img width="500" alt="3" src="https://github.com/ewanstott/blimp/assets/56144409/83d4698f-ca40-49eb-a8c7-1a6054d0167c">
 
-<img width="250" alt="Screenshot 2024-05-01 at 12 18 03" src="https://github.com/ewanstott/blimp/assets/56144409/681fff79-0b9e-449d-b179-11a56ada5c6f">
-
-<img width="250" alt="Screenshot 2024-05-01 at 12 18 28" src="https://github.com/ewanstott/blimp/assets/56144409/d4adcba3-0a13-41d3-a83c-605b3063d7e2">
 
 
 ---
@@ -34,7 +33,7 @@ Blimp is a personal project aimed at connecting clients with self-employed healt
 
 ⚙️ Core Features
 -----
-- Dashboard: Enables users to view favourite practitioners, see messages and appointments.
+- Dashboard: Enables users to view favorite practitioners, see messages and appointments.
 - Hub Section: Delivers insights on your health data including practitioner notes and goals.
 - User Management: Features registration, profile editing, and more.
 - Responsive Design: Guarantees flawless access across various devices.
@@ -59,12 +58,12 @@ Blimp's aesthetic appeal is a testament to detailed craftsmanship. Primarily sty
 - Custom logo and CSS stylings for unique aesthetics
 - Advanced form validation processes using Joi Validator
 - Local storage integration for superior user experiences
-- The "hub" section offering insights into health data.
+- The "hub" section offers insights into health data.
 - Version control established via Git
 
 ⚡ Future Scope:
 ---
-- Enhancements: Improve the "hub" section with health news, goal setting, health planning features.
+- Enhancements: Improve the "hub" section with health news, goal setting, and health planning features.
 - Integrations: Implementation of multi-factor authentication, OAuth, third-party integrations, and WebSocket for live chat support.
 - Code Base: Consider using TypeScript for enhanced type safety.
 - Functionalities: Additional features like autocomplete, additional practitioner filtering, and messaging capabilities.
