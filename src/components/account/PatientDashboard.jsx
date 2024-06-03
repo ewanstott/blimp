@@ -29,7 +29,7 @@ const PatientDashboard = () => {
     const fetchMessagedPractitioners = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:6001/message/list-practitioners",
+          `${url}/message/list-practitioners`,
           {
             headers: { token: localStorage.getItem("token") },
           }
@@ -57,7 +57,7 @@ const PatientDashboard = () => {
   const handleLogout = async () => {
     console.log("Logout button clicked");
     const { data } = await axios.delete(
-      `http://localhost:6001/patient/logout`, //add ${user.id} ??
+      `${url}/patient/logout`, //add ${user.id} ??
       {
         headers: { token: localStorage.getItem("token") },
       }
@@ -74,7 +74,7 @@ const PatientDashboard = () => {
     try {
       // Send delete request to backend
       const response = await axios.delete(
-        `http://localhost:6001/patient/delete`,
+        `${url}/patient/delete`,
         {
           headers: { token: localStorage.getItem("token") },
         }

@@ -10,6 +10,7 @@ import Interface from "./components/Interface";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { selectNotification } from "./redux/practitionerSlice";
+import { url } from "./config";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const App = () => {
     const getInitialPractitioners = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:6001/practitioner/get"
+          `${url}/practitioner/get`
         );
         console.log(response);
 

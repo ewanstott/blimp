@@ -4,6 +4,7 @@ import MainButton from "../MainButton";
 import { selectCurrentUser } from "../../redux/accountSlice";
 import { setNotification } from "../../redux/practitionerSlice";
 import axios from "axios";
+import { url } from "../../config";
 
 const MessageInput = ({ practitionerId, sender, senderType }) => {
   const [message, setMessage] = useState("");
@@ -13,7 +14,7 @@ const MessageInput = ({ practitionerId, sender, senderType }) => {
     console.log("Send msg button clicked from practitionerDetails");
     try {
       const response = await axios.post(
-        `http://localhost:6001/message/add`,
+        `${url}/message/add`,
         { receiver_id: practitionerId, message: message },
         {
           headers: { token: localStorage.getItem("token") },

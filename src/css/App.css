@@ -114,12 +114,14 @@ img {
   border-radius: 10px;
 }
 
-.subHeader {
+.subHeader h4 {
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  text-wrap: wrap;
+  text-align: center;
+  margin-left: 2px;
+  margin-right: 2px;
   /* margin-bottom: 20px; */
 }
 
@@ -152,9 +154,11 @@ img {
 .searchBar {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 95%;
   max-width: 400px;
   margin: 0 auto 20px;
+  /* margin-left: 2px;
+  margin-right: 2px; */
   background-color: #fff;
   border-radius: 25px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -182,29 +186,12 @@ img {
 /* searchBar end */
 
 /* nav */
-/* .navContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0;
-}
 
-.navContainer a {
-  color: #4546e5;
-  text-decoration: none;
-  margin: 0 10px;
-  font-size: 18px;
-  transition: color 0.3s ease;
-}
-
-.navContainer a:hover {
-  color: #fff;
-} */
 .navContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-top: 10px; */
+  margin-bottom: 5px;
 }
 
 .navContainer ul {
@@ -219,10 +206,11 @@ img {
   margin: 0 10px;
   font-size: 18px;
   transition: color 0.3s ease;
+  margin-bottom: 5px;
 }
 
 .navContainer a:hover {
-  transform: translateY(-1px); /* Apply transform on hover */
+  transform: translateY(-1px); 
 }
 /* nav end */
 
@@ -256,9 +244,7 @@ img {
   /* white-space: nowrap; */
 }
 
-.searchResultCard img {
-  max-width: 128px;
-}
+
 
 .practitionerDetails {
   display: flex;
@@ -271,6 +257,11 @@ img {
   margin-left: 20px;
   margin-right: 20px;
   padding: 15px;
+}
+
+.practitionerProfileImage {
+  max-width: 100%;
+  max-height: 400px;
 }
 
 /* .practitionerDetails img {
@@ -324,6 +315,7 @@ img {
   width: 100%;
   max-width: 200px;
   height: auto;
+  max-height: 200px;
   border-radius: 8px;
   margin-bottom: 20px;
 }
@@ -886,7 +878,9 @@ textarea:focus {
 
 .searchResultCard img {
   width: 100%;
-  height: auto;
+  max-width: 128px;
+  /* height: auto; */
+  max-height: 128px;
   border-radius: 8px;
   margin-bottom: 10px;
 }
