@@ -19,7 +19,6 @@ const EmailPasswordForm = ({ name, onSubmit }) => {
             placeholder="Password"
           />
         </div>
-        {/* <button>{name}</button> */}
         <div className="loginButtonContainer">
           <MainButton onClick={onSubmit} text="Login" />
         </div>

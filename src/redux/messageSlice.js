@@ -8,9 +8,6 @@ export const messageSlice = createSlice({
   name: "message",
   initialState,
   reducers: {
-    // clearMessages: (state) => {
-    //   state.messages = []; //this data will now live in the store
-    // },
     sendMessage: (state, { payload }) => {
       const { id, content, sender, senderType } = payload;
       // Find message by ID
@@ -28,10 +25,6 @@ export const messageSlice = createSlice({
           content,
           sender,
           senderType,
-          // senderType === "patient"
-          //   ? state.user.name
-          //   : state.practitionerData.name,
-          // timestamp: new Date(),
         });
       } else {
         //If msg doesnt exist, push entire message
@@ -40,9 +33,6 @@ export const messageSlice = createSlice({
           content,
           sender,
           senderType,
-          // senderType === "patient"
-          //   ? state.user.name
-          //   : state.practitionerData.name,
           replies: [],
         });
       }

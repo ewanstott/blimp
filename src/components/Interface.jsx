@@ -20,7 +20,7 @@ import { selectLoggedIn } from "../redux/accountSlice";
 import Signup from "./account/Signup";
 import Login from "./account/Login";
 // import Nav from "./account/Nav";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Splash from "./account/Splash";
 import gsap from "gsap";
 // import { useGSAP } from "@gsap/react";
@@ -74,7 +74,6 @@ const Interface = () => {
         <Header />
       </header>
       <main>
-        {/* <MessageInput /> */}
         <Routes>
           <Route path="/practitioner/:id" element={<PractitionerDetails />} />
           <Route path="/" element={<SearchResults filtered={filtered} />} />

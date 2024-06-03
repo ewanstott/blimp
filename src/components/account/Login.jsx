@@ -83,7 +83,6 @@ const Login = () => {
     <>
       <form onInput={onInput} onSubmit={onSubmit}>
         <EmailPasswordForm name="Login" onSubmit={onSubmit} />
-        {/* <MainButton onClick={onSubmit} text="Login" /> */}
       </form>
     </>
   );

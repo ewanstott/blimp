@@ -11,8 +11,6 @@ import { selectMessages, sendMessage } from "../../redux/messageSlice";
 import { useEffect, useState } from "react";
 import MessageInput from "../message/MessageInput";
 import axios from "axios";
-// import { MessageBox } from "react-chat-elements";
-// import Chat from "../message/chat";
 
 const PatientDashboard = () => {
   const dispatch = useDispatch();

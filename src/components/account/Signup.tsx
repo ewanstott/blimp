@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setLoggedIn,
@@ -15,32 +16,31 @@ import {
   setPractitionerData,
 } from "../../redux/practitionerSlice";
 
-const Signup = () => {
-  const [userType, setUserType] = useState(); //patient or practioner
-  const [userInput, setUserInput] = useState({});
-  // const [signupSuccess, setSignupSuccess] = useState(false); // State to track signup success
+
+// Define types for user input and event handlers
+interface UserInput {
+  [key: string]: any;
+}
+
+const Signup: React.FC = () => {
+  const [userType, setUserType] = useState<"patient" | "practitioner" | undefined>(undefined); //patient or practitioner
+  const [userInput, setUserInput] = useState<UserInput>({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loggedIn = useSelector(selectLoggedIn);
   const user = useSelector(selectCurrentUser);
 
-  // const onInput = (e) => {
-  //   setUserInput({ ...userInput, [e.target.id]: e.target.value });
-
-  const onInput = (e) => {
-    console.log(e);
-    if (e.type === "file") {
-      setUserInput({ ...userInput, file: e.file });
+  const handleFormInput: React.FormEventHandler<HTMLFormElement> = (e) => {
+    const target = e.target as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+    if (target.type === "file") {
+      const file = (target as HTMLInputElement).files?.[0];
+      setUserInput({ ...userInput, file });
     } else {
-      setUserInput({ ...userInput, [e.target.id]: e.target.value });
+      setUserInput({ ...userInput, [target.id]: target.value });
     }
   };
-  console.log(userInput);
 
-  // after making API call to the backend for signing up a practitioner,
-  // receive the practitionerDataBackEnd in the response.
-  // Extract this data and dispatch it to the Redux store.
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault(); //stops page re-rendering
     const userData = { ...userInput, userType }; // Include userType in userData
 
@@ -53,7 +53,7 @@ const Signup = () => {
         response = await axios.post("http://localhost:6001/patient/add", {
           ...userData,
         });
-        console.log("responce data:", response.data);
+        console.log("response data:", response.data);
         if (response.data.status === 0) {
           //send message
           dispatch(setNotification("Duplicate account. Please try again!"));
@@ -70,7 +70,7 @@ const Signup = () => {
         response = await axios.post("http://localhost:6001/practitioner/add", {
           ...userData,
         });
-        console.log("responce data:", response.data);
+        console.log("response data:", response.data);
         if (response.data.status === 0) {
           //send message
           dispatch(setNotification("Duplicate account. Please try again!"));
@@ -95,10 +95,10 @@ const Signup = () => {
     }
   };
 
-  const radioHandler = (input) => {
+  const radioHandler = (input: "patient" | "practitioner") => {
     setUserType(input);
   };
-  // console.log(userInput);
+
   return (
     <div className="signupContainer">
       <div className="signupForm">
@@ -106,7 +106,7 @@ const Signup = () => {
           <h2>Sign Up</h2>
           <p>Please enter your signup details below</p>
         </div>
-        <form onInput={onInput} onSubmit={onSubmit}>
+        <form onInput={handleFormInput} onSubmit={onSubmit}>
           <div className="userTypeSelection">
             <label htmlFor="signup-patient">
               <input
@@ -131,12 +131,12 @@ const Signup = () => {
           </div>
           {userType === "patient" && (
             <div className="formSection">
-              <PatientForm onInput={onInput} onSubmit={onSubmit} />
+              <PatientForm onInput={handleFormInput} onSubmit={onSubmit} />
             </div>
           )}
           {userType === "practitioner" && (
             <div className="formSection">
-              <PractitionerForm onInput={onInput} onSubmit={onSubmit} />
+              <PractitionerForm onInput={handleFormInput} onSubmit={onSubmit} />
             </div>
           )}
         </form>

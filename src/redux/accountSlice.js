@@ -2,18 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getStore, saveStore } from "./diskUtils";
 
 //Initial State
-// const initialState = { screen: 0 }; //screen 0 = signup //screen 1: login //screen 2: dashboard
+
 const initialState = {
-  // user: null,
-  loggedIn: localStorage.getItem("token"), //enginerr out this line (we don't need this as token store in current user)
+  loggedIn: localStorage.getItem("token"), //engineer out this line (we don't need this as token store in current user)
   users: [],
   currentUser: JSON.parse(localStorage.getItem("currentUser")),
 };
 
-//Show as initial state in dash:
-// , favouritePractitioners: [
-//   practitioner.name: "Taylor Gibney", {practitioner.specialization}
-// ]
 
 const diskData = getStore();
 

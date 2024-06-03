@@ -10,23 +10,13 @@ const Dashboard = () => {
       <h2>Dashboard</h2>
       <button
         onClick={() => {
-          //could also do this with Router
           dispatch(setLoggedIn(false)); //updates logged in status
-          // dispatch(setScreen(1)); //updates screen displayed
           navigate("/");
         }}
       >
         Logout
       </button>
-      {/* <button
-        onClick={() => {
-          dispatch(setScreen(3));
-        }}
-      >
-        Home
-      </button> */}
       <Link to="/">Search Results</Link>
-      {/* <Link to="/search-results">Search Results</Link> */}
     </>
   );
 };

@@ -34,17 +34,6 @@ const PractitionerResult = ({ practitioner }) => {
       {practitioner.image && ( // Check if image data is available
         <img src={practitioner.image} alt={practitioner.name} />
       )}
-      {/* 
-      {practitioner.image && (
-        <img
-          src={
-            practitioner.image.startsWith("data:")
-              ? practitioner.image
-              : `/public/images/${practitioner.image}`
-          }
-          alt={practitioner.name}
-        />
-      )} */}
 
       <h3>{practitioner.specialization}</h3>
       <h6>{practitioner.experience} years of wisdom</h6>

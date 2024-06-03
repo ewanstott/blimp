@@ -22,14 +22,8 @@ const PractitionerDashboard = () => {
   const [selectedPatient, setSelectedPatient] = useState(null);
   const [messageHistory, setMessageHistory] = useState([]);
   const [sortedMessages, setSortedMessages] = useState([]);
-
   // const [appointmentRequests, setAppointmentRequests] = useState([]);
   // const [replyContent, setReplyContent] = useState("");
-
-  //all message between practitioner and patients
-  //seperate screen for each conversation
-  //Pateitn profile shows conversation between practitioner and patient
-  //same SQL, just other way round i.e. sender switches to receiver...
 
   useEffect(() => {
     const fetchMessageHistory = async () => {
@@ -236,126 +230,7 @@ const PractitionerDashboard = () => {
   if (!user) {
     return <p>Loading data...</p>;
   }
-  // return (
-  //   <div className="practitionerDashboardContainer">
-  //     <div className="practitionerDashboardCard">
-  //       <h2>Practitioner Details</h2>
-  //       <p>
-  //         <strong>Name:</strong> {user.name}
-  //       </p>
-  //       <p>
-  //         <strong>Email:</strong> {user.email}
-  //       </p>
-  //       {user.image && (
-  //         <p>
-  //           <img src={user.image} alt={user.name} />
-  //         </p>
-  //       )}
 
-  //       <p>
-  //         <strong>Qualifications:</strong> {user.qualifications}
-  //       </p>
-  //       <p>
-  //         <strong>Specialization:</strong> {user.specialization}
-  //       </p>
-  //       <p>
-  //         <strong>Experience (years):</strong> {user.experience}
-  //       </p>
-  //       <p>
-  //         <strong>About:</strong> {user.about}
-  //       </p>
-  //     </div>
-
-  //     <div className="practitionerDashboardCard">
-  //       <div className="practitionerDashboardContainer">
-  //         {/* <h2>Appointment Requests</h2>
-  //         <ul>
-  //           {appointmentRequests.map((appointment) => (
-  //             <li key={appointment.id}>
-  //               <p>Patient: {appointment.patientName}</p>
-  //               <p>Date and Time: {appointment.appointmentDatetime}</p>
-  //               <p>Status: {appointment.status}</p>
-  //               <div>
-  //                 <MainButton
-  //                   onClick={() => handleAcceptAppointment(appointment.id)}
-  //                   text="Accept"
-  //                 />
-  //                 <MainButton
-  //                   onClick={() => handleRejectAppointment(appointment.id)}
-  //                   text="Reject"
-  //                 />
-  //               </div>
-  //             </li>
-  //           ))}
-  //         </ul> */}
-  //       </div>
-  //       <h2>List of Patients</h2>
-  //       <ul>
-  //         {patients.map((patient) => (
-  //           <li key={patient.id} className="patientCard">
-  //             <div className="patientInfo">
-  //               <p className="patientName">{patient.name}</p>
-  //             </div>
-  //             <div className="correspondenceButtonContainer">
-  //               <button
-  //                 className="correspondenceButton"
-  //                 onClick={() => handlePatientSelect(patient)}
-  //               >
-  //                 View Correspondence
-  //               </button>
-  //             </div>
-  //           </li>
-  //         ))}
-  //       </ul>
-  //     </div>
-  //     {selectedPatient && (
-  //       <div className="practitionerDashboardCard">
-  //         <h2>Correspondence with {selectedPatient.name}</h2>
-  //         <div className="messageHistoryContainer">
-  //           {sortedMessages.length > 0 ? (
-  //             <ul>
-  //               {sortedMessages.map((message) => (
-  //                 <li
-  //                   key={message.messageId}
-  //                   className={
-  //                     message.senderType === "patient"
-  //                       ? "patient-message"
-  //                       : "practitioner-message"
-  //                   }
-  //                 >
-  //                   <p>
-  //                     <strong>
-  //                       {message.senderType === "patient"
-  //                         ? selectedPatient.name
-  //                         : user.name}
-  //                       :{" "}
-  //                     </strong>
-  //                     {message.message}
-  //                   </p>
-  //                   <p>Sent at: {formatTimestamp(message.sent_at)}</p>
-  //                 </li>
-  //               ))}
-  //             </ul>
-  //           ) : (
-  //             <p>No message history available.</p>
-  //           )}
-
-  //           <div>
-  //             <MessageInput
-  //               practitionerId={selectedPatient.id}
-  //               sender={user.name}
-  //               senderType="practitioner"
-  //             />
-  //           </div>
-  //         </div>
-  //       </div>
-  //     )}
-  //     <div className="buttonContainer">
-  //       <MainButton onClick={handleLogout} text="Logout" />
-  //       <MainButton onClick={handleDeleteAccount} text="Delete Account" />
-  //     </div>
-  //   </div>
-  // );
   return (
     <div className="practitionerDashboardContainer">
       <div className="practitionerDashboardCard">

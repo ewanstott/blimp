@@ -2,22 +2,16 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectLoggedIn, selectCurrentUser } from "../../redux/accountSlice";
 
-//move NAV into header??
-
 const Nav = () => {
   // extracting the loggedIn state from the Redux store.
   const loggedIn = useSelector(selectLoggedIn);
   const user = useSelector(selectCurrentUser);
-  // console.log(user);
-  // console.log(user.userType);
 
   // Extracting userType from the user object
   const userType = user ? user.userType : null;
 
   return (
     <>
-      {/* //used to style a particular button when in an active state (it knows what state its in) */}
-      {/* <NavLink />  */}
       <div className="navContainer">
         <Link to="/">Home</Link>
         {/* Dash should only show when user logged in  */}
