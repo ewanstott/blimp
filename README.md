@@ -1,6 +1,6 @@
 🧑‍⚕️ Blimp - Health Tech Web App 📈 | [blimp-health.com](https://www.blimp-health.com)
 ---
-Blimp is a personal project aimed at connecting clients with self-employed healthcare professionals. This mobile-friendly Single Page Application features user authentication, profile creation, messaging capabilities, appointment booking functionalities, seamless integration with backend systems and more. 
+Blimp is a personal project aimed at connecting clients with self-employed healthcare professionals. This mobile-friendly Single Page Application features user authentication, profile creation, messaging capabilities, appointment booking functionalities, seamless integration with backend systems and more. Blimp Backend Repo found here: https://github.com/ewanstott/blimp-back-end
 
 <img width="500" alt="1" src="https://github.com/ewanstott/blimp/assets/56144409/17ebeb6f-999c-4e8b-a5c4-00e51b3f77c7">
 <img width="500" alt="2" src="https://github.com/ewanstott/blimp/assets/56144409/eb4a4207-dfcb-4e48-b169-5273467a42cf">
