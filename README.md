@@ -1,4 +1,4 @@
-🧑‍⚕️ Blimp - Health Tech Web App 📈 | [blimp-health.com](https://www.blimp-health.com)
+🧑‍⚕️ Blimp - Health Tech Web App 📈
 ---
 Blimp is a personal project aimed at connecting clients with self-employed healthcare professionals. This mobile-friendly Single Page Application features user authentication, profile creation, messaging capabilities, appointment booking functionalities, seamless integration with backend systems and more. Blimp Backend Repo found here: https://github.com/ewanstott/blimp-back-end
 
@@ -6,7 +6,24 @@ Blimp is a personal project aimed at connecting clients with self-employed healt
 <img width="500" alt="2" src="https://github.com/ewanstott/blimp/assets/56144409/eb4a4207-dfcb-4e48-b169-5273467a42cf">
 <img width="500" alt="3" src="https://github.com/ewanstott/blimp/assets/56144409/83d4698f-ca40-49eb-a8c7-1a6054d0167c">
 
+---
+## 🛠️ How to Run Locally (Frontend)
 
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/ewanstott/blimp.git
+   cd blimp
+   
+**2. Install dependencies:**
+   npm install
+   
+**3. Set environment variables (if needed):**
+Create a .env file in the root of your project, or update it with the following:
+REACT_APP_API_URL=http://localhost:5000  # Update with your API URL
+
+**4. Run the application:** npm start
+
+**5. Access the app locally:** visit http://localhost:3000 to view the frontend app.
 
 ---
 💻 Tech Stack
